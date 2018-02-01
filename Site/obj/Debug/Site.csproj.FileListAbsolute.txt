@@ -4,3 +4,9 @@ E:\onlinetravelbooking\Site\bin\Site.pdb
 E:\onlinetravelbooking\Site\obj\Debug\Site.csprojResolveAssemblyReference.cache
 E:\onlinetravelbooking\Site\obj\Debug\Site.dll
 E:\onlinetravelbooking\Site\obj\Debug\Site.pdb
+E:\onlinetravelbooking\Site\bin\DataModel.dll
+E:\onlinetravelbooking\Site\bin\Model.dll
+E:\onlinetravelbooking\Site\bin\EntityFramework.dll
+E:\onlinetravelbooking\Site\bin\DataModel.pdb
+E:\onlinetravelbooking\Site\bin\Model.pdb
+E:\onlinetravelbooking\Site\bin\EntityFramework.xml

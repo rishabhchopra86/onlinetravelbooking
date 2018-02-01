@@ -143,7 +143,7 @@
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                    
-                                    <li><a href="login.aspx" id="userlogin" runat="server">Sign In</a>
+                                    <li><a href="login.aspx" id="userlogi" runat="server">Sign In</a>
                                          <li><a class="popup-text" href="#mail-dialog" data-effect="mfp-zoom-out"><i class="fa fa-envelope-o"></i> Mail</a>
                                     </li>
                                     <li><a href="tel:1800-1800-1800"><i class="fa fa-phone"></i> 24x7 Customer Care  1800-1800-1800</a>
