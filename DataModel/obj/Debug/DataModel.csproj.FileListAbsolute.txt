@@ -8,3 +8,13 @@ E:\krishna\Task\DataModel\bin\Debug\DataModel.dll.config
 E:\krishna\Task\DataModel\bin\Debug\DataModel.dll
 E:\krishna\Task\DataModel\bin\Debug\DataModel.pdb
 E:\krishna\Task\DataModel\obj\Debug\DataModel.csprojResolveAssemblyReference.cache
+E:\onlinetravelbooking\DataModel\bin\Debug\DataModel.dll.config
+E:\onlinetravelbooking\DataModel\bin\Debug\DataModel.dll
+E:\onlinetravelbooking\DataModel\bin\Debug\DataModel.pdb
+E:\onlinetravelbooking\DataModel\bin\Debug\EntityFramework.dll
+E:\onlinetravelbooking\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\onlinetravelbooking\DataModel\bin\Debug\EntityFramework.xml
+E:\onlinetravelbooking\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\onlinetravelbooking\DataModel\obj\Debug\DataModel.csprojResolveAssemblyReference.cache
+E:\onlinetravelbooking\DataModel\obj\Debug\DataModel.dll
+E:\onlinetravelbooking\DataModel\obj\Debug\DataModel.pdb
