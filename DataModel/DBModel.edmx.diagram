@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="183e5e27f3b046daabd1060e3949d85f" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Agent" Width="1.5" PointX="7.5" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Aminity" Width="1.5" PointX="7.5" PointY="54.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.AvailableSeat" Width="1.5" PointX="23.25" PointY="54.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Booking" Width="1.5" PointX="26.25" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.BookingDetail" Width="1.5" PointX="18" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.BookingStatu" Width="1.5" PointX="28.5" PointY="54.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Cancel" Width="1.5" PointX="18" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.City" Width="1.5" PointX="10.5" PointY="64.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Country" Width="1.5" PointX="7.5" PointY="74.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Customer" Width="1.5" PointX="12.75" PointY="65.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Fare" Width="1.5" PointX="21" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Hotel" Width="1.5" PointX="10.5" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Image" Width="1.5" PointX="7.5" PointY="49.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Log" Width="1.5" PointX="15" PointY="68.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Master" Width="1.5" PointX="0.75" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.MasterValue" Width="1.5" PointX="3" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Package" Width="1.5" PointX="7.5" PointY="78.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.PackageDetail" Width="1.5" PointX="23.25" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Review" Width="1.5" PointX="5.25" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Room" Width="1.5" PointX="12.75" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.State" Width="1.5" PointX="9.75" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Station" Width="1.5" PointX="7.5" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Transport" Width="1.5" PointX="15.75" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.TransportDetail" Width="1.5" PointX="21" PointY="61" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.User" Width="1.5" PointX="5.25" PointY="61.625" IsExpanded="true" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAgentCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAgentUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCityId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportAgentId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAminitiesCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAminitiesTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAminitiesUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomAminitiesId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportAmenitiesId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAvailableSeatCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAvailableSeatSeatStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKAvailableSeatUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBoardingStId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingFareId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingStatusBookingId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTaxType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingDetailsCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingDetailsUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPersonType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingStatusCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingStatusUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPnrStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCancelCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCancelUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCitiesUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCititesCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerCityId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareFrom" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareTo" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKHotelCityId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStateId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStationCityId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCountryCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCountryUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerPassportCountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStatesCountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKLogCustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKReviewCustomerid" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFarePersonType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareTransportId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKFareUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailFareId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKHotelCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKHotelType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKHotelUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKImageId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomHotelId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKImageCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKImagesUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKMasterValueMasterId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKReviewTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStationType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStationTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKUserTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailPackegeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKRoomUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStatesCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStatesUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStationCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKStationUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportDetailStationId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportDetailTransportId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportDetailCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKTransportDetailUpdatedBy" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

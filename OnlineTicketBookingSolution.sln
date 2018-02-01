@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OnlineTicketBooking", "http://localhost:50963", "{484F9E03-1FDE-4AFE-8636-6567E7698B5A}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{46730ab8-5e2b-4d5d-a448-52665bfd6e8f}|DataModel.dll;{f9bef139-22fe-4b36-afc2-4640ccdd55c2}|Model.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50963"
+		Debug.AspNetCompiler.PhysicalPath = "OnlineTicketBooking\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50963\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50963"
+		Release.AspNetCompiler.PhysicalPath = "OnlineTicketBooking\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50963\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "OnlineTicketBooking\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{484F9E03-1FDE-4AFE-8636-6567E7698B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484F9E03-1FDE-4AFE-8636-6567E7698B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484F9E03-1FDE-4AFE-8636-6567E7698B5A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{484F9E03-1FDE-4AFE-8636-6567E7698B5A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
