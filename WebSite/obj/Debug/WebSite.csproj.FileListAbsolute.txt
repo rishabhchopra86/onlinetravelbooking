@@ -9,3 +9,12 @@ E:\Booking\WebSite\bin\WebSite.pdb
 E:\Booking\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
 E:\Booking\WebSite\obj\Debug\WebSite.dll
 E:\Booking\WebSite\obj\Debug\WebSite.pdb
+E:\Booking\WebSite\bin\EntityFramework.dll
+E:\Booking\WebSite\bin\EntityFramework.SqlServer.dll
+E:\Booking\WebSite\bin\Model.dll
+E:\Booking\WebSite\bin\DataModel.dll
+E:\Booking\WebSite\bin\EntityFramework.xml
+E:\Booking\WebSite\bin\EntityFramework.SqlServer.xml
+E:\Booking\WebSite\bin\Model.pdb
+E:\Booking\WebSite\bin\DataModel.pdb
+E:\Booking\WebSite\bin\DataModel.dll.config

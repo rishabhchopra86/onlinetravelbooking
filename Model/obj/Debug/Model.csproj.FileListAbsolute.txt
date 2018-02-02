@@ -20,3 +20,15 @@ E:\onlinetravelbooking\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\onlinetravelbooking\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\onlinetravelbooking\Model\obj\Debug\Model.dll
 E:\onlinetravelbooking\Model\obj\Debug\Model.pdb
+E:\Booking\Model\bin\Debug\Model.dll
+E:\Booking\Model\bin\Debug\Model.pdb
+E:\Booking\Model\bin\Debug\DataModel.dll
+E:\Booking\Model\bin\Debug\EntityFramework.dll
+E:\Booking\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Booking\Model\bin\Debug\DataModel.pdb
+E:\Booking\Model\bin\Debug\DataModel.dll.config
+E:\Booking\Model\bin\Debug\EntityFramework.xml
+E:\Booking\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Booking\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\Booking\Model\obj\Debug\Model.dll
+E:\Booking\Model\obj\Debug\Model.pdb

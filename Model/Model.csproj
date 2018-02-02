@@ -53,6 +53,7 @@
     <Compile Include="BookingStatusClass.cs" />
     <Compile Include="CancelClass.cs" />
     <Compile Include="CityClass.cs" />
+    <Compile Include="Comman.cs" />
     <Compile Include="CustomerClass.cs" />
     <Compile Include="FareClass.cs" />
     <Compile Include="HotelClass.cs" />

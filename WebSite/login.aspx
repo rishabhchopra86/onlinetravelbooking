@@ -156,25 +156,26 @@
                                             <label>Password</label>
                                             <input class="form-control" type="password" placeholder="my secret password" />
                                         </div>
-                                     <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary"  />
+                                     <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary" OnClick="Button2_Click"  />
                                    
                                 </div>
                                 <div class="col-md-4">
                                     <h3 class="mb15">New To Journey?</h3>
                                    
                                         <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                            <label>Full Name</label>
-                                            <input class="form-control" placeholder="e.g. John Doe" type="text" />
+                                            <label>Name</label>
+                                            <asp:TextBox ID="Name" runat="server" placeholder="Enter Name" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
-                                            <label>Emai</label>
-                                            <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
+                                            <label>Email</label>
+                                             <asp:TextBox ID="UserName" runat="server" placeholder="e.g. abc@xyz.com" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+                                     <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
                                             <label>Password</label>
-                                            <input class="form-control" type="password" placeholder="my secret password" />
+                                             <asp:TextBox ID="Password" runat="server" placeholder="Password" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                     <asp:Button ID="Button1" runat="server" Text="Sign up for Journey" CssClass="btn btn-primary"/>
+                                       
+                                     <asp:Button ID="Button1" runat="server" Text="Sign up for Journey" CssClass="btn btn-primary" OnClick="Button1_Click"/>
                                         
                                   
                                 </div>
