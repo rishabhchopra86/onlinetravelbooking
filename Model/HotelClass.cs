@@ -3,118 +3,131 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataModel;
+using DataLayer;
 
-
-namespace Model
+namespace BusinessLayer
 {
-    public class HotelClass
+   public class HotelClass
     {
         public int Id { get; set; }
         public string HotelName { get; set; }
         public string HotelDescription { get; set; }
         public string HotelRules { get; set; }
         public string CancellationPolicy { get; set; }
-        public Nullable<int> HotelType { get; set; }
-        public Nullable<int> ImageId { get; set; }
+        public int HotelType { get; set; }
+        public int ImageId { get; set; }
         public string HotelAddress { get; set; }
-        public Nullable<int> HotelRating { get; set; }
-        public Nullable<int> CityId { get; set; }
+        public int HotelRating { get; set; }
+        public int CityId { get; set; }
         public string PostalCode { get; set; }
         public string Email { get; set; }
-        public Nullable<int> PhoneNo { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+        public int PhoneNo { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int UpdatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public bool IsActive { get; set; }
 
-#region CRUD
+
+        private OnlineTicketBookingEntities _context;
+
+        public void saveChanges()
+        {
+            _context.SaveChanges();
+        }
+
+        #region CRUD
         public void AddHotel()
         {
-            Hotel hotel = new Hotel();
-            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
             {
-                hotel.HotelName = HotelName;
-                hotel.HotelDescription = HotelDescription;
-                hotel.HotelRules = HotelRules;
-                hotel.CancellationPolicy = CancellationPolicy;
-                hotel.HotelType = HotelType;
-                hotel.ImageId = ImageId;
-                hotel.HotelAddress = HotelAddress;
-                hotel.HotelRating = HotelRating;
-                hotel.CityId = CityId;
-                hotel.PostalCode = PostalCode;
-                hotel.Email = Email;
-                hotel.PhoneNo = PhoneNo;
-                hotel.CreatedBy = CreatedBy;
-                hotel.CreatedDate = CreatedDate;
-                hotel.UpdatedBy = UpdatedBy;
-                hotel.UpdatedDate = UpdatedDate;
-                hotel.IsActive = IsActive;
+                Hotel htl = new Hotel();
+                htl.HotelName = HotelName;
+                htl.HotelDescription = HotelDescription;
+                htl.HotelRules = HotelRules;
+                htl.CancellationPolicy = CancellationPolicy;
+                htl.HotelType = HotelType;  
+                htl.ImageId = ImageId;
+                htl.HotelAddress = HotelAddress;
+                htl.HotelRating = HotelRating;
+                htl.CityId = CityId;
+                htl.PostalCode = PostalCode;
+                htl.Email = Email;
+                htl.PhoneNo = PhoneNo;
+                htl.CreatedBy = CreatedBy;
+                htl.CreatedDate = CreatedDate;
+                htl.UpdatedBy = UpdatedBy;
+                htl.UpdatedDate = UpdatedDate;
+                htl.IsActive = IsActive;
 
-                obj.Hotels.Add(hotel);
-                obj.SaveChanges();
-            }
-       }
-
-        public void DeleteHotel(HotelClass data)
-        {
-            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
-            {
-                Hotel hotel = obj.Hotels.Where(h => h.Id == data.Id).FirstOrDefault();
-                obj.Hotels.Remove(hotel);
-                obj.SaveChanges();
+                otbe.Hotels.Add(htl);
+                saveChanges();
             }
         }
-
-        public void UpdateHotel(HotelClass data)
+        public void deleteHotel()
         {
-            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
             {
-                Hotel hotel = obj.Hotels.Where(h => h.Id == data.Id).FirstOrDefault();
-                hotel.HotelName = data.HotelName;
-                hotel.HotelDescription = data.HotelDescription;
-                hotel.HotelRules = data.HotelRules;
-                hotel.CancellationPolicy = data.CancellationPolicy;
-                hotel.HotelType = data.HotelType;
-                hotel.ImageId = data.ImageId;
-                hotel.HotelAddress = data.HotelAddress;
-                hotel.HotelRating = data.HotelRating;
-                hotel.CityId = data.CityId;
-                hotel.PostalCode = data.PostalCode;
-                hotel.Email = data.Email;
-                hotel.PhoneNo = data.PhoneNo;
-                hotel.CreatedBy = data.CreatedBy;
-                hotel.CreatedDate = data.CreatedDate;
-                hotel.UpdatedBy = data.UpdatedBy;
-                hotel.UpdatedDate = data.UpdatedDate;
-
-                obj.SaveChanges();
+                Hotel reviewId = otbe.Hotels.SingleOrDefault(c => c.Id == Id);
+                otbe.Hotels.Remove(reviewId);
+                saveChanges();
             }
         }
-
-        public List<Hotel> GetAllHotel()
+        public void updateHotel()
         {
-            List<Hotel> hotellst = new List<Hotel>();
-            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
-            {
-                hotellst = obj.Hotels.ToList();
-            }
-            return hotellst;
-        }
-#endregion
 
-#region Filetering
-        public Hotel GetByHotelId(HotelClass data)
-        {
-            Hotel hotel = new Hotel();
-            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
             {
-                hotel = obj.Hotels.Where(h => h.Id == data.Id).FirstOrDefault();
+                Hotel reviewId = otbe.Hotels.SingleOrDefault(c => c.Id == Id);
+              
+                Hotel htl = new Hotel();
+                htl.HotelName = HotelName;
+                htl.HotelDescription = HotelDescription;
+                htl.HotelRules = HotelRules;
+                htl.CancellationPolicy = CancellationPolicy;
+                htl.HotelType = HotelType;
+                htl.ImageId = ImageId;
+                htl.HotelAddress = HotelAddress;
+                htl.HotelRating = HotelRating;
+                htl.CityId = CityId;
+                htl.PostalCode = PostalCode;
+                htl.Email = Email;
+                htl.PhoneNo = PhoneNo;
+                htl.CreatedBy = CreatedBy;
+                htl.CreatedDate = CreatedDate;
+                htl.UpdatedBy = UpdatedBy;
+                htl.UpdatedDate = UpdatedDate;
+                htl.IsActive = IsActive;
+
+                saveChanges();
             }
-            return hotel;
+
         }
-#endregion
+        public static List<Hotel> getAll()
+        {
+            List<Hotel> lst = null;
+            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            {
+                lst = (from i in otbe.Hotels select i).ToList();
+            }
+
+            return lst;
+        }
+        #endregion
+
+        #region Filtering Data
+        public Hotel getByid()
+        {
+
+            Hotel lst = null;
+            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            {
+                lst = otbe.Hotels.Where(c => c.Id == Id).FirstOrDefault();
+            }
+
+            return lst;
+        }
+        #endregion
+
     }
 }
