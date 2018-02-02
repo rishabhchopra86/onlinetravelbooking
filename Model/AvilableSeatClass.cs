@@ -40,29 +40,30 @@ namespace Model
             }
         }
 
-        public void DeleteAvillableSeat(AvilableSeatClass data)
+        public void DeleteAvillableSeat()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == data.Id).FirstOrDefault();
-                obj.AvailableSeats.Remove(avilableseat);
+                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
+                avilableseat.IsActive = IsActive;
+
                 obj.SaveChanges();
             };
         }
 
-        public void UpdateAvilableSeat(AvilableSeatClass data)
+        public void UpdateAvilableSeat()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == data.Id).FirstOrDefault();
-                avilableseat.FareId = data.FareId;
-                avilableseat.Seat = data.Seat;
-                avilableseat.SeatStatus = data.SeatStatus;
-                avilableseat.CreatedBy = data.CreatedBy;
-                avilableseat.CreatedDate = data.CreatedDate;
-                avilableseat.UpdatedBy = data.UpdatedBy;
-                avilableseat.UpdatedDate = data.UpdatedDate;
-                avilableseat.IsActive = data.IsActive;
+                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
+                avilableseat.FareId = FareId;
+                avilableseat.Seat = Seat;
+                avilableseat.SeatStatus = SeatStatus;
+                avilableseat.CreatedBy = CreatedBy;
+                avilableseat.CreatedDate = CreatedDate;
+                avilableseat.UpdatedBy = UpdatedBy;
+                avilableseat.UpdatedDate = UpdatedDate;
+                avilableseat.IsActive = IsActive;
 
                 obj.SaveChanges();
             }
@@ -80,12 +81,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public AvailableSeat GetByAvailableSeatId(AminitiesClass data)
+        public AvailableSeat GetByAvailableSeatId()
         {
             AvailableSeat availableseat = new AvailableSeat();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                availableseat = obj.AvailableSeats.Where(avls => avls.Id == data.Id).FirstOrDefault();
+                availableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
             }
             return availableseat;
         }

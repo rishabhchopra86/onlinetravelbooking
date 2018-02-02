@@ -12,17 +12,14 @@ namespace DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Review
+    public partial class SeatDesignDetail
     {
         public int Id { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTCId { get; set; }
-        public Nullable<int> CustomerId { get; set; }
-        public Nullable<double> Ratings { get; set; }
-        public string Review1 { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<int> SeatDesignId { get; set; }
+        public Nullable<int> Rows { get; set; }
+        public Nullable<int> Columns { get; set; }
+        public Nullable<bool> Button { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
+        public virtual SeatDesign SeatDesign { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Model
 
         public int Id { get; set; }
         public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTId { get; set; }
+        public Nullable<int> RTCId { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
@@ -26,7 +26,7 @@ namespace Model
             {
                 Aminity aminity = new Aminity();
                 aminity.TypeId = TypeId;
-                aminity.RTId = RTId;
+                aminity.RTCId = RTCId;
                 aminity.CreatedBy = CreatedBy;
                 aminity.CreatedDate = CreatedDate;
                 aminity.UpdatedBy = UpdatedBy;
@@ -39,28 +39,28 @@ namespace Model
             }
         }
 
-        public void DeleteAminities(AminitiesClass data)
+        public void DeleteAminities()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Aminity aminity = obj.Aminities.Where(am => am.Id == data.Id).FirstOrDefault();
-                obj.Aminities.Remove(aminity);
+                Aminity aminity = obj.Aminities.Where(am => am.Id == Id).FirstOrDefault();
+                aminity.IsActive = IsActive;
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateAminities(AminitiesClass data)
+        public void UpdateAminities()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Aminity aminity = obj.Aminities.Where(am => am.Id == data.Id).FirstOrDefault();
-                aminity.TypeId = data.TypeId;
-                aminity.RTId = data.RTId;
-                aminity.CreatedBy = data.CreatedBy;
-                aminity.CreatedDate = data.CreatedDate;
-                aminity.UpdatedBy = data.UpdatedBy;
-                aminity.UpdatedDate = data.UpdatedDate;
-                aminity.IsActive = data.IsActive;
+                Aminity aminity = obj.Aminities.Where(am => am.Id == Id).FirstOrDefault();
+                aminity.TypeId = TypeId;
+                aminity.RTCId = RTCId;
+                aminity.CreatedBy = CreatedBy;
+                aminity.CreatedDate = CreatedDate;
+                aminity.UpdatedBy = UpdatedBy;
+                aminity.UpdatedDate = UpdatedDate;
+                aminity.IsActive = IsActive;
 
                 obj.SaveChanges();
             }
@@ -78,12 +78,12 @@ namespace Model
 #endregion
 
  #region Filtering
-        public Aminity GetByAminitiesId(AminitiesClass data)
+        public Aminity GetByAminitiesId()
         {
             Aminity aminity = new Aminity();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                aminity = obj.Aminities.Where(am=> am.Id == data.Id).FirstOrDefault();
+                aminity = obj.Aminities.Where(am=> am.Id == Id).FirstOrDefault();
             }
             return aminity;
         }

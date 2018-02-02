@@ -12,30 +12,38 @@ namespace DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Aminity
+    public partial class Screen
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Aminity()
+        public Screen()
         {
-            this.Rooms = new HashSet<Room>();
-            this.Transports = new HashSet<Transport>();
+            this.ScreenFares = new HashSet<ScreenFare>();
+            this.SeatDesigns = new HashSet<SeatDesign>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTCId { get; set; }
+        public Nullable<int> CinemasId { get; set; }
+        public Nullable<int> MovieId { get; set; }
+        public string Name { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<System.TimeSpan> StartTime { get; set; }
+        public Nullable<System.TimeSpan> EndTime { get; set; }
+        public Nullable<int> TotalSeat { get; set; }
+        public Nullable<int> AvailableSeat { get; set; }
+        public Nullable<bool> C2D3D { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
     
+        public virtual Cinema Cinema { get; set; }
+        public virtual Movie Movie { get; set; }
         public virtual User User { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ScreenFare> ScreenFares { get; set; }
         public virtual User User1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transport> Transports { get; set; }
+        public virtual ICollection<SeatDesign> SeatDesigns { get; set; }
     }
 }

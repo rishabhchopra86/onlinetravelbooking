@@ -20,6 +20,19 @@ E:\onlinetravelbooking\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\onlinetravelbooking\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\onlinetravelbooking\Model\obj\Debug\Model.dll
 E:\onlinetravelbooking\Model\obj\Debug\Model.pdb
+<<<<<<< HEAD
+E:\.net prac\TicketBooking\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\.net prac\TicketBooking\Model\obj\Debug\Model.dll
+E:\.net prac\TicketBooking\Model\obj\Debug\Model.pdb
+E:\.net prac\TicketBooking\Model\bin\Debug\Model.dll
+E:\.net prac\TicketBooking\Model\bin\Debug\Model.pdb
+E:\.net prac\TicketBooking\Model\bin\Debug\DataModel.dll
+E:\.net prac\TicketBooking\Model\bin\Debug\EntityFramework.dll
+E:\.net prac\TicketBooking\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\.net prac\TicketBooking\Model\bin\Debug\DataModel.pdb
+E:\.net prac\TicketBooking\Model\bin\Debug\EntityFramework.xml
+E:\.net prac\TicketBooking\Model\bin\Debug\EntityFramework.SqlServer.xml
+=======
 E:\Booking\Model\bin\Debug\Model.dll
 E:\Booking\Model\bin\Debug\Model.pdb
 E:\Booking\Model\bin\Debug\DataModel.dll
@@ -32,3 +45,4 @@ E:\Booking\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Booking\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\Booking\Model\obj\Debug\Model.dll
 E:\Booking\Model\obj\Debug\Model.pdb
+>>>>>>> e9f1ba572e57797d4796ee91ca9597dfd9296819

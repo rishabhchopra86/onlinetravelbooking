@@ -27,23 +27,23 @@ namespace Model
             }
         }
 
-        public void DeleteMastrer(MasterClass data)
+        public void DeleteMastrer()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Master master = obj.Masters.Where(m => m.Id == data.Id).FirstOrDefault();
+                Master master = obj.Masters.Where(m => m.Id == Id).FirstOrDefault();
                 obj.Masters.Remove(master);
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateMaster(MasterClass data)
+        public void UpdateMaster()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Master master = obj.Masters.Where(m => m.Id == data.Id).FirstOrDefault();
-                master.Name = data.Name;
-                master.Description = data.Description;
+                Master master = obj.Masters.Where(m => m.Id == Id).FirstOrDefault();
+                master.Name = Name;
+                master.Description = Description;
 
                 obj.SaveChanges();
             }
@@ -61,12 +61,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public Master GetByMasterId(MasterClass data)
+        public Master GetByMasterId()
         {
             Master master = new Master();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                master = obj.Masters.Where(m => m.Id == data.Id).FirstOrDefault();
+                master = obj.Masters.Where(m => m.Id == Id).FirstOrDefault();
             }
             return master;
         }

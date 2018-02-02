@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
    public class StateClass
     {
@@ -21,17 +21,10 @@ namespace BusinessLayer
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
 
-        private OnlineTicketBookingEntities _context;
-
-        public void saveChanges()
-        {
-            _context.SaveChanges();
-        }
-
         #region CRUD
         public void AddState()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 State st = new State();
                 st.CountryId = CountryId;
@@ -44,45 +37,45 @@ namespace BusinessLayer
                 st.UpdatedBy = UpdatedBy;
                 st.IsActive = IsActive;
 
-                otbe.States.Add(st);
-                saveChanges();
+                obj.States.Add(st);
+                obj.SaveChanges();
             }
         }
         public void deleteState()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                State stateId = otbe.States.SingleOrDefault(c => c.Id == Id);
-                otbe.States.Remove(stateId);
-                saveChanges();
+                State stateId = obj.States.FirstOrDefault(c => c.Id == Id);
+                stateId.IsActive = IsActive;
+
+                obj.SaveChanges();
             }
         }
         public void updateState()
         {
 
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                State countryId = otbe.States.SingleOrDefault(c => c.Id == Id);
-                State st = new State();
-                st.CountryId = CountryId;
-                st.StateName = StateName;
-                st.StateCode = StateCode;
-                st.TinNo = TinNo;
-                st.CreatedBy = CreatedBy;
-                st.CreatedDate = CreatedDate;
-                st.UpdatedDate = UpdatedDate;
-                st.UpdatedBy = UpdatedBy;
-                st.IsActive = IsActive;
-                saveChanges();
+                State state = obj.States.FirstOrDefault(c => c.Id == Id);
+                state.CountryId = CountryId;
+                state.StateName = StateName;
+                state.StateCode = StateCode;
+                state.TinNo = TinNo;
+                state.CreatedBy = CreatedBy;
+                state.CreatedDate = CreatedDate;
+                state.UpdatedDate = UpdatedDate;
+                state.UpdatedBy = UpdatedBy;
+                state.IsActive = IsActive;
+                obj.SaveChanges();
             }
 
         }
         public static List<State> getAll()
         {
-            List<State> lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            List<State> lst = new List<State>();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                lst = (from i in otbe.States select i).ToList();
+                lst = obj.States.ToList();
             }
 
             return lst;
@@ -93,10 +86,10 @@ namespace BusinessLayer
         public State getByid()
         {
 
-            State lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            State lst = new State();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                lst = otbe.States.Where(c => c.Id == Id).FirstOrDefault();
+                lst = obj.States.Where(c => c.Id == Id).FirstOrDefault();
             }
 
             return lst;

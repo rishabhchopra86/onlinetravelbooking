@@ -70,45 +70,45 @@ namespace Model
                 }
         }
 
-        public void DeleteCustomer(CustomerClass data)
+        public void DeleteCustomer()
         {
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Customer customer = obj.Customers.Where(c => c.Id == data.Id).FirstOrDefault();
-                obj.Customers.Remove(customer);
+                Customer customer = obj.Customers.Where(c => c.Id == Id).FirstOrDefault();
+                customer.IsActive = IsActive;
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateCustomer(CustomerClass data)
+        public void UpdateCustomer()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Customer customer = obj.Customers.Where(c => c.Id == data.Id).FirstOrDefault();
-                customer.UserId = data.UserId;
-                customer.FirstName = data.FirstName;
-                customer.LastName = data.LastName;
-                customer.MiddleName = data.MiddleName;
-                customer.Email = data.Email;
-                customer.DOB = data.DOB;
-                customer.PhoneNo = data.PhoneNo;
-                customer.AlternatePhoneNo = data.AlternatePhoneNo;
-                customer.Address = data.Address;
-                customer.IdProof = data.IdProof;
-                customer.CityId = data.CityId;
-                customer.PostalCode = data.PostalCode;
-                customer.Fax = data.Fax;
-                customer.ArrivalInfo = data.ArrivalInfo;
-                customer.Comments = data.Comments;
-                customer.Nationality = data.Nationality;
-                customer.PassportNo = data.PassportNo;
-                customer.PassportCountryId = data.PassportCountryId;
-                customer.ExpiryDateOfPassport = data.ExpiryDateOfPassport;
-                customer.CreatedBy = data.CreatedBy;
-                customer.CreatedDate = data.CreatedDate;
-                customer.UpdatedBy = data.UpdatedBy;
-                customer.UpdatedDate = data.UpdatedDate;
-                customer.IsActive = data.IsActive;
+                Customer customer = obj.Customers.Where(c => c.Id == Id).FirstOrDefault();
+                customer.UserId = UserId;
+                customer.FirstName = FirstName;
+                customer.LastName = LastName;
+                customer.MiddleName = MiddleName;
+                customer.Email = Email;
+                customer.DOB = DOB;
+                customer.PhoneNo = PhoneNo;
+                customer.AlternatePhoneNo = AlternatePhoneNo;
+                customer.Address = Address;
+                customer.IdProof = IdProof;
+                customer.CityId = CityId;
+                customer.PostalCode = PostalCode;
+                customer.Fax = Fax;
+                customer.ArrivalInfo = ArrivalInfo;
+                customer.Comments = Comments;
+                customer.Nationality = Nationality;
+                customer.PassportNo = PassportNo;
+                customer.PassportCountryId = PassportCountryId;
+                customer.ExpiryDateOfPassport = ExpiryDateOfPassport;
+                customer.CreatedBy = CreatedBy;
+                customer.CreatedDate = CreatedDate;
+                customer.UpdatedBy = UpdatedBy;
+                customer.UpdatedDate = UpdatedDate;
+                customer.IsActive = IsActive;
 
                 obj.SaveChanges();
             }
@@ -126,12 +126,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public Customer GetByCustomerId(CustomerClass data)
+        public Customer GetByCustomerId()
         {
             Customer customer = new Customer();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                customer = obj.Customers.Where(c => c.Id == data.Id).FirstOrDefault();
+                customer = obj.Customers.Where(c => c.Id == Id).FirstOrDefault();
             }
             return customer;
         }

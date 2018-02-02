@@ -12,17 +12,9 @@ namespace DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Review
+    public partial class tt
     {
         public int Id { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTCId { get; set; }
-        public Nullable<int> CustomerId { get; set; }
-        public Nullable<double> Ratings { get; set; }
-        public string Review1 { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
+        public string Name { get; set; }
     }
 }

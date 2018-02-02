@@ -28,23 +28,23 @@ namespace Model
             }
         }
 
-        public void DeleteMasterValue(MasterValueClass data)
+        public void DeleteMasterValue()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                MasterValue mastervalue = obj.MasterValues.Where(mval => mval.Id == data.Id).FirstOrDefault();
+                MasterValue mastervalue = obj.MasterValues.Where(mval => mval.Id == Id).FirstOrDefault();
                 obj.MasterValues.Remove(mastervalue);
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateMasterValue(MasterValueClass data)
+        public void UpdateMasterValue()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                MasterValue mastervalue = obj.MasterValues.Where(mval => mval.Id == data.Id).FirstOrDefault();
-                mastervalue.MasterId = data.MasterId;
-                mastervalue.Description = data.Description;
+                MasterValue mastervalue = obj.MasterValues.Where(mval => mval.Id == Id).FirstOrDefault();
+                mastervalue.MasterId = MasterId;
+                mastervalue.Description = Description;
 
                 obj.SaveChanges();
             }
@@ -62,12 +62,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public MasterValue GetByMasterValueId(MasterValueClass data)
+        public MasterValue GetByMasterValueId()
         {
             MasterValue mastervalue = new MasterValue();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                mastervalue = obj.MasterValues.Where(mval => mval.Id == data.Id).FirstOrDefault();
+                mastervalue = obj.MasterValues.Where(mval => mval.Id == Id).FirstOrDefault();
             }
             return mastervalue;
         }

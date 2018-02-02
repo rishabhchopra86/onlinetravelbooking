@@ -35,28 +35,28 @@ namespace Model
             }
         }
 
-        public void DeleteLog(LogClass data)
-        {
-            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
-            {
-                Log log = obj.Logs.Where(l => l.Id == data.Id).FirstOrDefault();
-                obj.Logs.Remove(log);
-                obj.SaveChanges();
+        //public void DeleteLog()
+        //{
+        //    using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+        //    {
+        //        Log log = obj.Logs.Where(l => l.Id == Id).FirstOrDefault();
+        //        obj.Logs.Remove(log);
+        //        obj.SaveChanges();
                 
-            }
-        }
+        //    }
+        //}
 
-        public void UpdateLog(LogClass data)
+        public void UpdateLog()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Log log = obj.Logs.Where(l => l.Id == data.Id).FirstOrDefault();
-                log.CustomerId = data.CustomerId;
-                log.LogoutTime = data.LogoutTime;
-                log.LoginTime = data.LoginTime;
-                log.LoginDate = data.LoginDate;
-                log.IpAddress = data.IpAddress;
-                log.ErrorMessage = data.ErrorMessage;
+                Log log = obj.Logs.Where(l => l.Id == Id).FirstOrDefault();
+                log.CustomerId = CustomerId;
+                log.LogoutTime = LogoutTime;
+                log.LoginTime = LoginTime;
+                log.LoginDate = LoginDate;
+                log.IpAddress = IpAddress;
+                log.ErrorMessage = ErrorMessage;
 
                 obj.SaveChanges();
             }
@@ -74,12 +74,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public Log GetByLogId(LogClass data)
+        public Log GetByLogId()
         {
             Log log = new Log();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                log = obj.Logs.Where(l => l.Id == data.Id).FirstOrDefault();
+                log = obj.Logs.Where(l => l.Id == Id).FirstOrDefault();
             }
             return log;
         }

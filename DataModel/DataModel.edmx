@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OnlineTicketBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OnlineTicketBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="Id" />
@@ -32,7 +32,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeId" Type="int" />
-          <Property Name="RTId" Type="int" />
+          <Property Name="RTCId" Type="int" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedDate" Type="date" />
           <Property Name="UpdatedBy" Type="int" />
@@ -58,6 +58,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeId" Type="int" />
           <Property Name="BookCode" Type="varchar" MaxLength="30" />
           <Property Name="CustomerId" Type="int" />
           <Property Name="BookingDate" Type="date" />
@@ -120,6 +121,26 @@
           <Property Name="TransportId" Type="int" />
           <Property Name="CancelRules" Type="varchar" MaxLength="30" />
           <Property Name="RatePer" Type="float" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cinemas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="int" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="Langitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Lattitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Ratings" Type="float" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedDate" Type="date" />
           <Property Name="UpdatedBy" Type="int" />
@@ -268,6 +289,23 @@
           <Property Name="MasterId" Type="int" />
           <Property Name="Description" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="TotalRatings" Type="int" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="Language" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="Package">
           <Key>
             <PropertyRef Name="Id" />
@@ -292,7 +330,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PackageId" Type="int" />
           <Property Name="TypeId" Type="int" />
-          <Property Name="RTId" Type="int" />
+          <Property Name="RTCId" Type="int" />
           <Property Name="Sidescene" Type="bit" />
           <Property Name="FareId" Type="int" />
           <Property Name="CreatedBy" Type="int" />
@@ -307,7 +345,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeId" Type="int" />
-          <Property Name="RtId" Type="int" />
+          <Property Name="RTCId" Type="int" />
           <Property Name="CustomerId" Type="int" />
           <Property Name="Ratings" Type="float" />
           <Property Name="Review" Type="varchar" MaxLength="300" />
@@ -335,6 +373,54 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDate" Type="date" />
           <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Screen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CinemasId" Type="int" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Date" Type="date" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="EndTime" Type="time" Precision="7" />
+          <Property Name="TotalSeat" Type="int" />
+          <Property Name="AvailableSeat" Type="int" />
+          <Property Name="2D3D" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="ScreenFare">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScreenId" Type="int" />
+          <Property Name="FareType" Type="int" />
+          <Property Name="Rate" Type="float" />
+        </EntityType>
+        <EntityType Name="SeatDesign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScreenId" Type="int" />
+          <Property Name="NoOfRows" Type="int" />
+          <Property Name="NoOfColumns" Type="int" />
+        </EntityType>
+        <EntityType Name="SeatDesignDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeatDesignId" Type="int" />
+          <Property Name="Rows" Type="int" />
+          <Property Name="Columns" Type="int" />
+          <Property Name="Button" Type="bit" />
         </EntityType>
         <EntityType Name="States">
           <Key>
@@ -416,6 +502,13 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDate" Type="date" />
           <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -648,6 +741,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKBookingTypeId">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FKBookingUpdatedBy">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
@@ -692,6 +797,42 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Cancel">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKCinemasCityId">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cinemas">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKCinemasCreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cinemas">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKCinemasUpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cinemas">
               <PropertyRef Name="UpdatedBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -1020,6 +1161,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKMovieCreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMovieLanguage">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="Language" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMovieType">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMovieUpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FKPackageCreatedBy">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Package" Type="Self.Package" Multiplicity="*" />
@@ -1233,6 +1422,102 @@
             </Principal>
             <Dependent Role="Room">
               <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenCinemaId">
+          <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="CinemasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenCreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenFareScreenId">
+          <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+          <End Role="ScreenFare" Type="Self.ScreenFare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Screen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScreenFare">
+              <PropertyRef Name="ScreenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenFareType">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="ScreenFare" Type="Self.ScreenFare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScreenFare">
+              <PropertyRef Name="FareType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenMovieId">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenUpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSeatDesignDetailSeatDesignId">
+          <End Role="SeatDesign" Type="Self.SeatDesign" Multiplicity="0..1" />
+          <End Role="SeatDesignDetail" Type="Self.SeatDesignDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeatDesign">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeatDesignDetail">
+              <PropertyRef Name="SeatDesignId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSeatDesignScreenId">
+          <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+          <End Role="SeatDesign" Type="Self.SeatDesign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Screen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeatDesign">
+              <PropertyRef Name="ScreenId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1520,6 +1805,7 @@
           <EntitySet Name="BookingDetails" EntityType="Self.BookingDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingStatus" EntityType="Self.BookingStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cancel" EntityType="Self.Cancel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cinemas" EntityType="Self.Cinemas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
@@ -1529,14 +1815,20 @@
           <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Master" EntityType="Self.Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterValue" EntityType="Self.MasterValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PackageDetail" EntityType="Self.PackageDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScreenFare" EntityType="Self.ScreenFare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeatDesign" EntityType="Self.SeatDesign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeatDesignDetail" EntityType="Self.SeatDesignDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransportDetail" EntityType="Self.TransportDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tt" EntityType="Self.tt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FKAgentCreatedBy" Association="Self.FKAgentCreatedBy">
             <End Role="User" EntitySet="User" />
@@ -1610,6 +1902,10 @@
             <End Role="MasterValue" EntitySet="MasterValue" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
+          <AssociationSet Name="FKBookingTypeId" Association="Self.FKBookingTypeId">
+            <End Role="MasterValue" EntitySet="MasterValue" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
           <AssociationSet Name="FKBookingUpdatedBy" Association="Self.FKBookingUpdatedBy">
             <End Role="User" EntitySet="User" />
             <End Role="Booking" EntitySet="Booking" />
@@ -1625,6 +1921,18 @@
           <AssociationSet Name="FKCancelUpdatedBy" Association="Self.FKCancelUpdatedBy">
             <End Role="User" EntitySet="User" />
             <End Role="Cancel" EntitySet="Cancel" />
+          </AssociationSet>
+          <AssociationSet Name="FKCinemasCityId" Association="Self.FKCinemasCityId">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Cinemas" EntitySet="Cinemas" />
+          </AssociationSet>
+          <AssociationSet Name="FKCinemasCreatedBy" Association="Self.FKCinemasCreatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cinemas" EntitySet="Cinemas" />
+          </AssociationSet>
+          <AssociationSet Name="FKCinemasUpdatedBy" Association="Self.FKCinemasUpdatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cinemas" EntitySet="Cinemas" />
           </AssociationSet>
           <AssociationSet Name="FKCitiesUpdatedBy" Association="Self.FKCitiesUpdatedBy">
             <End Role="User" EntitySet="User" />
@@ -1734,6 +2042,22 @@
             <End Role="Master" EntitySet="Master" />
             <End Role="MasterValue" EntitySet="MasterValue" />
           </AssociationSet>
+          <AssociationSet Name="FKMovieCreatedBy" Association="Self.FKMovieCreatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FKMovieLanguage" Association="Self.FKMovieLanguage">
+            <End Role="MasterValue" EntitySet="MasterValue" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FKMovieType" Association="Self.FKMovieType">
+            <End Role="MasterValue" EntitySet="MasterValue" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FKMovieUpdatedBy" Association="Self.FKMovieUpdatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
           <AssociationSet Name="FKPackageCreatedBy" Association="Self.FKPackageCreatedBy">
             <End Role="User" EntitySet="User" />
             <End Role="Package" EntitySet="Package" />
@@ -1805,6 +2129,38 @@
           <AssociationSet Name="FKRoomUpdatedBy" Association="Self.FKRoomUpdatedBy">
             <End Role="User" EntitySet="User" />
             <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenCinemaId" Association="Self.FKScreenCinemaId">
+            <End Role="Cinemas" EntitySet="Cinemas" />
+            <End Role="Screen" EntitySet="Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenCreatedBy" Association="Self.FKScreenCreatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="Screen" EntitySet="Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenFareScreenId" Association="Self.FKScreenFareScreenId">
+            <End Role="Screen" EntitySet="Screen" />
+            <End Role="ScreenFare" EntitySet="ScreenFare" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenFareType" Association="Self.FKScreenFareType">
+            <End Role="MasterValue" EntitySet="MasterValue" />
+            <End Role="ScreenFare" EntitySet="ScreenFare" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenMovieId" Association="Self.FKScreenMovieId">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Screen" EntitySet="Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenUpdatedBy" Association="Self.FKScreenUpdatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="Screen" EntitySet="Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FKSeatDesignDetailSeatDesignId" Association="Self.FKSeatDesignDetailSeatDesignId">
+            <End Role="SeatDesign" EntitySet="SeatDesign" />
+            <End Role="SeatDesignDetail" EntitySet="SeatDesignDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FKSeatDesignScreenId" Association="Self.FKSeatDesignScreenId">
+            <End Role="Screen" EntitySet="Screen" />
+            <End Role="SeatDesign" EntitySet="SeatDesign" />
           </AssociationSet>
           <AssociationSet Name="FKStateId" Association="Self.FKStateId">
             <End Role="States" EntitySet="States" />
@@ -1899,7 +2255,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OnlineTicketBookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1934,7 +2291,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeId" Type="Int32" />
-          <Property Name="RTId" Type="Int32" />
+          <Property Name="RTCId" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="0" />
           <Property Name="UpdatedBy" Type="Int32" />
@@ -1969,6 +2326,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeId" Type="Int32" />
           <Property Name="BookCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CustomerId" Type="Int32" />
           <Property Name="BookingDate" Type="DateTime" Precision="0" />
@@ -1994,9 +2352,10 @@
           <NavigationProperty Name="BookingDetails" Relationship="Self.FKBookingId" FromRole="Booking" ToRole="BookingDetails" />
           <NavigationProperty Name="BookingStatus" Relationship="Self.FKBookingStatusBookingId" FromRole="Booking" ToRole="BookingStatus" />
           <NavigationProperty Name="MasterValue" Relationship="Self.FKBookingType" FromRole="Booking" ToRole="MasterValue" />
+          <NavigationProperty Name="MasterValue1" Relationship="Self.FKBookingTypeId" FromRole="Booking" ToRole="MasterValue" />
           <NavigationProperty Name="User1" Relationship="Self.FKBookingUpdatedBy" FromRole="Booking" ToRole="User" />
           <NavigationProperty Name="Customer" Relationship="Self.FKCustomerId" FromRole="Booking" ToRole="Customer" />
-          <NavigationProperty Name="MasterValue1" Relationship="Self.FKTaxType" FromRole="Booking" ToRole="MasterValue" />
+          <NavigationProperty Name="MasterValue2" Relationship="Self.FKTaxType" FromRole="Booking" ToRole="MasterValue" />
         </EntityType>
         <EntityType Name="BookingDetail">
           <Key>
@@ -2059,6 +2418,30 @@
           <NavigationProperty Name="User1" Relationship="Self.FKCancelUpdatedBy" FromRole="Cancel" ToRole="User" />
           <NavigationProperty Name="Transport" Relationship="Self.FKTransportId" FromRole="Cancel" ToRole="Transport" />
         </EntityType>
+        <EntityType Name="Cinema">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="Int32" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="Langitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Lattitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Ratings" Type="Double" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="City" Relationship="Self.FKCinemasCityId" FromRole="Cinemas" ToRole="Cities" />
+          <NavigationProperty Name="User" Relationship="Self.FKCinemasCreatedBy" FromRole="Cinemas" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FKCinemasUpdatedBy" FromRole="Cinemas" ToRole="User" />
+          <NavigationProperty Name="Screens" Relationship="Self.FKScreenCinemaId" FromRole="Cinemas" ToRole="Screen" />
+        </EntityType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="Id" />
@@ -2074,6 +2457,7 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="Agents" Relationship="Self.FKCityId" FromRole="Cities" ToRole="Agent" />
           <NavigationProperty Name="Bookings" Relationship="Self.FKBoardingStId" FromRole="Cities" ToRole="Booking" />
+          <NavigationProperty Name="Cinemas" Relationship="Self.FKCinemasCityId" FromRole="Cities" ToRole="Cinemas" />
           <NavigationProperty Name="User" Relationship="Self.FKCitiesUpdatedBy" FromRole="Cities" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FKCititesCreatedBy" FromRole="Cities" ToRole="User" />
           <NavigationProperty Name="Customers" Relationship="Self.FKCustomerCityId" FromRole="Cities" ToRole="Customer" />
@@ -2247,7 +2631,8 @@
           <NavigationProperty Name="Aminities" Relationship="Self.FKAminitiesTypeId" FromRole="MasterValue" ToRole="Aminities" />
           <NavigationProperty Name="AvailableSeats" Relationship="Self.FKAvailableSeatSeatStatus" FromRole="MasterValue" ToRole="AvailableSeat" />
           <NavigationProperty Name="Bookings" Relationship="Self.FKBookingType" FromRole="MasterValue" ToRole="Booking" />
-          <NavigationProperty Name="Bookings1" Relationship="Self.FKTaxType" FromRole="MasterValue" ToRole="Booking" />
+          <NavigationProperty Name="Bookings1" Relationship="Self.FKBookingTypeId" FromRole="MasterValue" ToRole="Booking" />
+          <NavigationProperty Name="Bookings2" Relationship="Self.FKTaxType" FromRole="MasterValue" ToRole="Booking" />
           <NavigationProperty Name="BookingDetails" Relationship="Self.FKBookStatus" FromRole="MasterValue" ToRole="BookingDetails" />
           <NavigationProperty Name="BookingDetails1" Relationship="Self.FKPersonType" FromRole="MasterValue" ToRole="BookingDetails" />
           <NavigationProperty Name="BookingStatus" Relationship="Self.FKPnrStatus" FromRole="MasterValue" ToRole="BookingStatus" />
@@ -2256,14 +2641,39 @@
           <NavigationProperty Name="Hotels" Relationship="Self.FKHotelType" FromRole="MasterValue" ToRole="Hotel" />
           <NavigationProperty Name="Images" Relationship="Self.FKTypeId" FromRole="MasterValue" ToRole="Image" />
           <NavigationProperty Name="Master" Relationship="Self.FKMasterValueMasterId" FromRole="MasterValue" ToRole="Master" />
+          <NavigationProperty Name="Movies" Relationship="Self.FKMovieLanguage" FromRole="MasterValue" ToRole="Movie" />
+          <NavigationProperty Name="Movies1" Relationship="Self.FKMovieType" FromRole="MasterValue" ToRole="Movie" />
           <NavigationProperty Name="PackageDetails" Relationship="Self.FKPackageDetailTypeId" FromRole="MasterValue" ToRole="PackageDetail" />
           <NavigationProperty Name="Reviews" Relationship="Self.FKReviewTypeId" FromRole="MasterValue" ToRole="Review" />
           <NavigationProperty Name="Rooms" Relationship="Self.FKRoomStatus" FromRole="MasterValue" ToRole="Room" />
           <NavigationProperty Name="Rooms1" Relationship="Self.FKRoomType" FromRole="MasterValue" ToRole="Room" />
+          <NavigationProperty Name="ScreenFares" Relationship="Self.FKScreenFareType" FromRole="MasterValue" ToRole="ScreenFare" />
           <NavigationProperty Name="Stations" Relationship="Self.FKStationType" FromRole="MasterValue" ToRole="Station" />
           <NavigationProperty Name="Stations1" Relationship="Self.FKStationTypeId" FromRole="MasterValue" ToRole="Station" />
           <NavigationProperty Name="Transports" Relationship="Self.FKTransportTypeId" FromRole="MasterValue" ToRole="Transport" />
           <NavigationProperty Name="Users" Relationship="Self.FKUserTypeId" FromRole="MasterValue" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TotalRatings" Type="Int32" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="Language" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MasterValue" Relationship="Self.FKMovieLanguage" FromRole="Movie" ToRole="MasterValue" />
+          <NavigationProperty Name="MasterValue1" Relationship="Self.FKMovieType" FromRole="Movie" ToRole="MasterValue" />
+          <NavigationProperty Name="User" Relationship="Self.FKMovieCreatedBy" FromRole="Movie" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FKMovieUpdatedBy" FromRole="Movie" ToRole="User" />
+          <NavigationProperty Name="Screens" Relationship="Self.FKScreenMovieId" FromRole="Movie" ToRole="Screen" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
@@ -2292,7 +2702,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PackageId" Type="Int32" />
           <Property Name="TypeId" Type="Int32" />
-          <Property Name="RTId" Type="Int32" />
+          <Property Name="RTCId" Type="Int32" />
           <Property Name="Sidescene" Type="Boolean" />
           <Property Name="FareId" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
@@ -2312,7 +2722,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeId" Type="Int32" />
-          <Property Name="RtId" Type="Int32" />
+          <Property Name="RTCId" Type="Int32" />
           <Property Name="CustomerId" Type="Int32" />
           <Property Name="Ratings" Type="Double" />
           <Property Name="Review1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
@@ -2349,6 +2759,65 @@
           <NavigationProperty Name="MasterValue1" Relationship="Self.FKRoomType" FromRole="Room" ToRole="MasterValue" />
           <NavigationProperty Name="User" Relationship="Self.FKRoomCreatedBy" FromRole="Room" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FKRoomUpdatedBy" FromRole="Room" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Screen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CinemasId" Type="Int32" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="EndTime" Type="Time" Precision="7" />
+          <Property Name="TotalSeat" Type="Int32" />
+          <Property Name="AvailableSeat" Type="Int32" />
+          <Property Name="C2D3D" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Cinema" Relationship="Self.FKScreenCinemaId" FromRole="Screen" ToRole="Cinemas" />
+          <NavigationProperty Name="Movie" Relationship="Self.FKScreenMovieId" FromRole="Screen" ToRole="Movie" />
+          <NavigationProperty Name="User" Relationship="Self.FKScreenCreatedBy" FromRole="Screen" ToRole="User" />
+          <NavigationProperty Name="ScreenFares" Relationship="Self.FKScreenFareScreenId" FromRole="Screen" ToRole="ScreenFare" />
+          <NavigationProperty Name="User1" Relationship="Self.FKScreenUpdatedBy" FromRole="Screen" ToRole="User" />
+          <NavigationProperty Name="SeatDesigns" Relationship="Self.FKSeatDesignScreenId" FromRole="Screen" ToRole="SeatDesign" />
+        </EntityType>
+        <EntityType Name="ScreenFare">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScreenId" Type="Int32" />
+          <Property Name="FareType" Type="Int32" />
+          <Property Name="Rate" Type="Double" />
+          <NavigationProperty Name="MasterValue" Relationship="Self.FKScreenFareType" FromRole="ScreenFare" ToRole="MasterValue" />
+          <NavigationProperty Name="Screen" Relationship="Self.FKScreenFareScreenId" FromRole="ScreenFare" ToRole="Screen" />
+        </EntityType>
+        <EntityType Name="SeatDesign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScreenId" Type="Int32" />
+          <Property Name="NoOfRows" Type="Int32" />
+          <Property Name="NoOfColumns" Type="Int32" />
+          <NavigationProperty Name="Screen" Relationship="Self.FKSeatDesignScreenId" FromRole="SeatDesign" ToRole="Screen" />
+          <NavigationProperty Name="SeatDesignDetails" Relationship="Self.FKSeatDesignDetailSeatDesignId" FromRole="SeatDesign" ToRole="SeatDesignDetail" />
+        </EntityType>
+        <EntityType Name="SeatDesignDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeatDesignId" Type="Int32" />
+          <Property Name="Rows" Type="Int32" />
+          <Property Name="Columns" Type="Int32" />
+          <Property Name="Button" Type="Boolean" />
+          <NavigationProperty Name="SeatDesign" Relationship="Self.FKSeatDesignDetailSeatDesignId" FromRole="SeatDesignDetail" ToRole="SeatDesign" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -2453,6 +2922,13 @@
           <NavigationProperty Name="User" Relationship="Self.FKTransportDetailCreatedBy" FromRole="TransportDetail" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FKTransportDetailUpdatedBy" FromRole="TransportDetail" ToRole="User" />
         </EntityType>
+        <EntityType Name="tt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -2481,6 +2957,8 @@
           <NavigationProperty Name="BookingStatus1" Relationship="Self.FKBookingStatusUpdatedBy" FromRole="User" ToRole="BookingStatus" />
           <NavigationProperty Name="Cancels" Relationship="Self.FKCancelCreatedBy" FromRole="User" ToRole="Cancel" />
           <NavigationProperty Name="Cancels1" Relationship="Self.FKCancelUpdatedBy" FromRole="User" ToRole="Cancel" />
+          <NavigationProperty Name="Cinemas" Relationship="Self.FKCinemasCreatedBy" FromRole="User" ToRole="Cinemas" />
+          <NavigationProperty Name="Cinemas1" Relationship="Self.FKCinemasUpdatedBy" FromRole="User" ToRole="Cinemas" />
           <NavigationProperty Name="Cities" Relationship="Self.FKCitiesUpdatedBy" FromRole="User" ToRole="Cities" />
           <NavigationProperty Name="Cities1" Relationship="Self.FKCititesCreatedBy" FromRole="User" ToRole="Cities" />
           <NavigationProperty Name="Countries" Relationship="Self.FKCountryCreatedBy" FromRole="User" ToRole="Country" />
@@ -2495,12 +2973,16 @@
           <NavigationProperty Name="Images" Relationship="Self.FKImageCreatedBy" FromRole="User" ToRole="Image" />
           <NavigationProperty Name="Images1" Relationship="Self.FKImagesUpdatedBy" FromRole="User" ToRole="Image" />
           <NavigationProperty Name="MasterValue" Relationship="Self.FKUserTypeId" FromRole="User" ToRole="MasterValue" />
+          <NavigationProperty Name="Movies" Relationship="Self.FKMovieCreatedBy" FromRole="User" ToRole="Movie" />
+          <NavigationProperty Name="Movies1" Relationship="Self.FKMovieUpdatedBy" FromRole="User" ToRole="Movie" />
           <NavigationProperty Name="Packages" Relationship="Self.FKPackageCreatedBy" FromRole="User" ToRole="Package" />
           <NavigationProperty Name="Packages1" Relationship="Self.FKPackageUpdatedBy" FromRole="User" ToRole="Package" />
           <NavigationProperty Name="PackageDetails" Relationship="Self.FKPackageDetailCreatedBy" FromRole="User" ToRole="PackageDetail" />
           <NavigationProperty Name="PackageDetails1" Relationship="Self.FKPackageDetailUpdatedBy" FromRole="User" ToRole="PackageDetail" />
           <NavigationProperty Name="Rooms" Relationship="Self.FKRoomCreatedBy" FromRole="User" ToRole="Room" />
           <NavigationProperty Name="Rooms1" Relationship="Self.FKRoomUpdatedBy" FromRole="User" ToRole="Room" />
+          <NavigationProperty Name="Screens" Relationship="Self.FKScreenCreatedBy" FromRole="User" ToRole="Screen" />
+          <NavigationProperty Name="Screens1" Relationship="Self.FKScreenUpdatedBy" FromRole="User" ToRole="Screen" />
           <NavigationProperty Name="States" Relationship="Self.FKStatesCreatedBy" FromRole="User" ToRole="States" />
           <NavigationProperty Name="States1" Relationship="Self.FKStatesUpdatedBy" FromRole="User" ToRole="States" />
           <NavigationProperty Name="Stations" Relationship="Self.FKStationCreatedBy" FromRole="User" ToRole="Station" />
@@ -2738,6 +3220,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKBookingTypeId">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FKBookingUpdatedBy">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
@@ -2903,6 +3397,54 @@
             </Principal>
             <Dependent Role="Cancel">
               <PropertyRef Name="TransportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKCinemasCityId">
+          <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Cinemas" Type="Self.Cinema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cinemas">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKCinemasCreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cinemas" Type="Self.Cinema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cinemas">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKCinemasUpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cinemas" Type="Self.Cinema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cinemas">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenCinemaId">
+          <End Role="Cinemas" Type="Self.Cinema" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinemas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="CinemasId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3290,6 +3832,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKMovieLanguage">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="Language" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMovieType">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FKPackageDetailTypeId">
           <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
           <End Role="PackageDetail" Type="Self.PackageDetail" Multiplicity="*" />
@@ -3338,6 +3904,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKScreenFareType">
+          <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
+          <End Role="ScreenFare" Type="Self.ScreenFare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScreenFare">
+              <PropertyRef Name="FareType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FKStationType">
           <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
           <End Role="Station" Type="Self.Station" Multiplicity="*" />
@@ -3383,6 +3961,42 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMovieCreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMovieUpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenMovieId">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="MovieId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3467,6 +4081,66 @@
             </Principal>
             <Dependent Role="Room">
               <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenCreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenFareScreenId">
+          <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+          <End Role="ScreenFare" Type="Self.ScreenFare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Screen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScreenFare">
+              <PropertyRef Name="ScreenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScreenUpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Screen">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSeatDesignScreenId">
+          <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+          <End Role="SeatDesign" Type="Self.SeatDesign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Screen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeatDesign">
+              <PropertyRef Name="ScreenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSeatDesignDetailSeatDesignId">
+          <End Role="SeatDesign" Type="Self.SeatDesign" Multiplicity="0..1" />
+          <End Role="SeatDesignDetail" Type="Self.SeatDesignDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeatDesign">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeatDesignDetail">
+              <PropertyRef Name="SeatDesignId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3598,6 +4272,7 @@
           <EntitySet Name="BookingDetails" EntityType="Self.BookingDetail" />
           <EntitySet Name="BookingStatus" EntityType="Self.BookingStatu" />
           <EntitySet Name="Cancels" EntityType="Self.Cancel" />
+          <EntitySet Name="Cinemas" EntityType="Self.Cinema" />
           <EntitySet Name="Cities" EntityType="Self.City" />
           <EntitySet Name="Countries" EntityType="Self.Country" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -3607,14 +4282,20 @@
           <EntitySet Name="Logs" EntityType="Self.Log" />
           <EntitySet Name="Masters" EntityType="Self.Master" />
           <EntitySet Name="MasterValues" EntityType="Self.MasterValue" />
+          <EntitySet Name="Movies" EntityType="Self.Movie" />
           <EntitySet Name="Packages" EntityType="Self.Package" />
           <EntitySet Name="PackageDetails" EntityType="Self.PackageDetail" />
           <EntitySet Name="Reviews" EntityType="Self.Review" />
           <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="Screens" EntityType="Self.Screen" />
+          <EntitySet Name="ScreenFares" EntityType="Self.ScreenFare" />
+          <EntitySet Name="SeatDesigns" EntityType="Self.SeatDesign" />
+          <EntitySet Name="SeatDesignDetails" EntityType="Self.SeatDesignDetail" />
           <EntitySet Name="States" EntityType="Self.State" />
           <EntitySet Name="Stations" EntityType="Self.Station" />
           <EntitySet Name="Transports" EntityType="Self.Transport" />
           <EntitySet Name="TransportDetails" EntityType="Self.TransportDetail" />
+          <EntitySet Name="tts" EntityType="Self.tt" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FKAgentCreatedBy" Association="Self.FKAgentCreatedBy">
             <End Role="User" EntitySet="Users" />
@@ -3692,6 +4373,10 @@
             <End Role="MasterValue" EntitySet="MasterValues" />
             <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
+          <AssociationSet Name="FKBookingTypeId" Association="Self.FKBookingTypeId">
+            <End Role="MasterValue" EntitySet="MasterValues" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
           <AssociationSet Name="FKBookingUpdatedBy" Association="Self.FKBookingUpdatedBy">
             <End Role="User" EntitySet="Users" />
             <End Role="Booking" EntitySet="Bookings" />
@@ -3747,6 +4432,22 @@
           <AssociationSet Name="FKTransportId" Association="Self.FKTransportId">
             <End Role="Transport" EntitySet="Transports" />
             <End Role="Cancel" EntitySet="Cancels" />
+          </AssociationSet>
+          <AssociationSet Name="FKCinemasCityId" Association="Self.FKCinemasCityId">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Cinemas" EntitySet="Cinemas" />
+          </AssociationSet>
+          <AssociationSet Name="FKCinemasCreatedBy" Association="Self.FKCinemasCreatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cinemas" EntitySet="Cinemas" />
+          </AssociationSet>
+          <AssociationSet Name="FKCinemasUpdatedBy" Association="Self.FKCinemasUpdatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cinemas" EntitySet="Cinemas" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenCinemaId" Association="Self.FKScreenCinemaId">
+            <End Role="Cinemas" EntitySet="Cinemas" />
+            <End Role="Screen" EntitySet="Screens" />
           </AssociationSet>
           <AssociationSet Name="FKCitiesUpdatedBy" Association="Self.FKCitiesUpdatedBy">
             <End Role="User" EntitySet="Users" />
@@ -3876,6 +4577,14 @@
             <End Role="Master" EntitySet="Masters" />
             <End Role="MasterValue" EntitySet="MasterValues" />
           </AssociationSet>
+          <AssociationSet Name="FKMovieLanguage" Association="Self.FKMovieLanguage">
+            <End Role="MasterValue" EntitySet="MasterValues" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FKMovieType" Association="Self.FKMovieType">
+            <End Role="MasterValue" EntitySet="MasterValues" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
           <AssociationSet Name="FKPackageDetailTypeId" Association="Self.FKPackageDetailTypeId">
             <End Role="MasterValue" EntitySet="MasterValues" />
             <End Role="PackageDetail" EntitySet="PackageDetails" />
@@ -3892,6 +4601,10 @@
             <End Role="MasterValue" EntitySet="MasterValues" />
             <End Role="Room" EntitySet="Rooms" />
           </AssociationSet>
+          <AssociationSet Name="FKScreenFareType" Association="Self.FKScreenFareType">
+            <End Role="MasterValue" EntitySet="MasterValues" />
+            <End Role="ScreenFare" EntitySet="ScreenFares" />
+          </AssociationSet>
           <AssociationSet Name="FKStationType" Association="Self.FKStationType">
             <End Role="MasterValue" EntitySet="MasterValues" />
             <End Role="Station" EntitySet="Stations" />
@@ -3907,6 +4620,18 @@
           <AssociationSet Name="FKUserTypeId" Association="Self.FKUserTypeId">
             <End Role="MasterValue" EntitySet="MasterValues" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FKMovieCreatedBy" Association="Self.FKMovieCreatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FKMovieUpdatedBy" Association="Self.FKMovieUpdatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenMovieId" Association="Self.FKScreenMovieId">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Screen" EntitySet="Screens" />
           </AssociationSet>
           <AssociationSet Name="FKPackageCreatedBy" Association="Self.FKPackageCreatedBy">
             <End Role="User" EntitySet="Users" />
@@ -3935,6 +4660,26 @@
           <AssociationSet Name="FKRoomUpdatedBy" Association="Self.FKRoomUpdatedBy">
             <End Role="User" EntitySet="Users" />
             <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenCreatedBy" Association="Self.FKScreenCreatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Screen" EntitySet="Screens" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenFareScreenId" Association="Self.FKScreenFareScreenId">
+            <End Role="Screen" EntitySet="Screens" />
+            <End Role="ScreenFare" EntitySet="ScreenFares" />
+          </AssociationSet>
+          <AssociationSet Name="FKScreenUpdatedBy" Association="Self.FKScreenUpdatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Screen" EntitySet="Screens" />
+          </AssociationSet>
+          <AssociationSet Name="FKSeatDesignScreenId" Association="Self.FKSeatDesignScreenId">
+            <End Role="Screen" EntitySet="Screens" />
+            <End Role="SeatDesign" EntitySet="SeatDesigns" />
+          </AssociationSet>
+          <AssociationSet Name="FKSeatDesignDetailSeatDesignId" Association="Self.FKSeatDesignDetailSeatDesignId">
+            <End Role="SeatDesign" EntitySet="SeatDesigns" />
+            <End Role="SeatDesignDetail" EntitySet="SeatDesignDetails" />
           </AssociationSet>
           <AssociationSet Name="FKStatesCreatedBy" Association="Self.FKStatesCreatedBy">
             <End Role="User" EntitySet="Users" />
@@ -4010,7 +4755,7 @@
               <MappingFragment StoreEntitySet="Aminities">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="RTId" ColumnName="RTId" />
+                <ScalarProperty Name="RTCId" ColumnName="RTCId" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -4038,6 +4783,7 @@
             <EntityTypeMapping TypeName="OnlineTicketBookingModel.Booking">
               <MappingFragment StoreEntitySet="Booking">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="BookCode" ColumnName="BookCode" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
@@ -4103,6 +4849,27 @@
                 <ScalarProperty Name="TransportId" ColumnName="TransportId" />
                 <ScalarProperty Name="CancelRules" ColumnName="CancelRules" />
                 <ScalarProperty Name="RatePer" ColumnName="RatePer" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cinemas">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.Cinema">
+              <MappingFragment StoreEntitySet="Cinemas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Langitude" ColumnName="Langitude" />
+                <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -4262,6 +5029,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TotalRatings" ColumnName="TotalRatings" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Packages">
             <EntityTypeMapping TypeName="OnlineTicketBookingModel.Package">
               <MappingFragment StoreEntitySet="Package">
@@ -4286,7 +5071,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PackageId" ColumnName="PackageId" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="RTId" ColumnName="RTId" />
+                <ScalarProperty Name="RTCId" ColumnName="RTCId" />
                 <ScalarProperty Name="Sidescene" ColumnName="Sidescene" />
                 <ScalarProperty Name="FareId" ColumnName="FareId" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -4302,7 +5087,7 @@
               <MappingFragment StoreEntitySet="Review">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="RtId" ColumnName="RtId" />
+                <ScalarProperty Name="RTCId" ColumnName="RTCId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Ratings" ColumnName="Ratings" />
                 <ScalarProperty Name="Review1" ColumnName="Review" />
@@ -4331,6 +5116,58 @@
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Screens">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.Screen">
+              <MappingFragment StoreEntitySet="Screen">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CinemasId" ColumnName="CinemasId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="TotalSeat" ColumnName="TotalSeat" />
+                <ScalarProperty Name="AvailableSeat" ColumnName="AvailableSeat" />
+                <ScalarProperty Name="C2D3D" ColumnName="2D3D" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScreenFares">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.ScreenFare">
+              <MappingFragment StoreEntitySet="ScreenFare">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="FareType" ColumnName="FareType" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeatDesigns">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.SeatDesign">
+              <MappingFragment StoreEntitySet="SeatDesign">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="NoOfRows" ColumnName="NoOfRows" />
+                <ScalarProperty Name="NoOfColumns" ColumnName="NoOfColumns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeatDesignDetails">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.SeatDesignDetail">
+              <MappingFragment StoreEntitySet="SeatDesignDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SeatDesignId" ColumnName="SeatDesignId" />
+                <ScalarProperty Name="Rows" ColumnName="Rows" />
+                <ScalarProperty Name="Columns" ColumnName="Columns" />
+                <ScalarProperty Name="Button" ColumnName="Button" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4416,6 +5253,14 @@
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tts">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.tt">
+              <MappingFragment StoreEntitySet="tt">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

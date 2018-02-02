@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
     public class StationClass
     {
@@ -45,8 +45,56 @@ namespace BusinessLayer
                 obj.SaveChanges();
             }
         }
+        public void DeleteStation()
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                Station stationId = obj.Stations.FirstOrDefault(c => c.Id == Id);
+                stationId.IsActive = IsActive;
 
-     
+                obj.SaveChanges();
+            }
+        }
+
+        public void updateState()
+        {
+
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                Station station = obj.Stations.FirstOrDefault(c => c.Id == Id);
+                station.CreatedBy = CreatedBy;
+                station.CreatedDate = CreatedDate;
+                station.UpdatedBy = UpdatedBy;
+                station.UpdatedDate = UpdatedDate;
+                station.IsActive = IsActive;
+                obj.SaveChanges();
+            }
+
+        }
+        public static List<Station> getAll()
+        {
+            List<Station> lst = new List<Station>();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                lst = obj.Stations.ToList();
+            }
+
+            return lst;
+        }
+        #endregion
+
+        #region Filtering Data
+        public Station getByid()
+        {
+
+            Station lst = new Station();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                lst = obj.Stations.Where(c => c.Id == Id).FirstOrDefault();
+            }
+
+            return lst;
+        }
         #endregion
 
     }

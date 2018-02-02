@@ -62,34 +62,35 @@ namespace Model
             }
         }
 
-        public void DeleteBooking(BookingClass data)
+        public void DeleteBooking()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Booking booking = obj.Bookings.Where(b => b.Id == data.Id).FirstOrDefault();
-                obj.Bookings.Remove(booking);
+                Booking booking = obj.Bookings.Where(b => b.Id == Id).FirstOrDefault();
+                booking.IsActive = IsActive;
+
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateBooking(BookingClass data)
+        public void UpdateBooking()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Booking booking = obj.Bookings.Where(x => x.Id == data.Id).FirstOrDefault();
-                booking.BookCode = data.BookCode;
-                booking.CustomerId = data.CustomerId;
-                booking.BookingDate = data.BookingDate;
-                booking.CheckoutDate = data.CheckoutDate;
-                booking.FareId = data.FareId;
-                booking.BoardingStId = data.BoardingStId;
-                booking.BookingType = data.BookingType;
-                booking.Roundtrip = data.Roundtrip;
-                booking.Amount = data.Amount;
-                booking.Discount = data.Discount;
-                booking.Taxtype = data.Taxtype;
-                booking.TaxAmount = data.TaxAmount;
-                booking.NetAmount = data.NetAmount;
+                Booking booking = obj.Bookings.Where(x => x.Id == Id).FirstOrDefault();
+                booking.BookCode = BookCode;
+                booking.CustomerId = CustomerId;
+                booking.BookingDate = BookingDate;
+                booking.CheckoutDate = CheckoutDate;
+                booking.FareId = FareId;
+                booking.BoardingStId = BoardingStId;
+                booking.BookingType = BookingType;
+                booking.Roundtrip = Roundtrip;
+                booking.Amount = Amount;
+                booking.Discount = Discount;
+                booking.Taxtype = Taxtype;
+                booking.TaxAmount = TaxAmount;
+                booking.NetAmount = NetAmount;
                 booking.ProcessingFees = ProcessingFees;
                 booking.CreatedBy = CreatedBy;
                 booking.CreatedDate = CreatedDate;
@@ -113,12 +114,12 @@ namespace Model
 #endregion
 
 #region  Filetering
-        public Booking GetByBookingId(BookingClass data)
+        public Booking GetByBookingId()
         {
             Booking booking = new Booking();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                booking = obj.Bookings.Where(b => b.Id == data.Id).FirstOrDefault();
+                booking = obj.Bookings.Where(b => b.Id == Id).FirstOrDefault();
             }
             return booking;
         }

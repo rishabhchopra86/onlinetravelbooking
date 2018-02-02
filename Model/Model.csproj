@@ -30,10 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="DataModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DataModel\bin\Debug\DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DataModel\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DataModel\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -53,7 +59,11 @@
     <Compile Include="BookingStatusClass.cs" />
     <Compile Include="CancelClass.cs" />
     <Compile Include="CityClass.cs" />
+<<<<<<< HEAD
+    <Compile Include="CountryClass.cs" />
+=======
     <Compile Include="Comman.cs" />
+>>>>>>> e9f1ba572e57797d4796ee91ca9597dfd9296819
     <Compile Include="CustomerClass.cs" />
     <Compile Include="FareClass.cs" />
     <Compile Include="HotelClass.cs" />
@@ -61,13 +71,16 @@
     <Compile Include="LogClass.cs" />
     <Compile Include="MasterClass.cs" />
     <Compile Include="MasterValueClass.cs" />
+    <Compile Include="PackageClass.cs" />
+    <Compile Include="PackageDetailClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataModel\DataModel.csproj">
-      <Project>{46730ab8-5e2b-4d5d-a448-52665bfd6e8f}</Project>
-      <Name>DataModel</Name>
-    </ProjectReference>
+    <Compile Include="ReviewClass.cs" />
+    <Compile Include="RoomClass.cs" />
+    <Compile Include="StateClass.cs" />
+    <Compile Include="StationClass.cs" />
+    <Compile Include="TransportClass.cs" />
+    <Compile Include="TransportDetailClass.cs" />
+    <Compile Include="UserClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

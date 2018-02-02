@@ -47,33 +47,34 @@ namespace Model
             }
         }
 
-        public void DeleteFare(FareClass data)
+        public void DeleteFare()
         {
            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
            {
-               Fare fare = obj.Fares.Where(f => f.Id == data.Id).FirstOrDefault();
-               obj.Fares.Remove(fare);
-               obj.SaveChanges();
+               Fare fare = obj.Fares.Where(f => f.Id == Id).FirstOrDefault();
+                fare.IsActive = IsActive;
+
+                obj.SaveChanges();
            }
         }
 
-        public void UpdateFare(FareClass data)
+        public void UpdateFare()
         {
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Fare fare = obj.Fares.Where(f => f.Id == data.Id).FirstOrDefault();
-                fare.TransportId = data.TransportId;
-                fare.From = data.From;
-                fare.To = data.To;
-                fare.Rate = data.Rate;
-                fare.Categories = data.Categories;
-                fare.RoundtripRate = data.RoundtripRate;
-                fare.PersonType = data.PersonType;
-                fare.CreatedBy = data.CreatedBy;
-                fare.CreatedDate = data.CreatedDate;
-                fare.UpdatedBy = data.UpdatedBy;
-                fare.UpdatedDate = data.UpdatedDate;
-                fare.IsActive = data.IsActive;
+                Fare fare = obj.Fares.Where(f => f.Id == Id).FirstOrDefault();
+                fare.TransportId = TransportId;
+                fare.From = From;
+                fare.To = To;
+                fare.Rate = Rate;
+                fare.Categories = Categories;
+                fare.RoundtripRate = RoundtripRate;
+                fare.PersonType = PersonType;
+                fare.CreatedBy = CreatedBy;
+                fare.CreatedDate = CreatedDate;
+                fare.UpdatedBy = UpdatedBy;
+                fare.UpdatedDate = UpdatedDate;
+                fare.IsActive = IsActive;
 
                 obj.SaveChanges();
             }
@@ -91,12 +92,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public Fare GetByFareId(FareClass data)
+        public Fare GetByFareId()
         {
             Fare fare = new Fare();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                fare = obj.Fares.Where(f => f.Id == data.Id).FirstOrDefault();
+                fare = obj.Fares.Where(f => f.Id == Id).FirstOrDefault();
             }
             return fare;
         }
