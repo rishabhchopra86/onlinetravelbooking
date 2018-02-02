@@ -43,3 +43,15 @@ E:\.net prac\MovieTicket\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\.net prac\MovieTicket\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\.net prac\MovieTicket\Model\obj\Debug\Model.dll
 E:\.net prac\MovieTicket\Model\obj\Debug\Model.pdb
+E:\onlinetravelbooking\New folder\Model\bin\Debug\Model.dll
+E:\onlinetravelbooking\New folder\Model\bin\Debug\Model.pdb
+E:\onlinetravelbooking\New folder\Model\bin\Debug\DataModel.dll
+E:\onlinetravelbooking\New folder\Model\bin\Debug\EntityFramework.dll
+E:\onlinetravelbooking\New folder\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\onlinetravelbooking\New folder\Model\bin\Debug\DataModel.pdb
+E:\onlinetravelbooking\New folder\Model\bin\Debug\DataModel.dll.config
+E:\onlinetravelbooking\New folder\Model\bin\Debug\EntityFramework.xml
+E:\onlinetravelbooking\New folder\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\onlinetravelbooking\New folder\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\onlinetravelbooking\New folder\Model\obj\Debug\Model.dll
+E:\onlinetravelbooking\New folder\Model\obj\Debug\Model.pdb

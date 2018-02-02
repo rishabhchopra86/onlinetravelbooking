@@ -7,8 +7,7 @@ using System.Security.Cryptography;
 using System.IO;
 namespace Model
 {
-   
-    class Comman
+   public class AesEncrypt
     {
         public string DecryptText(string input, string password)
         {
