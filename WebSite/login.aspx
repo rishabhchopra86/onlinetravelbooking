@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/login.aspx.cs" Inherits="WebSite.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="WebSite.login" %>
 
-
+<!DOCTYPE html>
 <!DOCTYPE HTML>
 <html class="full">
 
@@ -156,7 +156,7 @@
                                             <label>Password</label>
                                             <input class="form-control" type="password" placeholder="my secret password" />
                                         </div>
-                                     <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary" OnClick="Button2_Click" />
+                                     <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary"  />
                                    
                                 </div>
                                 <div class="col-md-4">
@@ -233,16 +233,4 @@
 </body>
 
 
-<!-- Mirrored from remtsoy.com/tf_templates/traveler/demo_v1_7/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2018 06:17:43 GMT -->
-</html>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
- 
-</body>
 </html>

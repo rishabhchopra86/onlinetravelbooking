@@ -3,3 +3,9 @@ E:\onlinetravelbooking\WebSite\bin\WebSite.dll
 E:\onlinetravelbooking\WebSite\bin\WebSite.pdb
 E:\onlinetravelbooking\WebSite\obj\Debug\WebSite.dll
 E:\onlinetravelbooking\WebSite\obj\Debug\WebSite.pdb
+E:\Booking\WebSite\bin\WebSite.dll.config
+E:\Booking\WebSite\bin\WebSite.dll
+E:\Booking\WebSite\bin\WebSite.pdb
+E:\Booking\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\Booking\WebSite\obj\Debug\WebSite.dll
+E:\Booking\WebSite\obj\Debug\WebSite.pdb
