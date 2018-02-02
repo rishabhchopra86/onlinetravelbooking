@@ -31,6 +31,8 @@ namespace DataModel
             this.BookingStatus1 = new HashSet<BookingStatu>();
             this.Cancels = new HashSet<Cancel>();
             this.Cancels1 = new HashSet<Cancel>();
+            this.Cinemas = new HashSet<Cinema>();
+            this.Cinemas1 = new HashSet<Cinema>();
             this.Cities = new HashSet<City>();
             this.Cities1 = new HashSet<City>();
             this.Countries = new HashSet<Country>();
@@ -44,12 +46,16 @@ namespace DataModel
             this.Hotels1 = new HashSet<Hotel>();
             this.Images = new HashSet<Image>();
             this.Images1 = new HashSet<Image>();
+            this.Movies = new HashSet<Movie>();
+            this.Movies1 = new HashSet<Movie>();
             this.Packages = new HashSet<Package>();
             this.Packages1 = new HashSet<Package>();
             this.PackageDetails = new HashSet<PackageDetail>();
             this.PackageDetails1 = new HashSet<PackageDetail>();
             this.Rooms = new HashSet<Room>();
             this.Rooms1 = new HashSet<Room>();
+            this.Screens = new HashSet<Screen>();
+            this.Screens1 = new HashSet<Screen>();
             this.States = new HashSet<State>();
             this.States1 = new HashSet<State>();
             this.Stations = new HashSet<Station>();
@@ -100,6 +106,10 @@ namespace DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cancel> Cancels1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cinema> Cinemas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cinema> Cinemas1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<City> Cities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<City> Cities1 { get; set; }
@@ -127,6 +137,10 @@ namespace DataModel
         public virtual ICollection<Image> Images1 { get; set; }
         public virtual MasterValue MasterValue { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Movie> Movies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Movie> Movies1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Package> Packages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Package> Packages1 { get; set; }
@@ -138,6 +152,10 @@ namespace DataModel
         public virtual ICollection<Room> Rooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Screen> Screens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Screen> Screens1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> States { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

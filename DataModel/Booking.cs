@@ -22,6 +22,7 @@ namespace DataModel
         }
     
         public int Id { get; set; }
+        public Nullable<int> TypeId { get; set; }
         public string BookCode { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public Nullable<System.DateTime> BookingDate { get; set; }
@@ -50,8 +51,9 @@ namespace DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingStatu> BookingStatus { get; set; }
         public virtual MasterValue MasterValue { get; set; }
+        public virtual MasterValue MasterValue1 { get; set; }
         public virtual User User1 { get; set; }
         public virtual Customer Customer { get; set; }
-        public virtual MasterValue MasterValue1 { get; set; }
+        public virtual MasterValue MasterValue2 { get; set; }
     }
 }

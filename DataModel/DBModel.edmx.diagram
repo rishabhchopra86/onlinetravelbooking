@@ -4,32 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="183e5e27f3b046daabd1060e3949d85f" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Agent" Width="1.5" PointX="7.5" PointY="65.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Aminity" Width="1.5" PointX="7.5" PointY="54.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.AvailableSeat" Width="1.5" PointX="23.25" PointY="54.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Booking" Width="1.5" PointX="26.25" PointY="56.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.BookingDetail" Width="1.5" PointX="18" PointY="53.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.BookingStatu" Width="1.5" PointX="28.5" PointY="54.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Cancel" Width="1.5" PointX="18" PointY="61.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.City" Width="1.5" PointX="10.5" PointY="64.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Country" Width="1.5" PointX="7.5" PointY="74.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Customer" Width="1.5" PointX="12.75" PointY="65.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Fare" Width="1.5" PointX="21" PointY="54.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Hotel" Width="1.5" PointX="10.5" PointY="52.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Image" Width="1.5" PointX="7.5" PointY="49.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Log" Width="1.5" PointX="15" PointY="68.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Master" Width="1.5" PointX="0.75" PointY="41.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.MasterValue" Width="1.5" PointX="3" PointY="39.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Package" Width="1.5" PointX="7.5" PointY="78.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.PackageDetail" Width="1.5" PointX="23.25" PointY="58.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Review" Width="1.5" PointX="5.25" PointY="40.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Room" Width="1.5" PointX="12.75" PointY="53.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.State" Width="1.5" PointX="9.75" PointY="70.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Station" Width="1.5" PointX="7.5" PointY="59.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.Transport" Width="1.5" PointX="15.75" PointY="53.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.TransportDetail" Width="1.5" PointX="21" PointY="61" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineTicketBookingModel.User" Width="1.5" PointX="5.25" PointY="61.625" IsExpanded="true" />
+      <Diagram DiagramId="6a061230cbad4ebd954f850bd28fe61c" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Agent" Width="1.5" PointX="7.5" PointY="76.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Aminity" Width="1.5" PointX="7.5" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.AvailableSeat" Width="1.5" PointX="20.25" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Booking" Width="1.5" PointX="23.25" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.BookingDetail" Width="1.5" PointX="18" PointY="62.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.BookingStatu" Width="1.5" PointX="25.5" PointY="63.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Cancel" Width="1.5" PointX="15" PointY="73.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Cinema" Width="1.5" PointX="10.5" PointY="76.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.City" Width="1.5" PointX="7.5" PointY="82.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Country" Width="1.5" PointX="7.5" PointY="91.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Customer" Width="1.5" PointX="12.75" PointY="80.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Fare" Width="1.5" PointX="18" PointY="68.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Hotel" Width="1.5" PointX="10.5" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Image" Width="1.5" PointX="7.5" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Log" Width="1.5" PointX="15" PointY="83.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Master" Width="1.5" PointX="0.75" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.MasterValue" Width="1.5" PointX="3" PointY="45.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Movie" Width="1.5" PointX="7.5" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Package" Width="1.5" PointX="7.5" PointY="95.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.PackageDetail" Width="1.5" PointX="20.25" PointY="69.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Review" Width="1.5" PointX="5.25" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Room" Width="1.5" PointX="15.75" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Screen" Width="1.5" PointX="12.75" PointY="73.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.ScreenFare" Width="1.5" PointX="16" PointY="59.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.SeatDesign" Width="1.5" PointX="15" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.SeatDesignDetail" Width="1.5" PointX="17.25" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.State" Width="1.5" PointX="9.75" PointY="81.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Station" Width="1.5" PointX="13.5" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.Transport" Width="1.5" PointX="9.75" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.TransportDetail" Width="1.5" PointX="19.75" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTicketBookingModel.User" Width="1.5" PointX="5.25" PointY="72.5" IsExpanded="true" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKAgentCreatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKAgentUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKCityId" ManuallyRouted="false" />
@@ -49,6 +55,7 @@
         <AssociationConnector Association="OnlineTicketBookingModel.FKBookingId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKBookingStatusBookingId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKBookingType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKBookingTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKBookingUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKTaxType" ManuallyRouted="false" />
@@ -63,6 +70,10 @@
         <AssociationConnector Association="OnlineTicketBookingModel.FKCancelCreatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKCancelUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKTransportId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCinemasCityId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCinemasCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKCinemasUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKScreenCinemaId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKCitiesUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKCititesCreatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKCustomerCityId" ManuallyRouted="false" />
@@ -95,14 +106,20 @@
         <AssociationConnector Association="OnlineTicketBookingModel.FKImagesUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKMasterValueMasterId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKMovieLanguage" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKMovieType" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKReviewTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKRoomStatus" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKRoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKScreenFareType" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKStationType" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKStationTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKTransportTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKUserTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKMovieCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKMovieUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKScreenMovieId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKPackageCreatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailPackegeId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKPackageUpdatedBy" ManuallyRouted="false" />
@@ -110,6 +127,11 @@
         <AssociationConnector Association="OnlineTicketBookingModel.FKPackageDetailUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKRoomCreatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKRoomUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKScreenCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKScreenFareScreenId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKScreenUpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKSeatDesignScreenId" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTicketBookingModel.FKSeatDesignDetailSeatDesignId" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKStatesCreatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKStatesUpdatedBy" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineTicketBookingModel.FKStationCreatedBy" ManuallyRouted="false" />

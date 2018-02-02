@@ -27,3 +27,12 @@ E:\Booking\DataModel\bin\Debug\EntityFramework.xml
 E:\Booking\DataModel\bin\Debug\EntityFramework.SqlServer.xml
 E:\Booking\DataModel\obj\Debug\DataModel.dll
 E:\Booking\DataModel\obj\Debug\DataModel.pdb
+E:\.net prac\MovieTicket\DataModel\bin\Debug\DataModel.dll.config
+E:\.net prac\MovieTicket\DataModel\bin\Debug\DataModel.dll
+E:\.net prac\MovieTicket\DataModel\bin\Debug\DataModel.pdb
+E:\.net prac\MovieTicket\DataModel\bin\Debug\EntityFramework.dll
+E:\.net prac\MovieTicket\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\.net prac\MovieTicket\DataModel\bin\Debug\EntityFramework.xml
+E:\.net prac\MovieTicket\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\.net prac\MovieTicket\DataModel\obj\Debug\DataModel.dll
+E:\.net prac\MovieTicket\DataModel\obj\Debug\DataModel.pdb

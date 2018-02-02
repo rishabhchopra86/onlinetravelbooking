@@ -16,7 +16,7 @@ namespace DataModel
     {
         public int Id { get; set; }
         public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RtId { get; set; }
+        public Nullable<int> RTCId { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public Nullable<double> Ratings { get; set; }
         public string Review1 { get; set; }

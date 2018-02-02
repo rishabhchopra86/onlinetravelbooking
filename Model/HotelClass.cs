@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
    public class HotelClass
     {
@@ -27,19 +27,11 @@ namespace BusinessLayer
         public int UpdatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
-
-
-        private OnlineTicketBookingEntities _context;
-
-        public void saveChanges()
-        {
-            _context.SaveChanges();
-        }
-
+              
         #region CRUD
         public void AddHotel()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj= new OnlineTicketBookingEntities())
             {
                 Hotel htl = new Hotel();
                 htl.HotelName = HotelName;
@@ -60,25 +52,27 @@ namespace BusinessLayer
                 htl.UpdatedDate = UpdatedDate;
                 htl.IsActive = IsActive;
 
-                otbe.Hotels.Add(htl);
-                saveChanges();
+                obj.Hotels.Add(htl);
+                obj.SaveChanges();
             }
         }
         public void deleteHotel()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj= new OnlineTicketBookingEntities())
             {
-                Hotel reviewId = otbe.Hotels.SingleOrDefault(c => c.Id == Id);
-                otbe.Hotels.Remove(reviewId);
-                saveChanges();
+                Hotel htl = obj.Hotels.SingleOrDefault(c => c.Id == Id);
+                htl.IsActive = IsActive;
+
+                obj.SaveChanges();
+
             }
         }
         public void updateHotel()
         {
 
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj= new OnlineTicketBookingEntities())
             {
-                Hotel reviewId = otbe.Hotels.SingleOrDefault(c => c.Id == Id);
+                Hotel reviewId = obj.Hotels.SingleOrDefault(c => c.Id == Id);
               
                 Hotel htl = new Hotel();
                 htl.HotelName = HotelName;
@@ -99,16 +93,17 @@ namespace BusinessLayer
                 htl.UpdatedDate = UpdatedDate;
                 htl.IsActive = IsActive;
 
-                saveChanges();
+                obj.SaveChanges();
+
             }
 
         }
         public static List<Hotel> getAll()
         {
             List<Hotel> lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj= new OnlineTicketBookingEntities())
             {
-                lst = (from i in otbe.Hotels select i).ToList();
+                lst =obj.Hotels.ToList();
             }
 
             return lst;
@@ -120,9 +115,9 @@ namespace BusinessLayer
         {
 
             Hotel lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj= new OnlineTicketBookingEntities())
             {
-                lst = otbe.Hotels.Where(c => c.Id == Id).FirstOrDefault();
+                lst = obj.Hotels.Where(c => c.Id == Id).FirstOrDefault();
             }
 
             return lst;

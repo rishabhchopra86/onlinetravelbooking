@@ -19,6 +19,7 @@ namespace DataModel
         {
             this.Agents = new HashSet<Agent>();
             this.Bookings = new HashSet<Booking>();
+            this.Cinemas = new HashSet<Cinema>();
             this.Customers = new HashSet<Customer>();
             this.Fares = new HashSet<Fare>();
             this.Fares1 = new HashSet<Fare>();
@@ -40,6 +41,8 @@ namespace DataModel
         public virtual ICollection<Agent> Agents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cinema> Cinemas { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

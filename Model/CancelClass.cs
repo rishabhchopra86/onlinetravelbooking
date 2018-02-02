@@ -39,29 +39,30 @@ namespace Model
             }
         }
 
-        public void DeleteCancel(CancelClass data)
+        public void DeleteCancel()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Cancel cancel = obj.Cancels.Where(c => c.Id == data.Id).FirstOrDefault();
-                obj.Cancels.Remove(cancel);
+                Cancel cancel = obj.Cancels.Where(c => c.Id == Id).FirstOrDefault();
+                cancel.IsActive = IsActive;
+
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateCancel(CancelClass data)
+        public void UpdateCancel()
         {
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Cancel cancel = obj.Cancels.Where(c => c.Id == data.Id).FirstOrDefault();
-                cancel.TransportId = data.TransportId;
-                cancel.CancelRules = data.CancelRules;
-                cancel.RatePer = data.RatePer;
-                cancel.CreatedBy = data.CreatedBy;
-                cancel.CreatedDate = data.CreatedDate;
-                cancel.UpdatedBy = data.UpdatedBy;
-                cancel.UpdatedDate = data.UpdatedDate;
-                cancel.IsActive = data.IsActive;
+                Cancel cancel = obj.Cancels.Where(c => c.Id == Id).FirstOrDefault();
+                cancel.TransportId = TransportId;
+                cancel.CancelRules = CancelRules;
+                cancel.RatePer = RatePer;
+                cancel.CreatedBy = CreatedBy;
+                cancel.CreatedDate = CreatedDate;
+                cancel.UpdatedBy = UpdatedBy;
+                cancel.UpdatedDate = UpdatedDate;
+                cancel.IsActive = IsActive;
 
                 obj.SaveChanges();
                 
@@ -81,12 +82,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public Cancel GetByCancelId(CancelClass data)
+        public Cancel GetByCancelId()
         {
             Cancel cancel=new Cancel();
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                cancel = obj.Cancels.Where(c => c.Id == data.Id).FirstOrDefault();
+                cancel = obj.Cancels.Where(c => c.Id == Id).FirstOrDefault();
             }
             return cancel;
         }

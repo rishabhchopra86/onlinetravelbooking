@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
-
 namespace Model
 {
    public class BookingStatusClass
@@ -41,30 +40,31 @@ namespace Model
            }
         }
 
-       public void DeleteBookingStatus(BookingStatusClass data)
+       public void DeleteBookingStatus()
        {
            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
            {
-               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == data.Id).FirstOrDefault();
-               obj.BookingStatus.Remove(bookingstatus);
-               obj.SaveChanges();
+               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == Id).FirstOrDefault();
+                bookingstatus.IsActive = IsActive;
+
+                obj.SaveChanges();
            }
        }
 
-       public void UpdateBookingStatus(BookingStatusClass data)
+       public void UpdateBookingStatus()
        {
            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
            {
-               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == data.Id).FirstOrDefault();
-               bookingstatus.BookingId = data.BookingId;
-               bookingstatus.PnrNo = data.PnrNo;
-               bookingstatus.PnrStatus = data.PnrStatus;
-               bookingstatus.CreatedBy = data.CreatedBy;
-               bookingstatus.CreatedDate = data.CreatedDate;
-               bookingstatus.UpdatedBy = data.UpdatedBy;
-               bookingstatus.UpdatedDate = data.UpdatedDate;
-               bookingstatus.IsActive = data.IsActive;
-               bookingstatus.IsCancel = data.IsCancel;
+               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == Id).FirstOrDefault();
+               bookingstatus.BookingId = BookingId;
+               bookingstatus.PnrNo = PnrNo;
+               bookingstatus.PnrStatus = PnrStatus;
+               bookingstatus.CreatedBy = CreatedBy;
+               bookingstatus.CreatedDate = CreatedDate;
+               bookingstatus.UpdatedBy = UpdatedBy;
+               bookingstatus.UpdatedDate = UpdatedDate;
+               bookingstatus.IsActive = IsActive;
+               bookingstatus.IsCancel = IsCancel;
 
                obj.SaveChanges();
            }
@@ -81,12 +81,12 @@ namespace Model
 #endregion
 
  #region Filtering
-       public BookingStatu GetByBookingStatusId(BookingStatusClass data)
+       public BookingStatu GetByBookingStatusId()
        {
            BookingStatu booking = new BookingStatu();
            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
            {
-               booking = obj.BookingStatus.Where(bs => bs.Id == data.Id).FirstOrDefault();
+               booking = obj.BookingStatus.Where(bs => bs.Id == Id).FirstOrDefault();
            }
            return booking;
        }

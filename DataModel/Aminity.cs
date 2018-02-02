@@ -23,7 +23,7 @@ namespace DataModel
     
         public int Id { get; set; }
         public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTId { get; set; }
+        public Nullable<int> RTCId { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

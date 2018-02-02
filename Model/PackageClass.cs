@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
-namespace BusinessLayer
+using DataModel;
+namespace Model
 {
    public class PackageClass
     {
@@ -22,18 +22,12 @@ namespace BusinessLayer
         public bool IsActive { get; set; }
         public int UserId { get; set; }
 
-        private OnlineTicketBookingEntities _context;
-
-        public void saveChanges()
-        {
-            _context.SaveChanges();
-        }
 
 
         #region CRUD
         public void AddPackage()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 Package pck = new Package();
                 pck.PackageName = PackageName;
@@ -48,26 +42,26 @@ namespace BusinessLayer
                 pck.UpdatedDate = UpdatedDate;
                 pck.IsActive = IsActive;
 
-                otbe.Packages.Add(pck);
-                saveChanges();
+                obj.Packages.Add(pck);
+                obj.SaveChanges();
             }
         }
-        public void deleteCountry()
+        public void DeletePackage()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Package packageId = otbe.Packages.SingleOrDefault(c => c.Id == Id);
-                otbe.Packages.Remove(packageId);
-                saveChanges();
+                Package packageId = obj.Packages.Where(c => c.Id == Id).FirstOrDefault();
+                packageId.IsActive = IsActive;
+                obj.SaveChanges();
             }
         }
-        public void updateCountry()
+        public void UpdatePackage()
         {
 
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Package countryId = otbe.Packages.SingleOrDefault(c => c.Id == Id);
-                Package pck = new Package();
+                Package pck = obj.Packages.Where(c => c.Id == Id).FirstOrDefault();
+               
                 pck.PackageName = PackageName;
                 pck.Description = Description;
                 pck.ActualRate = ActualRate;
@@ -79,16 +73,17 @@ namespace BusinessLayer
                 pck.UpdatedBy = UpdatedBy;
                 pck.UpdatedDate = UpdatedDate;
                 pck.IsActive = IsActive;
-                saveChanges();
+                obj.SaveChanges();
+
             }
 
         }
         public static List<Package> getAll()
         {
             List<Package> lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                lst = (from i in otbe.Packages select i).ToList();
+                lst = obj.Packages.ToList();
             }
 
             return lst;
@@ -96,13 +91,13 @@ namespace BusinessLayer
         #endregion
 
         #region Filtering Data
-        public Package getByid()
+        public Package getByPackageid()
         {
 
-            Package lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            Package lst = new Package();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                lst = otbe.Packages.Where(c => c.Id == Id).FirstOrDefault();
+                lst = obj.Packages.Where(c => c.Id == Id).FirstOrDefault();
             }
 
             return lst;

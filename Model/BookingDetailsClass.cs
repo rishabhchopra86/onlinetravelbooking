@@ -49,34 +49,35 @@ namespace Model
             }
         }
 
-        public void DeleteBookingDetails(BookingDetailsClass data)
+        public void DeleteBookingDetails()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                BookingDetail bookingdetails = obj.BookingDetails.Where(bd => bd.Id == data.Id).FirstOrDefault();
-                obj.BookingDetails.Remove(bookingdetails);
+                BookingDetail bookingdetails = obj.BookingDetails.Where(bd => bd.Id == Id).FirstOrDefault();
+                bookingdetails.IsActive = IsActive;
+
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateBookingDetails(BookingDetailsClass data)
+        public void UpdateBookingDetails()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                BookingDetail bookingdetails = obj.BookingDetails.Where(bd => bd.Id == data.Id).FirstOrDefault();
-                bookingdetails.BookingId = data.BookingId;
-                bookingdetails.Name = data.Name;
-                bookingdetails.Gender = data.Gender;
-                bookingdetails.Age = data.Age;
-                bookingdetails.PersonType = data.PersonType;
-                bookingdetails.BookStatus = data.BookStatus;
-                bookingdetails.SeatNo = data.SeatNo;
-                bookingdetails.RoomId = data.RoomId;
-                bookingdetails.CreatedBy = data.CreatedBy;
-                bookingdetails.CreatedDate = data.CreatedDate;
-                bookingdetails.UpdatedBy = data.UpdatedBy;
-                bookingdetails.UpdatedDate = data.UpdatedDate;
-                bookingdetails.IsActive = data.IsActive;
+                BookingDetail bookingdetails = obj.BookingDetails.Where(bd => bd.Id == Id).FirstOrDefault();
+                bookingdetails.BookingId = BookingId;
+                bookingdetails.Name = Name;
+                bookingdetails.Gender = Gender;
+                bookingdetails.Age = Age;
+                bookingdetails.PersonType = PersonType;
+                bookingdetails.BookStatus = BookStatus;
+                bookingdetails.SeatNo = SeatNo;
+                bookingdetails.RoomId = RoomId;
+                bookingdetails.CreatedBy = CreatedBy;
+                bookingdetails.CreatedDate = CreatedDate;
+                bookingdetails.UpdatedBy = UpdatedBy;
+                bookingdetails.UpdatedDate = UpdatedDate;
+                bookingdetails.IsActive = IsActive;
               
                 obj.SaveChanges();
 
@@ -95,12 +96,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public BookingDetail GetByBookingDetailsId(BookingDetailsClass data)
+        public BookingDetail GetByBookingDetailsId()
         {
             BookingDetail booking = new BookingDetail();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                booking = obj.BookingDetails.Where(b => b.Id == data.Id).FirstOrDefault();
+                booking = obj.BookingDetails.Where(b => b.Id == Id).FirstOrDefault();
             }
             return booking;
         }

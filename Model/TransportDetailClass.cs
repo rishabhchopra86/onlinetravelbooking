@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
     public  class TransportDetailClass
     {
@@ -54,7 +54,7 @@ namespace BusinessLayer
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 TransportDetail transdetail = obj.TransportDetails.SingleOrDefault(t => t.Id == Id);
-                obj.TransportDetails.Remove(transdetail);
+                transdetail.IsActive = IsActive;
                 obj.SaveChanges();
             }
         }
@@ -63,7 +63,7 @@ namespace BusinessLayer
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                TransportDetail transdetail = obj.TransportDetails.SingleOrDefault(t => t.Id == Id);
+                TransportDetail transdetail = obj.TransportDetails.Where(t => t.Id == Id).FirstOrDefault();
                 transdetail.TransportId = TransportId;
                 transdetail.StationId = StationId;
                 transdetail.RouteNo = RouteNo;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
    public class RoomClass
     {
@@ -29,88 +29,78 @@ namespace BusinessLayer
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
 
-
-
-        private OnlineTicketBookingEntities _context;
-
-        public void saveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-      
-
         #region CRUD
         public void AddRoom()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Room rm = new Room();
-                rm.RoomCode = RoomCode;
-                rm.HotelId = HotelId;
-                rm.Type = Type;
-                rm.Capacity = Capacity;
-                rm.Status = Status;
-                rm.PriceBase = PriceBase;
-                rm.PricePerAdult = PricePerAdult;
-                rm.PricePerChild = PricePerChild;
-                rm.NoOfAdultAllowed = NoOfAdultAllowed;
-                rm.NoOfChildAllowed = NoOfChildAllowed;
-                rm.SmokingFlag = SmokingFlag;
-                rm.AmenitiesId = AmenitiesId;
-                rm.CreatedBy = CreatedBy;
-                rm.CreatedDate = CreatedDate;
-                rm.UpdatedBy = UpdatedBy;
-                rm.UpdatedDate = UpdatedDate;
-                rm.IsActive = IsActive;
+                Room roomId = new Room();
+                roomId.RoomCode = RoomCode;
+                roomId.HotelId = HotelId;
+                roomId.Type = Type;
+                roomId.Capacity = Capacity;
+                roomId.Status = Status;
+                roomId.PriceBase = PriceBase;
+                roomId.PricePerAdult = PricePerAdult;
+                roomId.PricePerChild = PricePerChild;
+                roomId.NoOfAdultAllowed = NoOfAdultAllowed;
+                roomId.NoOfChildAllowed = NoOfChildAllowed;
+                roomId.SmokingFlag = SmokingFlag;
+                roomId.AmenitiesId = AmenitiesId;
+                roomId.CreatedBy = CreatedBy;
+                roomId.CreatedDate = CreatedDate;
+                roomId.UpdatedBy = UpdatedBy;
+                roomId.UpdatedDate = UpdatedDate;
+                roomId.IsActive = IsActive;
 
-                otbe.Rooms.Add(rm);
-                saveChanges();
+                obj.Rooms.Add(roomId);
+                obj.SaveChanges();
             }
         }
         public void deleteRoom()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Room roomId = otbe.Rooms.SingleOrDefault(c => c.Id == Id);
-                otbe.Rooms.Remove(roomId);
-                saveChanges();
+                Room room = obj.Rooms.Where(c => c.Id == Id).FirstOrDefault();
+                room.IsActive = IsActive;
+
+                obj.SaveChanges();
+
             }
         }
         public void updateRoom()
         {
 
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Room roomId = otbe.Rooms.SingleOrDefault(c => c.Id == Id);
-                Room rm = new Room();
-                rm.RoomCode = RoomCode;
-                rm.HotelId = HotelId;
-                rm.Type = Type;
-                rm.Capacity = Capacity;
-                rm.Status = Status;
-                rm.PriceBase = PriceBase;
-                rm.PricePerAdult = PricePerAdult;
-                rm.PricePerChild = PricePerChild;
-                rm.NoOfAdultAllowed = NoOfAdultAllowed;
-                rm.NoOfChildAllowed = NoOfChildAllowed;
-                rm.SmokingFlag = SmokingFlag;
-                rm.AmenitiesId = AmenitiesId;
-                rm.CreatedBy = CreatedBy;
-                rm.CreatedDate = CreatedDate;
-                rm.UpdatedBy = UpdatedBy;
-                rm.UpdatedDate = UpdatedDate;
-                rm.IsActive = IsActive;
-                saveChanges();
+                Room roomId = obj.Rooms.Where(c => c.Id == Id).FirstOrDefault();
+                roomId.RoomCode = RoomCode;
+                roomId.HotelId = HotelId;
+                roomId.Type = Type;
+                roomId.Capacity = Capacity;
+                roomId.Status = Status;
+                roomId.PriceBase = PriceBase;
+                roomId.PricePerAdult = PricePerAdult;
+                roomId.PricePerChild = PricePerChild;
+                roomId.NoOfAdultAllowed = NoOfAdultAllowed;
+                roomId.NoOfChildAllowed = NoOfChildAllowed;
+                roomId.SmokingFlag = SmokingFlag;
+                roomId.AmenitiesId = AmenitiesId;
+                roomId.CreatedBy = CreatedBy;
+                roomId.CreatedDate = CreatedDate;
+                roomId.UpdatedBy = UpdatedBy;
+                roomId.UpdatedDate = UpdatedDate;
+                roomId.IsActive = IsActive;
+                obj.SaveChanges();
             }
 
         }
         public static List<Room> getAll()
         {
-            List<Room> lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            List<Room> lst = new List<Room>();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                lst = (from i in otbe.Rooms select i).ToList();
+                lst = obj.Rooms.ToList();
             }
 
             return lst;
@@ -118,13 +108,13 @@ namespace BusinessLayer
         #endregion
 
         #region Filtering Data
-        public Room getByid()
+        public Room getByRoomid()
         {
 
-            Room lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            Room lst = new Room();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                lst = otbe.Rooms.Where(c => c.Id == Id).FirstOrDefault();
+                lst = obj.Rooms.Where(c => c.Id == Id).FirstOrDefault();
             }
 
             return lst;

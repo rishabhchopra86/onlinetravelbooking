@@ -32,3 +32,14 @@ E:\Booking\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Booking\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\Booking\Model\obj\Debug\Model.dll
 E:\Booking\Model\obj\Debug\Model.pdb
+E:\.net prac\MovieTicket\Model\bin\Debug\Model.dll
+E:\.net prac\MovieTicket\Model\bin\Debug\Model.pdb
+E:\.net prac\MovieTicket\Model\bin\Debug\DataModel.dll
+E:\.net prac\MovieTicket\Model\bin\Debug\EntityFramework.dll
+E:\.net prac\MovieTicket\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\.net prac\MovieTicket\Model\bin\Debug\DataModel.pdb
+E:\.net prac\MovieTicket\Model\bin\Debug\EntityFramework.xml
+E:\.net prac\MovieTicket\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\.net prac\MovieTicket\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\.net prac\MovieTicket\Model\obj\Debug\Model.dll
+E:\.net prac\MovieTicket\Model\obj\Debug\Model.pdb

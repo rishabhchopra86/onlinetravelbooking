@@ -55,37 +55,36 @@ namespace Model
             }
         }
 
-        public void DeleteAgent(AgentClass data)
+        public void DeleteAgent()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Agent agent = obj.Agents.Where(a => a.Id == data.Id).FirstOrDefault();
-                obj.Agents.Remove(agent);
+                Agent agent = obj.Agents.Where(a => a.Id == Id).FirstOrDefault();
+                agent.IsActive = IsActive;
                 obj.SaveChanges();
-
             }
         }
 
-        public void UpdateAgent(AgentClass data)
+        public void UpdateAgent()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Agent agent = obj.Agents.Where(a=> a.Id == data.Id).FirstOrDefault();
-                agent.TravellerName = data.TravellerName;
-                agent.TravellerLogo = data.TravellerLogo;
-                agent.Address = data.Address;
-                agent.FirstName = data.FirstName;
-                agent.LastName = data.LastName;
-                agent.MiddleName = data.MiddleName;
-                agent.MobileNo = data.MobileNo;
-                agent.AlternateMobileNo = data.AlternateMobileNo;
-                agent.CityId = data.CityId;
-                agent.Ratings = data.Ratings;
-                agent.CreatedBy = data.CreatedBy;
-                agent.CreatedDate = data.CreatedDate;
-                agent.UpdatedBy = data.UpdatedBy;
-                agent.UpdatedDate = data.UpdatedDate;
-                agent.IsActive = data.IsActive;
+                Agent agent = obj.Agents.Where(a=> a.Id == Id).FirstOrDefault();
+                agent.TravellerName = TravellerName;
+                agent.TravellerLogo = TravellerLogo;
+                agent.Address = Address;
+                agent.FirstName = FirstName;
+                agent.LastName = LastName;
+                agent.MiddleName = MiddleName;
+                agent.MobileNo = MobileNo;
+                agent.AlternateMobileNo = AlternateMobileNo;
+                agent.CityId = CityId;
+                agent.Ratings = Ratings;
+                agent.CreatedBy = CreatedBy;
+                agent.CreatedDate = CreatedDate;
+                agent.UpdatedBy = UpdatedBy;
+                agent.UpdatedDate = UpdatedDate;
+                agent.IsActive = IsActive;
                 
                 obj.SaveChanges();
             }
@@ -104,12 +103,12 @@ namespace Model
 #endregion
 
 #region Filtering
-        public Agent GetByAgentId(AgentClass data)
+        public Agent GetByAgentId()
         {
             Agent agent=new Agent();
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                 agent = obj.Agents.Where(a => a.Id == data.Id).FirstOrDefault();
+                 agent = obj.Agents.Where(a => a.Id == Id).FirstOrDefault();
             }
             return agent;
         }

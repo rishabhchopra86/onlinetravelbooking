@@ -18,3 +18,17 @@ E:\Booking\WebSite\bin\EntityFramework.SqlServer.xml
 E:\Booking\WebSite\bin\Model.pdb
 E:\Booking\WebSite\bin\DataModel.pdb
 E:\Booking\WebSite\bin\DataModel.dll.config
+E:\.net prac\MovieTicket\WebSite\bin\WebSite.dll.config
+E:\.net prac\MovieTicket\WebSite\bin\WebSite.dll
+E:\.net prac\MovieTicket\WebSite\bin\WebSite.pdb
+E:\.net prac\MovieTicket\WebSite\bin\EntityFramework.dll
+E:\.net prac\MovieTicket\WebSite\bin\EntityFramework.SqlServer.dll
+E:\.net prac\MovieTicket\WebSite\bin\Model.dll
+E:\.net prac\MovieTicket\WebSite\bin\DataModel.dll
+E:\.net prac\MovieTicket\WebSite\bin\EntityFramework.xml
+E:\.net prac\MovieTicket\WebSite\bin\EntityFramework.SqlServer.xml
+E:\.net prac\MovieTicket\WebSite\bin\Model.pdb
+E:\.net prac\MovieTicket\WebSite\bin\DataModel.pdb
+E:\.net prac\MovieTicket\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\.net prac\MovieTicket\WebSite\obj\Debug\WebSite.dll
+E:\.net prac\MovieTicket\WebSite\obj\Debug\WebSite.pdb

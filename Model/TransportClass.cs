@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
     public class TransportClass
     {
@@ -66,7 +66,7 @@ namespace BusinessLayer
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 Transport trans = obj.Transports.SingleOrDefault(t => t.Id == Id);
-                obj.Transports.Remove(trans);
+                trans.IsActive = IsActive;
                 obj.SaveChanges();
             }
         }

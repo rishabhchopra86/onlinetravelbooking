@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
     public class UserClass
     {
@@ -45,7 +45,7 @@ namespace BusinessLayer
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
                 User user = obj.Users.SingleOrDefault(u=>u.Id==Id);
-                obj.Users.Remove(user);
+                user.IsActive = IsActive;
                 obj.SaveChanges();
             }
         }
@@ -54,7 +54,7 @@ namespace BusinessLayer
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                User user = obj.Users.SingleOrDefault(u => u.Id ==Id);
+                User user = obj.Users.FirstOrDefault(u => u.Id ==Id);
                 user.UserCode = UserCode;
                 user.UserName = UserName;
                 user.Password = Password;

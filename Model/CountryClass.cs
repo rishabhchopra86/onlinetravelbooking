@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using DataLayer;
+using DataModel;
 
-namespace BusinessLayer
+namespace Model
 {
     public class CountryClass
     {
@@ -20,17 +20,10 @@ namespace BusinessLayer
         public bool IsActive { get; set; }
         public int UserId { get; set; }
 
-        private OnlineTicketBookingEntities _context;
-
-        public void saveChanges()
-        {
-            _context.SaveChanges();
-        }
-
         #region CRUD
         public void AddCountry()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 Country cntry = new Country();
                 cntry.CountryName = CountryName;
@@ -39,43 +32,44 @@ namespace BusinessLayer
                 cntry.CreatedDate = CreatedDate;
                 cntry.UpdatedDate = UpdatedDate;
                 cntry.UpdatedBy = UpdatedBy;
-
-                otbe.Countries.Add(cntry);
-                saveChanges();
+                cntry.IsActive = IsActive;
+                obj.Countries.Add(cntry);
+                obj.SaveChanges();
             }
         }
         public void deleteCountry()
         {
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Country countryId = otbe.Countries.SingleOrDefault(c=>c.Id==Id);
-                otbe.Countries.Remove(countryId);
-                saveChanges();
+                Country countryId = obj.Countries.FirstOrDefault(c=>c.Id==Id);
+                countryId.IsActive = IsActive;
+
+                obj.SaveChanges();
             }
         }
         public void updateCountry()
         {
 
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Country countryId = otbe.Countries.SingleOrDefault(c => c.Id == Id);
-                Country cntry = new Country();
+                Country cntry = obj.Countries.FirstOrDefault(c => c.Id == Id);
                 cntry.CountryName = CountryName;
                 cntry.Continent = Continent;
                 cntry.CreatedBy = CreatedBy;
                 cntry.CreatedDate = CreatedDate;
                 cntry.UpdatedDate = UpdatedDate;
                 cntry.UpdatedBy = UpdatedBy;
-                saveChanges();
+                cntry.IsActive = IsActive;
+                obj.SaveChanges();
             }
 
         }
         public static List<Country> getAll()
         {
             List<Country> lst = null;
-            using (OnlineTicketBookingEntities otbe=new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                 lst = (from i in otbe.Countries select i).ToList();
+                 lst = obj.Countries.ToList();
             }
 
             return lst;
@@ -87,9 +81,9 @@ namespace BusinessLayer
         {
 
             Country lst = null;
-            using (OnlineTicketBookingEntities otbe = new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                 lst = otbe.Countries.Where(c => c.Id == Id).FirstOrDefault();
+                 lst = obj.Countries.Where(c => c.Id == Id).FirstOrDefault();
             }
 
             return lst;

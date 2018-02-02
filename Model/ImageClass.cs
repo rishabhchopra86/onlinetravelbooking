@@ -44,27 +44,28 @@ namespace Model
             }
         }
 
-        public void DeleteImage(ImageClass data)
+        public void DeleteImage()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Image image = obj.Images.Where(i => i.Id == data.Id).FirstOrDefault();
-                obj.Images.Remove(image);
+                Image image = obj.Images.Where(i => i.Id == Id).FirstOrDefault();
+                image.IsActive = IsActive;
+
                 obj.SaveChanges();
             }
         }
 
-        public void UpdateImages(ImageClass data)
+        public void UpdateImages()
         {
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Image image = obj.Images.Where(i => i.Id == data.Id).FirstOrDefault();
-                image.TypeId = data.TypeId;
-                image.RTId = data.RTId;
-                image.Description = data.Description;
-                image.Path = data.Path;
-                image.ImageName = data.ImageName;
-                image.CreatedBy = data.CreatedBy;
+                Image image = obj.Images.Where(i => i.Id == Id).FirstOrDefault();
+                image.TypeId = TypeId;
+                image.RTId = RTId;
+                image.Description = Description;
+                image.Path = Path;
+                image.ImageName = ImageName;
+                image.CreatedBy = CreatedBy;
                 image.CreatedDate = CreatedDate;
                 image.UpdatedBy = UpdatedBy;
                 image.UpdatedDate = UpdatedDate;
@@ -86,12 +87,12 @@ namespace Model
 #endregion
         
 #region Filtering
-        public Image GetByImageId(ImageClass data)
+        public Image GetByImageId()
         {
             Image image = new Image();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                image = obj.Images.Where(i => i.Id == data.Id).FirstOrDefault();
+                image = obj.Images.Where(i => i.Id == Id).FirstOrDefault();
             }
             return image;
         }

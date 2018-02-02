@@ -32,6 +32,7 @@ namespace DataModel
         public virtual DbSet<BookingDetail> BookingDetails { get; set; }
         public virtual DbSet<BookingStatu> BookingStatus { get; set; }
         public virtual DbSet<Cancel> Cancels { get; set; }
+        public virtual DbSet<Cinema> Cinemas { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
@@ -41,10 +42,15 @@ namespace DataModel
         public virtual DbSet<Log> Logs { get; set; }
         public virtual DbSet<Master> Masters { get; set; }
         public virtual DbSet<MasterValue> MasterValues { get; set; }
+        public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<PackageDetail> PackageDetails { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
+        public virtual DbSet<Screen> Screens { get; set; }
+        public virtual DbSet<ScreenFare> ScreenFares { get; set; }
+        public virtual DbSet<SeatDesign> SeatDesigns { get; set; }
+        public virtual DbSet<SeatDesignDetail> SeatDesignDetails { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<Station> Stations { get; set; }
         public virtual DbSet<Transport> Transports { get; set; }
