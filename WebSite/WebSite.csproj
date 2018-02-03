@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cinemas.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
     <Content Include="fonts\fontawesome-webfontba72.ttf" />
     <Content Include="fonts\fontawesome-webfontba72.woff" />
@@ -359,6 +360,7 @@
     <Content Include="js\typeahead.js" />
     <Content Include="media\loop.mp4" />
     <Content Include="media\loop.webm" />
+    <Content Include="movies.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="seatavaibility.aspx" />
     <Content Include="setting.aspx" />
@@ -388,6 +390,13 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="cinemas.aspx.cs">
+      <DependentUpon>cinemas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cinemas.aspx.designer.cs">
+      <DependentUpon>cinemas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,6 +417,13 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="movies.aspx.cs">
+      <DependentUpon>movies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="movies.aspx.designer.cs">
+      <DependentUpon>movies.aspx</DependentUpon>
     </Compile>
     <Compile Include="profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>

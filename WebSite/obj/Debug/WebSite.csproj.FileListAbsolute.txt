@@ -32,3 +32,35 @@ E:\.net prac\MovieTicket\WebSite\bin\DataModel.pdb
 E:\.net prac\MovieTicket\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
 E:\.net prac\MovieTicket\WebSite\obj\Debug\WebSite.dll
 E:\.net prac\MovieTicket\WebSite\obj\Debug\WebSite.pdb
+E:\onlinetravelbooking\New folder\WebSite\bin\WebSite.dll.config
+E:\onlinetravelbooking\New folder\WebSite\bin\WebSite.dll
+E:\onlinetravelbooking\New folder\WebSite\bin\WebSite.pdb
+E:\onlinetravelbooking\New folder\WebSite\bin\EntityFramework.dll
+E:\onlinetravelbooking\New folder\WebSite\bin\EntityFramework.SqlServer.dll
+E:\onlinetravelbooking\New folder\WebSite\bin\Model.dll
+E:\onlinetravelbooking\New folder\WebSite\bin\DataModel.dll
+E:\onlinetravelbooking\New folder\WebSite\bin\EntityFramework.xml
+E:\onlinetravelbooking\New folder\WebSite\bin\EntityFramework.SqlServer.xml
+E:\onlinetravelbooking\New folder\WebSite\bin\Model.pdb
+E:\onlinetravelbooking\New folder\WebSite\bin\DataModel.pdb
+E:\onlinetravelbooking\New folder\WebSite\bin\DataModel.dll.config
+E:\onlinetravelbooking\New folder\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\onlinetravelbooking\New folder\WebSite\obj\Debug\WebSite.dll
+E:\onlinetravelbooking\New folder\WebSite\obj\Debug\WebSite.pdb
+E:\onlinetravelbooking\New folder\WebSite\bin\Model.dll.config
+E:\Rishabh Chopra\work\New folder\WebSite\bin\WebSite.dll.config
+E:\Rishabh Chopra\work\New folder\WebSite\bin\WebSite.dll
+E:\Rishabh Chopra\work\New folder\WebSite\bin\WebSite.pdb
+E:\Rishabh Chopra\work\New folder\WebSite\bin\EntityFramework.dll
+E:\Rishabh Chopra\work\New folder\WebSite\bin\EntityFramework.SqlServer.dll
+E:\Rishabh Chopra\work\New folder\WebSite\bin\Model.dll
+E:\Rishabh Chopra\work\New folder\WebSite\bin\DataModel.dll
+E:\Rishabh Chopra\work\New folder\WebSite\bin\EntityFramework.xml
+E:\Rishabh Chopra\work\New folder\WebSite\bin\EntityFramework.SqlServer.xml
+E:\Rishabh Chopra\work\New folder\WebSite\bin\Model.pdb
+E:\Rishabh Chopra\work\New folder\WebSite\bin\Model.dll.config
+E:\Rishabh Chopra\work\New folder\WebSite\bin\DataModel.pdb
+E:\Rishabh Chopra\work\New folder\WebSite\bin\DataModel.dll.config
+E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.dll
+E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.pdb
