@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
+using DataModel;
 namespace Model
 {
    public class AesEncrypt
@@ -37,7 +38,7 @@ namespace Model
 
             return result;
         }
-        public byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
+        private byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
             byte[] decryptedBytes = null;
 
@@ -69,7 +70,7 @@ namespace Model
 
             return decryptedBytes;
         }
-        public byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
+        private byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
         {
             byte[] encryptedBytes = null;
 
@@ -100,6 +101,25 @@ namespace Model
             }
 
             return encryptedBytes;
+        }
+    }
+    public class Loginout
+    {
+        public string login(string username,string password)
+        {
+            try
+            {
+                using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+                {
+                    var query = obj.Users.Where(i => i.UserName == username && i.Password == password).First();
+                    return query.UserName;
+                }
+                    
+            }
+            catch(Exception ex)
+            {
+                return "Invalig Username and Password ...!";
+            }
         }
     }
 }

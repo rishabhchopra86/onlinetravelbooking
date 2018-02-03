@@ -30,7 +30,7 @@ namespace WebSite
             user.Name = Name.Text;
             user.UserName = UserName.Text;
             user.IsActive = true;
-            user.TypeId = 1;
+            user.TypeId = 44;
             user.AddUser();
         }
         public static String GetTimestamp(DateTime value)
