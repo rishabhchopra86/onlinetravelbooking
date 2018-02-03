@@ -26,11 +26,20 @@ namespace WebSite
                 if(Session["type"].ToString()=="Customer")
                 {
                     Response.Redirect("~/profile.aspx");
-                    
+                    Session["Id"] = log.CustomerId((int)u.Id);
                 }
-                else
+                else 
                 {
-                    Response.Redirect("~/admin/profile.aspx");
+                    if (Session["type"].ToString() == "Agent")
+                    {
+                        Session["Id"] = u.Id.ToString();
+                    }
+                    else
+                    {
+                        Session["Id"] = u.Id.ToString();
+                    }
+                    // Response.Redirect("~/admin/profile.aspx");
+                    Response.Redirect("~/");
                 }
             }
             else
@@ -57,6 +66,7 @@ namespace WebSite
                 user.IsActive = true;
                 user.TypeId = log.typeid("Customer");
                 user.AddUser();
+                Response.Redirect("~/CustomerDetail.aspx");
             }
             else
             {

@@ -11,7 +11,7 @@ namespace WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["id"] as string))
+            if (!string.IsNullOrEmpty(Session["Id"] as string))
             {
                 userlogin.InnerText = "Sign Out";
                 userlogin.HRef = "Logout.aspx";

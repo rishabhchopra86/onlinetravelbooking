@@ -142,6 +142,22 @@ namespace Model
                 return query.Id;
             }
         }
+        public int CustomerId(int id)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.Customers.Where(i => i.UserId == id).FirstOrDefault();
+                return query.Id;
+            }
+        }
+        //public int AgentId(int id)
+        //{
+        //    using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+        //    {
+        //        var query = obj.Agents.Where(i => i.UserId == id).FirstOrDefault();
+        //        return query.Id;
+        //    }
+        //}
     }
     class DataToBus
     {

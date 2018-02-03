@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\visual studio\web form\3tier\railwayapi1\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\Model\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
@@ -69,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cinemas.aspx" />
+    <Content Include="CustomerDetail.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
     <Content Include="fonts\fontawesome-webfontba72.ttf" />
     <Content Include="fonts\fontawesome-webfontba72.woff" />
@@ -396,6 +400,13 @@
     </Compile>
     <Compile Include="cinemas.aspx.designer.cs">
       <DependentUpon>cinemas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDetail.aspx.cs">
+      <DependentUpon>CustomerDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetail.aspx.designer.cs">
+      <DependentUpon>CustomerDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
