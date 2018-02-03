@@ -16,22 +16,52 @@ namespace WebSite
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            Loginout log = new Loginout();
+            UserClass u = new UserClass();
+            u=log.login(loginUserName.Text, loginPassword.Text);
+            if (u.TypeId != null)
+            {
+                Session["type"] = log.typeName((int)u.TypeId);
+               
+                if(Session["type"].ToString()=="Customer")
+                {
+                    Response.Redirect("~/profile.aspx");
+                    
+                }
+                else
+                {
+                    Response.Redirect("~/admin/profile.aspx");
+                }
+            }
+            else
+            {
+                errorlogin.Text = "InValid UserName and Password";
+            }
+                
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            AesEncrypt encrypt = new AesEncrypt();
-            String timeStamp = GetTimestamp(DateTime.Now);
-            UserClass user = new UserClass();
-            user.Encrypt = "AES";
-            user.PasswordIv = timeStamp;
-            user.Password = Password.Text;
-            user.Name = Name.Text;
-            user.UserName = UserName.Text;
-            user.IsActive = true;
-            user.TypeId = 44;
-            user.AddUser();
+            if (UserName.Text != "" && Password.Text != "" && Name.Text != "")
+            {
+                Loginout log = new Loginout();
+                AesEncrypt encrypt = new AesEncrypt();
+                String timeStamp = GetTimestamp(DateTime.Now);
+                UserClass user = new UserClass();
+                user.Encrypt = "AES";
+                user.PasswordIv = timeStamp;
+                user.Password = Password.Text;
+                user.Name = Name.Text;
+                user.UserName = UserName.Text;
+                user.IsActive = true;
+                user.TypeId = log.typeid("Customer");
+                user.AddUser();
+            }
+            else
+            {
+                signupmessage.Text = "Information is not as per requirement";
+            }
         }
         public static String GetTimestamp(DateTime value)
         {

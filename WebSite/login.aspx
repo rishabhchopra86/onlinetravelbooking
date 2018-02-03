@@ -148,32 +148,42 @@
                                 <div class="col-md-4">
                                     <h3 class="mb15">Login</h3>
                                     
-                                        <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                            <label>Username or email</label>
-                                            <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
+                                       <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
+                                            <asp:Label ID="errorlogin" runat="server" Text=""  ForeColor="White"></asp:Label>
+                                            <label>Email</label>
+                                             <asp:TextBox ID="loginUserName" runat="server" placeholder="e.g. abc@xyz.com" CssClass="form-control"  TextMode="Email"> </asp:TextBox>
+                                           
                                         </div>
-                                        <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+                                     <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
                                             <label>Password</label>
-                                            <input class="form-control" type="password" placeholder="my secret password" />
-                                        </div>
-                                     <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary" OnClick="Button2_Click"  />
+                                             <asp:TextBox ID="loginPassword" runat="server" placeholder="Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                       
+                                         </div>
+                                   
+                                     <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary" OnClick="Button2_Click" CausesValidation="False"  />
                                    
                                 </div>
                                 <div class="col-md-4">
                                     <h3 class="mb15">New To Journey?</h3>
-                                   
+                                    <asp:Label ID="signupmessage" runat="server" Text=""  ForeColor="White"></asp:Label>
+                                           
                                         <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
                                             <label>Name</label>
                                             <asp:TextBox ID="Name" runat="server" placeholder="Enter Name" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name is Required" ControlToValidate="Name"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
                                             <label>Email</label>
-                                             <asp:TextBox ID="UserName" runat="server" placeholder="e.g. abc@xyz.com" CssClass="form-control"></asp:TextBox>
+                                             <asp:TextBox ID="UserName" runat="server" placeholder="e.g. abc@xyz.com" CssClass="form-control"  TextMode="Email"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email is Required" ControlToValidate="UserName"></asp:RequiredFieldValidator>
+                                        
                                         </div>
                                      <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
                                             <label>Password</label>
-                                             <asp:TextBox ID="Password" runat="server" placeholder="Password" CssClass="form-control"></asp:TextBox>
-                                        </div>
+                                             <asp:TextBox ID="Password" runat="server" placeholder="Password" CssClass="form-control"  TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Password is Required" ControlToValidate="Password"></asp:RequiredFieldValidator>
+                                       
+                                         </div>
                                        
                                      <asp:Button ID="Button1" runat="server" Text="Sign up for Journey" CssClass="btn btn-primary" OnClick="Button1_Click"/>
                                         

@@ -55,4 +55,3 @@ E:\Rishabh Chopra\work\New folder\DataModel\bin\Debug\EntityFramework.xml
 E:\Rishabh Chopra\work\New folder\DataModel\bin\Debug\EntityFramework.SqlServer.xml
 E:\Rishabh Chopra\work\New folder\DataModel\obj\Debug\DataModel.dll
 E:\Rishabh Chopra\work\New folder\DataModel\obj\Debug\DataModel.pdb
-E:\Rishabh Chopra\work\New folder\DataModel\obj\Debug\DataModel.csprojResolveAssemblyReference.cache

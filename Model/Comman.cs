@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 using DataModel;
+using System.Reflection;
+
 namespace Model
 {
    public class AesEncrypt
@@ -105,21 +107,53 @@ namespace Model
     }
     public class Loginout
     {
-        public string login(string username,string password)
+        public UserClass login(string username,string password)
         {
+            UserClass u = new UserClass();
             try
             {
+                DataToBus d = new DataToBus();
+               
                 using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
                 {
-                    var query = obj.Users.Where(i => i.UserName == username && i.Password == password).First();
-                    return query.UserName;
+                    var query = obj.Users.Where(i => i.UserName == username && i.Password == password).FirstOrDefault();
+                    return (UserClass)d.CopyProperties(query, u);
                 }
                     
             }
             catch(Exception ex)
             {
-                return "Invalig Username and Password ...!";
+                return u;
             }
+        }
+        public string typeName(int id)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.MasterValues.Where(i => i.Id == id ).FirstOrDefault();
+                return query.Description;
+            }
+        }
+        public int typeid(string name)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.MasterValues.Where(i => i.Description == name).FirstOrDefault();
+                return query.Id;
+            }
+        }
+    }
+    class DataToBus
+    {
+        public object CopyProperties(object source, object destination)
+        {
+            PropertyInfo[] destinationProperties = destination.GetType().GetProperties();
+            foreach (PropertyInfo destinationPi in destinationProperties)
+            {
+                PropertyInfo sourcePi = source.GetType().GetProperty(destinationPi.Name);
+                destinationPi.SetValue(destination, sourcePi.GetValue(source, null), null);
+            }
+            return destination;
         }
     }
 }
