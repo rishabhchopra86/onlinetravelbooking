@@ -31,7 +31,7 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="tab-1">
                                                 <h2>Search and Save on Hotels</h2>
-                                                <form>
+                                              
                                                     <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                                         <label>Where are you going?</label>
                                                         <input class="typeahead form-control" placeholder="City, Airport, Point of Interest or U.S. Zip Code" type="text" />
@@ -114,13 +114,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                   
-                                                        <asp:Button ID="hotelsearch" cssClass="btn btn-primary btn-lg" runat="server" Text="Search for Hotels" OnClick="hotelsearch_Click"/>
-                                                </form>
+                                                  
+                                                    <asp:Button ID="hotelsearch" cssClass="btn btn-primary btn-lg" runat="server" Text="Search for Hotels" OnClick="hotelsearch_Click"/>
+                                              
                                             </div>
                                             <div class="tab-pane fade" id="tab-2">
                                                 <h2>Search for Flights</h2>
-                                                <form>
+                                               
                                                     <div class="tabbable">
                                                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                                                             <li class="active"><a href="#flight-search-1" data-toggle="tab">Round Trip</a>
@@ -249,12 +249,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
-                                                </form>
+                                                    <asp:Button ID="searchflight" cssClass="btn btn-primary btn-lg" runat="server" Text="Search for Flights" OnClick="searchflight_Click" />
+                                               
                                             </div>
                                               <div class="tab-pane fade" id="tab-3">
                                                 <h2>Search for Trains</h2>
-                                                <form>
+                                             
                                                     <div class="tabbable">
                                                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="trainChooseTab">
                                                             <li class="active"><a href="#train-search-1" data-toggle="tab">Round Trip</a>
@@ -383,13 +383,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary btn-lg" type="submit">Search for Trains</button>
-                                                </form>
+                                                    
+                                                  <asp:Button ID="trainsearch" runat="server" Text="Search for Trains" cssClass="btn btn-primary btn-lg"  OnClick="trainsearch_Click"/>
                                             </div>
                                            <div class="tab-pane fade" id="tab-4">
                                                 <h2>Search for Bus</h2>
-                                                <form>
-                                                    <div class="tabbable">
+                                                      <div class="tabbable">
                                                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="busChooseTab">
                                                             <li class="active"><a href="#bus-search-1" data-toggle="tab">Round Trip</a>
                                                             </li>
@@ -517,12 +516,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary btn-lg" type="submit">Search for Bus</button>
-                                                </form>
+                                                   
+                                             <asp:Button ID="searchbus" runat="server" Text="Search for Bus" cssClass="btn btn-primary btn-lg"  OnClick="searchbus_Click"/>
                                             </div>
                                           <div class="tab-pane fade" id="tab-5">
                                                 <h2>Search for Movies</h2>
-                                                <form>
+                                               
                                                     <div class="tabbable">
                                                         
                                                         <div class="tab-content">
@@ -554,14 +553,12 @@
                                                             </div>
                                                       </div>
                                                     </div>
-                                            
-                                                    <button class="btn btn-primary btn-lg" type="submit">Search for Movies</button>
-                                                </form>
+                                             <asp:Button ID="moviesearch" runat="server" Text=" Search for Movies" cssClass="btn btn-primary btn-lg"  OnClick="moviesearch_Click"/>
                                             </div>
                                      
                                         <div class="tab-pane fade" id="tab-6">
                                                 <h2>Search for Packages</h2>
-                                                <form>
+                                               
                                                     <div class="input-daterange" data-date-format="M d, D">
                                                         <div class="row">
                                                             <div class="col-md-6">
@@ -595,11 +592,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary btn-lg" type="submit">Search for Packages</button>
-                                                </form>
+                                                    <asp:Button ID="packagesearch" runat="server" Text="Search for Packages" cssClass="btn btn-primary btn-lg"  OnClick="packagesearch_Click1" />  
+                                              
                                             </div>
                                         </div>
                                     </div>
+                                  
                                 </div>
                             </div>
                      
@@ -687,7 +685,8 @@
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Africa</h4>
+                                <a href="hotelsearch.aspx" class="thumb-title" >Africa</a>
+                               <!-- <h4 class="thumb-title">Africa</h4>-->
                                 <p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
                             </div>
                         </div>
