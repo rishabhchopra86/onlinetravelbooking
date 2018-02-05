@@ -223,9 +223,9 @@
                              <div class="col-md-12">
                                  <div class="tabbable booking-details-tabbable">
                             <ul class="nav nav-tabs" id="myTab1">
-                                <li class="active"><a href="#tab-11" data-toggle="tab"><i class="fa fa-camera"></i>8-feb</a>
+                                <li class="active"><a href="#tab-11" data-toggle="tab"><i class="fa fa-calendar"></i> 8-feb</a>
                                 </li>
-                                <li><a href="#google-map-tab1" data-toggle="tab"><i class="fa fa-map-marker"></i>9-feb</a>
+                                <li><a href="#google-map-tab1" data-toggle="tab"><i class="fa fa-calendar"></i> 9-feb</a>
                                 </li>
                             </ul>
                             <div class="tab-content">

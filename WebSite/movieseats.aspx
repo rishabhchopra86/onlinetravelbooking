@@ -48,6 +48,14 @@
                   
             </div>
     <div class="container">
+      <div class="col-md-12">
+            <time datetime="2014-09-20" class="icon">
+  <em>Saturday</em>
+  <strong>September</strong>
+  <span>20</span>
+</time>
+      </div>
+
         <div class="col-md-6">  <h1 >
             <span id="moviename" runat="server"></span>
             At 
@@ -69,7 +77,7 @@
             <div class="col-md-12">
                 <div class="plane">
   <div class="cockpit">
-    <h1>Screen this way</h1>
+    <h5>All EYES THIS WAY PLEASE</h5>
   </div>
   <div class="exit exit--front fuselage">
     

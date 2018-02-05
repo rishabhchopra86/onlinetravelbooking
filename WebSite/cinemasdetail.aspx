@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
+  
         <ul class="breadcrumb">
             <li><a href="index-2.html">Home</a>
             </li>
@@ -31,9 +32,7 @@
                             <li><i class="fa fa-phone"></i>+1 (543) 461-7550</li>
                         </ul>
                     </div>
-                    <div class="col-md-3">
-                        <p class="booking-item-header-price"><small>price from</small>  <span class="text-lg">$350</span>/night</p>
-                    </div>
+                  
                 </div>
             </header>
             <div class="row">
@@ -225,9 +224,9 @@
                              <div class="col-md-12">
                                  <div class="tabbable booking-details-tabbable">
                             <ul class="nav nav-tabs" id="myTab1">
-                                <li class="active"><a href="#tab-11" data-toggle="tab"><i class="fa fa-camera"></i>8-feb</a>
+                                <li class="active"><a href="#tab-11" data-toggle="tab"><i class="fa fa-calendar"></i> 8-feb</a>
                                 </li>
-                                <li><a href="#google-map-tab1" data-toggle="tab"><i class="fa fa-map-marker"></i>9-feb</a>
+                                <li><a href="#google-map-tab1" data-toggle="tab"><i class="fa fa-calendar"></i> 9-feb</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
