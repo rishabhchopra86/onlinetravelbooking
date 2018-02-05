@@ -78,6 +78,10 @@
     <Content Include="fonts\icomoonba72.ttf" />
     <Content Include="fonts\icomoonba72.woff" />
     <Content Include="fonts\icomoond41d.eot" />
+    <Content Include="img\aircraft.jpg" />
+    <Content Include="img\flightimage.jpg" />
+    <Content Include="img\images.jpg" />
+    <Content Include="img\train.jpg" />
     <Content Include="login.aspx" />
     <Content Include="Master.Master" />
     <None Include="Web.Debug.config">

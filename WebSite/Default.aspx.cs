@@ -13,5 +13,15 @@ namespace WebSite
         {
 
         }
+
+        protected void hotelsearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("hotelsearch.aspx");
+        }
+
+        protected void flightsearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("flightsearch.aspx");
+        }
     }
 }
