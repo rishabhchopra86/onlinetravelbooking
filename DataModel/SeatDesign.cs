@@ -14,19 +14,9 @@ namespace DataModel
     
     public partial class SeatDesign
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SeatDesign()
-        {
-            this.SeatDesignDetails = new HashSet<SeatDesignDetail>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> ScreenId { get; set; }
         public Nullable<int> NoOfRows { get; set; }
         public Nullable<int> NoOfColumns { get; set; }
-    
-        public virtual Screen Screen { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SeatDesignDetail> SeatDesignDetails { get; set; }
     }
 }

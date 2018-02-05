@@ -21,8 +21,5 @@ namespace DataModel
         public Nullable<double> Ratings { get; set; }
         public string Review1 { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
     }
 }

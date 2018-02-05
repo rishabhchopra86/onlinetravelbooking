@@ -64,3 +64,19 @@ E:\Rishabh Chopra\work\New folder\WebSite\bin\DataModel.dll.config
 E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
 E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.dll
 E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.pdb
+E:\krishna\TicketBooking\WebSite\bin\WebSite.dll.config
+E:\krishna\TicketBooking\WebSite\bin\WebSite.dll
+E:\krishna\TicketBooking\WebSite\bin\WebSite.pdb
+E:\krishna\TicketBooking\WebSite\bin\EntityFramework.dll
+E:\krishna\TicketBooking\WebSite\bin\EntityFramework.SqlServer.dll
+E:\krishna\TicketBooking\WebSite\bin\Model.dll
+E:\krishna\TicketBooking\WebSite\bin\DataModel.dll
+E:\krishna\TicketBooking\WebSite\bin\EntityFramework.xml
+E:\krishna\TicketBooking\WebSite\bin\EntityFramework.SqlServer.xml
+E:\krishna\TicketBooking\WebSite\bin\Model.pdb
+E:\krishna\TicketBooking\WebSite\bin\Model.dll.config
+E:\krishna\TicketBooking\WebSite\bin\DataModel.pdb
+E:\krishna\TicketBooking\WebSite\bin\DataModel.dll.config
+E:\krishna\TicketBooking\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\krishna\TicketBooking\WebSite\obj\Debug\WebSite.dll
+E:\krishna\TicketBooking\WebSite\obj\Debug\WebSite.pdb

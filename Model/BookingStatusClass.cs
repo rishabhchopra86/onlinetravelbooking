@@ -4,36 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using System.Reflection;
+
 namespace Model
 {
-   public class BookingStatusClass
+   public class BookingStatusClass:BookingStatu
     {
-        public int Id { get; set; }
-        public Nullable<int> BookingId { get; set; }
-        public string PnrNo { get; set; }
-        public Nullable<int> PnrStatus { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-        public Nullable<bool> IsCancel { get; set; }
-
+  
 #region CRUD
         public void AddBookingStatus()
         {
            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
            {
                BookingStatu bookingstatus = new BookingStatu();
-               bookingstatus.BookingId = BookingId;
-               bookingstatus.PnrNo = PnrNo;
-               bookingstatus.PnrStatus = PnrStatus;
-               bookingstatus.CreatedBy = CreatedBy;
-               bookingstatus.CreatedDate = CreatedDate;
-               bookingstatus.UpdatedBy = UpdatedBy;
-               bookingstatus.UpdatedDate = UpdatedDate;
-               bookingstatus.IsActive = IsActive;
-               bookingstatus.IsCancel = IsCancel;
+               bookingstatus.BookingId = this.BookingId;
+               bookingstatus.PnrNo = this.PnrNo;
+               bookingstatus.PnrStatus = this.PnrStatus;
+               bookingstatus.CreatedBy = this.CreatedBy;
+               bookingstatus.CreatedDate = this.CreatedDate;
+               bookingstatus.UpdatedBy = this.UpdatedBy;
+               bookingstatus.UpdatedDate = this.UpdatedDate;
+               bookingstatus.IsActive = this.IsActive;
+               bookingstatus.IsCancel = this.IsCancel;
 
                obj.BookingStatus.Add(bookingstatus);
                obj.SaveChanges();
@@ -44,7 +36,7 @@ namespace Model
        {
            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
            {
-               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == Id).FirstOrDefault();
+               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == this.Id).FirstOrDefault();
                 bookingstatus.IsActive = IsActive;
 
                 obj.SaveChanges();
@@ -55,40 +47,58 @@ namespace Model
        {
            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
            {
-               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == Id).FirstOrDefault();
-               bookingstatus.BookingId = BookingId;
-               bookingstatus.PnrNo = PnrNo;
-               bookingstatus.PnrStatus = PnrStatus;
-               bookingstatus.CreatedBy = CreatedBy;
-               bookingstatus.CreatedDate = CreatedDate;
-               bookingstatus.UpdatedBy = UpdatedBy;
-               bookingstatus.UpdatedDate = UpdatedDate;
-               bookingstatus.IsActive = IsActive;
-               bookingstatus.IsCancel = IsCancel;
+               BookingStatu bookingstatus = obj.BookingStatus.Where(bs => bs.Id == this.Id).FirstOrDefault();
+               bookingstatus.BookingId = this.BookingId;
+               bookingstatus.PnrNo = this.PnrNo;
+               bookingstatus.PnrStatus = this.PnrStatus;
+               bookingstatus.CreatedBy = this.CreatedBy;
+               bookingstatus.CreatedDate = this.CreatedDate;
+               bookingstatus.UpdatedBy = this.UpdatedBy;
+               bookingstatus.UpdatedDate = this.UpdatedDate;
+               bookingstatus.IsActive = this.IsActive;
+               bookingstatus.IsCancel = this.IsCancel;
 
                obj.SaveChanges();
            }
        }
-       public List<BookingStatu> GetAllBookingStatus()
+       public List<BookingStatusClass> GetAllBookingStatus()
        {
            List<BookingStatu> bookinglst = new List<BookingStatu>();
-           using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            List<BookingStatusClass> bookinglstclass = new List<BookingStatusClass>();
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
            {
                bookinglst = obj.BookingStatus.ToList();
+                foreach(var status in bookinglst)
+                {
+                    bookinglstclass.Add((BookingStatusClass)CopyProperties(status, this));
+                }
            }
-           return bookinglst;
+           return bookinglstclass;
        }
-#endregion
 
- #region Filtering
-       public BookingStatu GetByBookingStatusId()
+        public object CopyProperties(object source, object destination)
+        {
+            PropertyInfo[] destinationProperties = destination.GetType().GetProperties();
+            foreach (PropertyInfo destinationPi in destinationProperties)
+            {
+                PropertyInfo sourcePi = source.GetType().GetProperty(destinationPi.Name);
+                destinationPi.SetValue(destination, sourcePi.GetValue(source, null), null);
+            }
+            return destination;
+        }
+        #endregion
+
+        #region Filtering
+        public BookingStatusClass GetByBookingStatusId()
        {
            BookingStatu booking = new BookingStatu();
+            BookingStatusClass bookingstatusclass;
            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
            {
                booking = obj.BookingStatus.Where(bs => bs.Id == Id).FirstOrDefault();
+                bookingstatusclass=((BookingStatusClass)CopyProperties(booking,this));
            }
-           return booking;
+           return bookingstatusclass;
        }
  #endregion
 

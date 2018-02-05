@@ -138,6 +138,12 @@
     <Compile Include="ScreenFare.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ScreenMaster.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenMovie.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SeatDesign.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

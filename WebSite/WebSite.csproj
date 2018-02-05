@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="busseatavialble.aspx" />
     <Content Include="cinemas.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
     <Content Include="fonts\fontawesome-webfontba72.ttf" />
@@ -389,6 +390,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="busseatavialble.aspx.cs">
+      <DependentUpon>busseatavialble.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="busseatavialble.aspx.designer.cs">
+      <DependentUpon>busseatavialble.aspx</DependentUpon>
     </Compile>
     <Compile Include="cinemas.aspx.cs">
       <DependentUpon>cinemas.aspx</DependentUpon>

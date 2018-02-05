@@ -14,21 +14,12 @@ namespace DataModel
     
     public partial class Transport
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Transport()
-        {
-            this.Cancels = new HashSet<Cancel>();
-            this.Fares = new HashSet<Fare>();
-            this.TransportDetails = new HashSet<TransportDetail>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> TypeId { get; set; }
         public string TransportNo { get; set; }
         public Nullable<int> AgentId { get; set; }
-        public string Source { get; set; }
-        public string Destination { get; set; }
-        public Nullable<int> AminitiesId { get; set; }
+        public Nullable<int> SourceStationId { get; set; }
+        public Nullable<int> DestinationStationId { get; set; }
         public Nullable<bool> Monday { get; set; }
         public Nullable<bool> Tuesday { get; set; }
         public Nullable<bool> Wednesday { get; set; }
@@ -42,17 +33,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual Agent Agent { get; set; }
-        public virtual Aminity Aminity { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cancel> Cancels { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Fare> Fares { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransportDetail> TransportDetails { get; set; }
-        public virtual User User1 { get; set; }
     }
 }

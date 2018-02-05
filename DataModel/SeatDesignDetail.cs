@@ -19,7 +19,5 @@ namespace DataModel
         public Nullable<int> Rows { get; set; }
         public Nullable<int> Columns { get; set; }
         public Nullable<bool> Button { get; set; }
-    
-        public virtual SeatDesign SeatDesign { get; set; }
     }
 }

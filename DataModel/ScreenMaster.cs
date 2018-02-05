@@ -12,14 +12,13 @@ namespace DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PackageDetail
+    public partial class ScreenMaster
     {
         public int Id { get; set; }
-        public Nullable<int> PackageId { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTCId { get; set; }
-        public Nullable<bool> Sidescene { get; set; }
-        public Nullable<int> FareId { get; set; }
+        public Nullable<int> CinemasId { get; set; }
+        public string ScreenName { get; set; }
+        public string TotalSeats { get; set; }
+        public Nullable<int> ScreenDesignId { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

@@ -4,35 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using System.Reflection;
 
 namespace Model
 {
-    public class AvilableSeatClass
+    public class AvilableSeatClass:AvailableSeat
     {
-        public int Id { get; set; }
-        public Nullable<int> FareId { get; set; }
-        public Nullable<int> Seat { get; set; }
-        public Nullable<int> SeatStatus { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-
+        
 #region CRUD
         public void AddAvilableSeat()
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 AvailableSeat avilableseat = new AvailableSeat();
-                avilableseat.FareId = FareId;
-                avilableseat.Seat = Seat;
-                avilableseat.SeatStatus = SeatStatus;
-                avilableseat.CreatedBy = CreatedBy;
-                avilableseat.CreatedDate = CreatedDate;
-                avilableseat.UpdatedBy = UpdatedBy;
-                avilableseat.UpdatedDate = UpdatedDate;
-                avilableseat.IsActive = IsActive;
+                avilableseat.FareId = this.FareId;
+                avilableseat.Seat = this.Seat;
+                avilableseat.SeatStatus = this.SeatStatus;
+                avilableseat.CreatedBy = this.CreatedBy;
+                avilableseat.CreatedDate = this.CreatedDate;
+                avilableseat.UpdatedBy = this.UpdatedBy;
+                avilableseat.UpdatedDate = this.UpdatedDate;
+                avilableseat.IsActive = this.IsActive;
 
                 obj.AvailableSeats.Add(avilableseat);
                 obj.SaveChanges();
@@ -44,7 +36,7 @@ namespace Model
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
+                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == this.Id).FirstOrDefault();
                 avilableseat.IsActive = IsActive;
 
                 obj.SaveChanges();
@@ -55,40 +47,57 @@ namespace Model
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
-                avilableseat.FareId = FareId;
-                avilableseat.Seat = Seat;
-                avilableseat.SeatStatus = SeatStatus;
-                avilableseat.CreatedBy = CreatedBy;
-                avilableseat.CreatedDate = CreatedDate;
-                avilableseat.UpdatedBy = UpdatedBy;
-                avilableseat.UpdatedDate = UpdatedDate;
-                avilableseat.IsActive = IsActive;
+                AvailableSeat avilableseat = obj.AvailableSeats.Where(avls => avls.Id == this.Id).FirstOrDefault();
+                avilableseat.FareId = this.FareId;
+                avilableseat.Seat = this.Seat;
+                avilableseat.SeatStatus = this.SeatStatus;
+                avilableseat.CreatedBy = this.CreatedBy;
+                avilableseat.CreatedDate = this.CreatedDate;
+                avilableseat.UpdatedBy = this.UpdatedBy;
+                avilableseat.UpdatedDate = this.UpdatedDate;
+                avilableseat.IsActive = this.IsActive;
 
                 obj.SaveChanges();
             }
         }
 
-        public List<AvailableSeat> GetAllAvailableSeat()
+        public List<AvilableSeatClass> GetAllAvailableSeat()
         {
-            List<AvailableSeat> seatList = new List<AvailableSeat>();
+            List<AvailableSeat> seatlist = new List<AvailableSeat>();
+            List<AvilableSeatClass> seatclasslist = new List<AvilableSeatClass>();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                seatList = obj.AvailableSeats.ToList();
+                seatlist = obj.AvailableSeats.ToList();
+                foreach(var seat in seatlist)
+                {
+                    seatclasslist.Add((AvilableSeatClass)CopyProperties(seat,this));
+                }
             }
-            return seatList;
+            return seatclasslist;
         }
-#endregion
+        public object CopyProperties(object source, object destination)
+        {
+            PropertyInfo[] destinationProperties = destination.GetType().GetProperties();
+            foreach (PropertyInfo destinationPi in destinationProperties)
+            {
+                PropertyInfo sourcePi = source.GetType().GetProperty(destinationPi.Name);
+                destinationPi.SetValue(destination, sourcePi.GetValue(source, null), null);
+            }
+            return destination;
+        }
+        #endregion
 
-#region Filtering
-        public AvailableSeat GetByAvailableSeatId()
+        #region Filtering
+        public AvilableSeatClass GetByAvailableSeatId()
         {
             AvailableSeat availableseat = new AvailableSeat();
+            AvilableSeatClass availableseatclass;
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                availableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
+                availableseat = obj.AvailableSeats.Where(avls => avls.Id == this.Id).FirstOrDefault();
+                availableseatclass = (AvilableSeatClass)CopyProperties(availableseat, this);
             }
-            return availableseat;
+            return availableseatclass;
         }
 #endregion
 

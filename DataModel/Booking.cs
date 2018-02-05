@@ -14,16 +14,9 @@ namespace DataModel
     
     public partial class Booking
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Booking()
-        {
-            this.BookingDetails = new HashSet<BookingDetail>();
-            this.BookingStatus = new HashSet<BookingStatu>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> TypeId { get; set; }
-        public string BookCode { get; set; }
+        public string BookingCode { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public Nullable<System.DateTime> BookingDate { get; set; }
         public Nullable<System.DateTime> CheckoutDate { get; set; }
@@ -42,18 +35,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual City City { get; set; }
-        public virtual User User { get; set; }
-        public virtual Fare Fare { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingDetail> BookingDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingStatu> BookingStatus { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
-        public virtual MasterValue MasterValue1 { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual MasterValue MasterValue2 { get; set; }
     }
 }

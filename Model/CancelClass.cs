@@ -4,35 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using System.Reflection;
 
 namespace Model
 {
-    public class CancelClass
+    public class CancelClass:Cancel
     {
-        public int Id { get; set; }
-        public Nullable<int> TransportId { get; set; }
-        public string CancelRules { get; set; }
-        public Nullable<double> RatePer { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-
+ 
 #region CRUD
         public void AddCancel()
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
                 Cancel cancel = new Cancel();
-                cancel.TransportId = TransportId;
-                cancel.CancelRules = CancelRules;
-                cancel.RatePer = RatePer;
-                cancel.CreatedBy = CreatedBy;
-                cancel.CreatedDate = CreatedDate;
-                cancel.UpdatedBy = UpdatedBy;
-                cancel.UpdatedDate = UpdatedDate;
-                cancel.IsActive = IsActive;
+                cancel.TransportId = this.TransportId;
+                cancel.CancelRules = this.CancelRules;
+                cancel.RatePer = this.RatePer;
+                cancel.CreatedBy = this.CreatedBy;
+                cancel.CreatedDate = this.CreatedDate;
+                cancel.UpdatedBy = this.UpdatedBy;
+                cancel.UpdatedDate = this.UpdatedDate;
+                cancel.IsActive = this.IsActive;
 
                 obj.Cancels.Add(cancel);
                 obj.SaveChanges();
@@ -43,7 +35,7 @@ namespace Model
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Cancel cancel = obj.Cancels.Where(c => c.Id == Id).FirstOrDefault();
+                Cancel cancel = obj.Cancels.Where(c => c.Id == this.Id).FirstOrDefault();
                 cancel.IsActive = IsActive;
 
                 obj.SaveChanges();
@@ -54,42 +46,59 @@ namespace Model
         {
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Cancel cancel = obj.Cancels.Where(c => c.Id == Id).FirstOrDefault();
-                cancel.TransportId = TransportId;
-                cancel.CancelRules = CancelRules;
-                cancel.RatePer = RatePer;
-                cancel.CreatedBy = CreatedBy;
-                cancel.CreatedDate = CreatedDate;
-                cancel.UpdatedBy = UpdatedBy;
-                cancel.UpdatedDate = UpdatedDate;
-                cancel.IsActive = IsActive;
+                Cancel cancel = obj.Cancels.Where(c => c.Id == this.Id).FirstOrDefault();
+                cancel.TransportId = this.TransportId;
+                cancel.CancelRules = this.CancelRules;
+                cancel.RatePer = this.RatePer;
+                cancel.CreatedBy = this.CreatedBy;
+                cancel.CreatedDate = this.CreatedDate;
+                cancel.UpdatedBy = this.UpdatedBy;
+                cancel.UpdatedDate = this.UpdatedDate;
+                cancel.IsActive = this.IsActive;
 
                 obj.SaveChanges();
                 
             }
         }
 
-        public List<Cancel> GetAllCancelValue()
+        public List<CancelClass> GetAllCancelValue()
         {
             List<Cancel> cancellst = new List<Cancel>();
+            List<CancelClass> cancellstclass = new List<CancelClass>();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 cancellst = obj.Cancels.ToList();
+                foreach(var cancel in cancellst)
+                {
+                    cancellstclass.Add((CancelClass)CopyProperties(cancel, this));
+                }
             }
-            return cancellst;
+            return cancellstclass;
         }
 
+        public object CopyProperties(object source, object destination)
+        {
+            PropertyInfo[] destinationProperties = destination.GetType().GetProperties();
+            foreach (PropertyInfo destinationPi in destinationProperties)
+            {
+                PropertyInfo sourcePi = source.GetType().GetProperty(destinationPi.Name);
+                destinationPi.SetValue(destination, sourcePi.GetValue(source, null), null);
+            }
+            return destination;
+        }
 #endregion
 
 #region Filtering
-        public Cancel GetByCancelId()
+        public CancelClass GetByCancelId()
         {
             Cancel cancel=new Cancel();
-            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+            CancelClass cancelclass;
+            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
                 cancel = obj.Cancels.Where(c => c.Id == Id).FirstOrDefault();
+                cancelclass = (CancelClass)CopyProperties(cancel, this);
             }
-            return cancel;
+            return cancelclass;
         }
 #endregion
 

@@ -4,20 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using System.Reflection;
 
 namespace Model
 {
-   public class AminitiesClass
+   public class AminitiesClass:Aminity
     {
 
-        public int Id { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTCId { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+      
 
 #region CRUD
         public void AddAminities()
@@ -25,13 +19,13 @@ namespace Model
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
                 Aminity aminity = new Aminity();
-                aminity.TypeId = TypeId;
-                aminity.RTCId = RTCId;
-                aminity.CreatedBy = CreatedBy;
-                aminity.CreatedDate = CreatedDate;
-                aminity.UpdatedBy = UpdatedBy;
-                aminity.UpdatedDate = UpdatedDate;
-                aminity.IsActive = IsActive;
+                aminity.TypeId = this.TypeId;
+                aminity.RTCId = this.RTCId;
+                aminity.CreatedBy = this.CreatedBy;
+                aminity.CreatedDate = this.CreatedDate;
+                aminity.UpdatedBy = this.UpdatedBy;
+                aminity.UpdatedDate = this.UpdatedDate;
+                aminity.IsActive = this.IsActive;
 
                 obj.Aminities.Add(aminity);
                 obj.SaveChanges();
@@ -43,7 +37,7 @@ namespace Model
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Aminity aminity = obj.Aminities.Where(am => am.Id == Id).FirstOrDefault();
+                Aminity aminity = obj.Aminities.Where(am => am.Id == this.Id).FirstOrDefault();
                 aminity.IsActive = IsActive;
                 obj.SaveChanges();
             }
@@ -53,40 +47,58 @@ namespace Model
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                Aminity aminity = obj.Aminities.Where(am => am.Id == Id).FirstOrDefault();
-                aminity.TypeId = TypeId;
-                aminity.RTCId = RTCId;
-                aminity.CreatedBy = CreatedBy;
-                aminity.CreatedDate = CreatedDate;
-                aminity.UpdatedBy = UpdatedBy;
-                aminity.UpdatedDate = UpdatedDate;
-                aminity.IsActive = IsActive;
+                Aminity aminity = obj.Aminities.Where(am => am.Id == this.Id).FirstOrDefault();
+                aminity.TypeId = this.TypeId;
+                aminity.RTCId = this.RTCId;
+                aminity.CreatedBy = this.CreatedBy;
+                aminity.CreatedDate = this.CreatedDate;
+                aminity.UpdatedBy = this.UpdatedBy;
+                aminity.UpdatedDate = this.UpdatedDate;
+                aminity.IsActive = this.IsActive;
 
                 obj.SaveChanges();
             }
         }
 
-        public List<Aminity> GetAllAminities()
+        public List<AminitiesClass> GetAllAminities()
         {
-            List<Aminity> aminityList = new List<Aminity>();
+            List<Aminity> aminitylist = new List<Aminity>();
+            List<AminitiesClass> aminityclassList = new List<AminitiesClass>();
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                aminityList = obj.Aminities.ToList();
+                aminitylist = obj.Aminities.ToList();
+                foreach (var ami in aminitylist)
+                {
+                    aminityclassList.Add((AminitiesClass)CopyProperties(ami, this));
+                }
             }
-            return aminityList;
+            return aminityclassList;
         }
-#endregion
 
- #region Filtering
-        public Aminity GetByAminitiesId()
+        public object CopyProperties(object source, object destination)
+        {
+            PropertyInfo[] destinationProperties = destination.GetType().GetProperties();
+            foreach (PropertyInfo destinationPi in destinationProperties)
+            {
+                PropertyInfo sourcePi = source.GetType().GetProperty(destinationPi.Name);
+                destinationPi.SetValue(destination, sourcePi.GetValue(source, null), null);
+            }
+            return destination;
+        }
+ #endregion
+
+#region Filtering
+        public AminitiesClass GetByAminitiesId()
         {
             Aminity aminity = new Aminity();
+            AminitiesClass aminityclass;
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                aminity = obj.Aminities.Where(am=> am.Id == Id).FirstOrDefault();
+                aminity = obj.Aminities.Where(am=> am.Id == this.Id).FirstOrDefault();
+                aminityclass = (AminitiesClass)CopyProperties(aminity, this);
             }
-            return aminity;
-        }
-        #endregion
+            return aminityclass;
+         }
+#endregion
     }
 }

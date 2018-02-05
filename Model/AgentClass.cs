@@ -4,28 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using System.Reflection;
 
 namespace Model
 {
-    public class AgentClass
+    public class AgentClass:Agent
     {
-        public int Id { get; set; }
-        public string TravellerName { get; set; }
-        public string TravellerLogo { get; set; }
-        public string Address { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string MiddleName { get; set; }
-        public Nullable<int> MobileNo { get; set; }
-        public Nullable<int> AlternateMobileNo { get; set; }
-        public Nullable<int> CityId { get; set; }
-        public Nullable<int> Ratings { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-
+       
 #region CRUD
 
         public void AddAgent()
@@ -33,21 +18,21 @@ namespace Model
             using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
                 Agent agent = new Agent();
-                agent.TravellerName = TravellerName;
-                agent.TravellerLogo = TravellerLogo;
-                agent.Address = Address;
-                agent.FirstName = FirstName;
-                agent.LastName = LastName;
-                agent.MiddleName = MiddleName;
-                agent.MobileNo = MobileNo;
-                agent.AlternateMobileNo = AlternateMobileNo;
-                agent.CityId = CityId;
-                agent.Ratings = Ratings;
-                agent.CreatedBy = CreatedBy;
-                agent.CreatedDate = CreatedDate;
-                agent.UpdatedBy = UpdatedBy;
-                agent.UpdatedDate = UpdatedDate;
-                agent.IsActive = IsActive;
+                agent.TravellerName =this.TravellerName;
+                agent.TravellerLogo = this.TravellerLogo;
+                agent.Address = this.Address;
+                agent.FirstName = this.FirstName;
+                agent.LastName = this.LastName;
+                agent.MiddleName = this.MiddleName;
+                agent.MobileNo = this.MobileNo;
+                agent.AlternateMobileNo = this.AlternateMobileNo;
+                agent.CityId = this.CityId;
+                agent.Ratings = this.Ratings;
+                agent.CreatedBy = this.CreatedBy;
+                agent.CreatedDate = this.CreatedDate;
+                agent.UpdatedBy = this.UpdatedBy;
+                agent.UpdatedDate = this.UpdatedDate;
+                agent.IsActive = this.IsActive;
 
                 obj.Agents.Add(agent);
                 obj.SaveChanges();
@@ -59,7 +44,7 @@ namespace Model
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Agent agent = obj.Agents.Where(a => a.Id == Id).FirstOrDefault();
+                Agent agent = obj.Agents.Where(a => a.Id == this.Id).FirstOrDefault();
                 agent.IsActive = IsActive;
                 obj.SaveChanges();
             }
@@ -69,48 +54,66 @@ namespace Model
         {
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                Agent agent = obj.Agents.Where(a=> a.Id == Id).FirstOrDefault();
-                agent.TravellerName = TravellerName;
-                agent.TravellerLogo = TravellerLogo;
-                agent.Address = Address;
-                agent.FirstName = FirstName;
-                agent.LastName = LastName;
-                agent.MiddleName = MiddleName;
-                agent.MobileNo = MobileNo;
-                agent.AlternateMobileNo = AlternateMobileNo;
-                agent.CityId = CityId;
-                agent.Ratings = Ratings;
-                agent.CreatedBy = CreatedBy;
-                agent.CreatedDate = CreatedDate;
-                agent.UpdatedBy = UpdatedBy;
-                agent.UpdatedDate = UpdatedDate;
-                agent.IsActive = IsActive;
+                Agent agent = obj.Agents.Where(a=> a.Id == this.Id).FirstOrDefault();
+                agent.TravellerName = this.TravellerName;
+                agent.TravellerLogo = this.TravellerLogo;
+                agent.Address = this.Address;
+                agent.FirstName = this.FirstName;
+                agent.LastName = this.LastName;
+                agent.MiddleName = this.MiddleName;
+                agent.MobileNo = this.MobileNo;
+                agent.AlternateMobileNo = this.AlternateMobileNo;
+                agent.CityId = this.CityId;
+                agent.Ratings = this.Ratings;
+                agent.CreatedBy = this.CreatedBy;
+                agent.CreatedDate = this.CreatedDate;
+                agent.UpdatedBy = this.UpdatedBy;
+                agent.UpdatedDate = this.UpdatedDate;
+                agent.IsActive = this.IsActive;
                 
                 obj.SaveChanges();
             }
         }
 
-        public List<Agent>GetAllAgent()
+        public List<AgentClass>GetAllAgent()
         {
             List<Agent> agentList=new List<Agent>();
+            List<AgentClass> agentclasslist = new List<AgentClass>();
             using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
                 agentList=obj.Agents.ToList();
+                foreach(var age in agentList)
+                {
+                    agentclasslist.Add((AgentClass)CopyProperties(age, this));
+                }
             }
-            return agentList;
+            return agentclasslist;
+        }
+
+        public object CopyProperties(object source, object destination)
+        {
+            PropertyInfo[] destinationProperties = destination.GetType().GetProperties();
+            foreach (PropertyInfo destinationPi in destinationProperties)
+            {
+                PropertyInfo sourcePi = source.GetType().GetProperty(destinationPi.Name);
+                destinationPi.SetValue(destination, sourcePi.GetValue(source, null), null);
+            }
+            return destination;
         }
 
 #endregion
 
-#region Filtering
-        public Agent GetByAgentId()
+ #region Filtering
+        public AgentClass GetByAgentId()
         {
             Agent agent=new Agent();
-            using(OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+            AgentClass agentclass;
+            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
             {
-                 agent = obj.Agents.Where(a => a.Id == Id).FirstOrDefault();
+                 agent = obj.Agents.Where(a => a.Id == this.Id).FirstOrDefault();
+                agentclass= (AgentClass)CopyProperties(agent, this);
             }
-            return agent;
+            return agentclass;
         }
 #endregion
     }

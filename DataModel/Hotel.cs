@@ -14,12 +14,6 @@ namespace DataModel
     
     public partial class Hotel
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hotel()
-        {
-            this.Rooms = new HashSet<Room>();
-        }
-    
         public int Id { get; set; }
         public string HotelName { get; set; }
         public string HotelDescription { get; set; }
@@ -38,13 +32,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual City City { get; set; }
-        public virtual User User { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual Image Image { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
     }
 }
