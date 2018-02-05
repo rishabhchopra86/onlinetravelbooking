@@ -80,9 +80,9 @@
     <Compile Include="UserClass.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataModel\DataModel.csproj">
+    <ProjectReference Include="..\DataModel\OnlineTicketDL.csproj">
       <Project>{46730ab8-5e2b-4d5d-a448-52665bfd6e8f}</Project>
-      <Name>DataModel</Name>
+      <Name>OnlineTicketDL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

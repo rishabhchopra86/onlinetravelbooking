@@ -79,8 +79,8 @@
                                                     <div class="col-md-9">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                                            <asp:TextBox cssClass="form-control" runat="server" ID="txtMovieDate"></asp:TextBox>
-                                                            <ajax:CalendarExtender  ID="Calendarextender1" runat="server" TargetControlID="txtMovieDate" Animated="true" DefaultView="Days" Format="dd/MM/yyyy"></ajax:CalendarExtender>
+                                                            <asp:TextBox CssClass="form-control" runat="server" ID="txtMovieDate"></asp:TextBox>
+                                                            <ajax:CalendarExtender ID="Calendarextender1" runat="server" CssClass="cal_Theme1" TargetControlID="txtMovieDate" Animated="true" DefaultView="Days" Format="dd/MM/yyyy"></ajax:CalendarExtender>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,42 +90,60 @@
                                                     <label class="col-md-3 label-control" for="projectinput6">Start Time</label>
                                                     <div class="col-md-9">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                                            <asp:TextBox cssClass="form-control" runat="server" ID="txtStartTime"></asp:TextBox>
-                                                            <ajax:CalendarExtender  ID="Calendarextender2" runat="server" TargetControlID="txtStartTime" Animated="true" Format="dd-MM-yyyy HH':'mm':'ss"></ajax:CalendarExtender>
+                                                            <asp:TextBox ID="txtStartTime" CssClass="form-control" runat="server" placeholder="hh:mm:ss (eg:12:45:12)" />
+                                                            <ajax:MaskedEditExtender ID="MaskedEditExtender3" runat="server"
+                                                                TargetControlID="txtStartTime"
+                                                                Mask="99:99:99"
+                                                                MessageValidatorTip="true"
+                                                                OnFocusCssClass="MaskedEditFocus"
+                                                                OnInvalidCssClass="MaskedEditError"
+                                                                MaskType="Time"
+                                                                AcceptAMPM="True"
+                                                                ErrorTooltipEnabled="True" />
+                                                            <br />
+                                                            <em><span style="font-size: 8pt">Tip: Type 'A' or 'P' to switch AM/PM</span></em>
+                                                            <br />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="projectinput6">End Time</label>
                                                     <div class="col-md-9">
-
                                                         <div class="input-group">
-                                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                                            <asp:TextBox cssClass="form-control" runat="server" ID="TextBox2"></asp:TextBox>
+                                                            <asp:TextBox ID="txtEndTime" CssClass="form-control" runat="server" placeholder="hh:mm:ss (eg:12:45:12)" />
+                                                            <ajax:MaskedEditExtender ID="MaskedEditExtender1" runat="server"
+                                                                TargetControlID="txtEndTime"
+                                                                Mask="99:99:99"
+                                                                MessageValidatorTip="true"
+                                                                OnFocusCssClass="MaskedEditFocus"
+                                                                OnInvalidCssClass="MaskedEditError"
+                                                                MaskType="Time"
+                                                                AcceptAMPM="True"
+                                                                ErrorTooltipEnabled="True" />
+                                                            <br />
+                                                            <em><span style="font-size: 8pt">Tip: Type 'A' or 'P' to switch AM/PM</span></em>
+                                                            <br />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput6">Date</label>
-                                                    <div class="col-md-9">
 
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="projectinput6">Available Seat</label>
+                                                    <div class="col-md-9">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                                            <asp:TextBox cssClass="form-control" runat="server" ID="TextBox3"></asp:TextBox>
+                                                            <asp:TextBox CssClass="form-control" runat="server" ID="txtAvailableSeat"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput6">Date</label>
-                                                    <div class="col-md-9">
 
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                                            <asp:TextBox cssClass="form-control" runat="server" ID="TextBox4"></asp:TextBox>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="projectinput6">2D/3D</label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-group custom-radio">
+                                                            <asp:RadioButton CssClass="custom-radio" Checked="true" GroupName="dimension" runat="server" Text="2D" ID="rdb2d"></asp:RadioButton>
+                                                            <br />
+                                                            <asp:RadioButton CssClass="custom-radio" GroupName="dimension" runat="server" Text="3D" ID="rdb3d"></asp:RadioButton>
                                                         </div>
                                                     </div>
                                                 </div>

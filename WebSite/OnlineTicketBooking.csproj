@@ -75,7 +75,9 @@
     <Content Include="Admin\AddScreen.aspx" />
     <Content Include="Admin\AddScreenMovie.aspx" />
     <Content Include="Admin\AddTheatre.aspx" />
+    <Content Include="Admin\app-assets\css\CalenderCss.css" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\ScreenFare.aspx" />
     <Content Include="Admin\test.aspx" />
     <Content Include="cinemas.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
@@ -424,6 +426,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Admin\ScreenFare.aspx.cs">
+      <DependentUpon>ScreenFare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ScreenFare.aspx.designer.cs">
+      <DependentUpon>ScreenFare.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -599,7 +608,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\app-assets\css\" />
     <Folder Include="Admin\app-assets\data\" />
     <Folder Include="Admin\app-assets\fonts\" />
     <Folder Include="Admin\app-assets\images\" />

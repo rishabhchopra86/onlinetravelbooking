@@ -5,46 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel;
 
-namespace Model
+namespace OnlineTicketBL
 {
-    public class UserClass
+    public class UserClass :User
     {
-        public int Id { get; set; }
-        public string UserCode { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public string PasswordIv { get; set; }
-        public string Encrypt { get; set; }
-        public Nullable<bool> Logged { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+        OnlineTicketBookingEntities obj;
+        public UserClass()
+        {
+            obj = new OnlineTicketBookingEntities();
+        }
 
         #region CRUD
-        public void AddUser()
+        public void AddUser(User user)
         {
-            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
-            {
-                User user = new User();
-                user.UserCode = UserCode;
-                user.UserName = UserName;
-                user.Password = Password;
-                user.Name = Name;
-                user.TypeId =TypeId;
-                user.PasswordIv = PasswordIv;
-                user.Encrypt = Encrypt;
-                user.Logged =Logged;
-                user.IsActive = IsActive;
                 obj.Users.Add(user);
                 obj.SaveChanges();
-            }
         }
 
         public void DeleteUser()
         {
-            using (OnlineTicketBookingEntities obj=new OnlineTicketBookingEntities())
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                User user = obj.Users.SingleOrDefault(u=>u.Id==Id);
+                User user = obj.Users.SingleOrDefault(u => u.Id == Id);
                 user.IsActive = IsActive;
                 obj.SaveChanges();
             }
@@ -54,12 +36,12 @@ namespace Model
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
             {
-                User user = obj.Users.FirstOrDefault(u => u.Id ==Id);
+                User user = obj.Users.FirstOrDefault(u => u.Id == Id);
                 user.UserCode = UserCode;
                 user.UserName = UserName;
                 user.Password = Password;
                 user.Name = Name;
-                user.TypeId =TypeId;
+                user.TypeId = TypeId;
                 user.PasswordIv = PasswordIv;
                 user.Encrypt = Encrypt;
                 user.Logged = Logged;

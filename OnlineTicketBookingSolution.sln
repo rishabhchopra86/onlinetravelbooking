@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicketDL", "DataModel\OnlineTicketDL.csproj", "{46730AB8-5E2B-4D5D-A448-52665BFD6E8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicketBL", "Model\OnlineTicketBL.csproj", "{F9BEF139-22FE-4B36-AFC2-4640CCDD55C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSite", "WebSite\WebSite.csproj", "{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicketBooking", "WebSite\OnlineTicketBooking.csproj", "{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
