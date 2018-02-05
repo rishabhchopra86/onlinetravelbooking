@@ -7,7 +7,7 @@ using DataModel;
 
 namespace Model
 {
-    public class ScreenClass
+    public class ScreenDl
     {
         public int Id { get; set; }
         public Nullable<int> CinemasId { get; set; }

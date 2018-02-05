@@ -5,19 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
   
-        <ul class="breadcrumb">
-            <li><a href="index-2.html">Home</a>
-            </li>
-            <li><a href="#">United States</a>
-            </li>
-            <li><a href="#">New York (NY)</a>
-            </li>
-            <li><a href="#">New York City</a>
-            </li>
-            <li><a href="#">New York City Hotels</a>
-            </li>
-            <li class="active">InterContinental New York Barclay</li>
-        </ul>
         <div class="booking-item-details">
             <header class="booking-item-header">
                 <div class="row">

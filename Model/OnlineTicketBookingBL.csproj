@@ -69,7 +69,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewClass.cs" />
     <Compile Include="RoomClass.cs" />
-    <Compile Include="ScreenClass.cs" />
+    <Compile Include="ScreenDl.cs" />
     <Compile Include="ScreenDesignClass.cs" />
     <Compile Include="ScreenFareClass.cs" />
     <Compile Include="SeatDesignDetailClass.cs" />
