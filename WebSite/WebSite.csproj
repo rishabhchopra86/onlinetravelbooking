@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cinemas.aspx" />
+    <Content Include="cinemasdetail.aspx" />
+    <Content Include="css\seatstyle.css" />
     <Content Include="CustomerDetail.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
     <Content Include="fonts\fontawesome-webfontba72.ttf" />
@@ -364,7 +366,9 @@
     <Content Include="js\typeahead.js" />
     <Content Include="media\loop.mp4" />
     <Content Include="media\loop.webm" />
+    <Content Include="moviecity.aspx" />
     <Content Include="movies.aspx" />
+    <Content Include="movieseats.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="seatavaibility.aspx" />
     <Content Include="setting.aspx" />
@@ -401,6 +405,13 @@
     <Compile Include="cinemas.aspx.designer.cs">
       <DependentUpon>cinemas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="cinemasdetail.aspx.cs">
+      <DependentUpon>cinemasdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cinemasdetail.aspx.designer.cs">
+      <DependentUpon>cinemasdetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerDetail.aspx.cs">
       <DependentUpon>CustomerDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -429,12 +440,26 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="moviecity.aspx.cs">
+      <DependentUpon>moviecity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moviecity.aspx.designer.cs">
+      <DependentUpon>moviecity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="movies.aspx.cs">
       <DependentUpon>movies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="movies.aspx.designer.cs">
       <DependentUpon>movies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="movieseats.aspx.cs">
+      <DependentUpon>movieseats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="movieseats.aspx.designer.cs">
+      <DependentUpon>movieseats.aspx</DependentUpon>
     </Compile>
     <Compile Include="profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
