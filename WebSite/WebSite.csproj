@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>C:\Users\lcom144-two\Downloads\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\Model\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
@@ -68,6 +71,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddMovie.aspx" />
+    <Content Include="Admin\AddScreen.aspx" />
+    <Content Include="Admin\AddScreenMovie.aspx" />
+    <Content Include="Admin\AddTheatre.aspx" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\test.aspx" />
     <Content Include="cinemas.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
     <Content Include="fonts\fontawesome-webfontba72.ttf" />
@@ -79,6 +88,7 @@
     <Content Include="fonts\icomoond41d.eot" />
     <Content Include="login.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="Admin\AdminMaster.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -390,6 +400,34 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddMovie.aspx.cs">
+      <DependentUpon>AddMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddScreen.aspx.cs">
+      <DependentUpon>AddScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddScreenMovie.aspx.cs">
+      <DependentUpon>AddScreenMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddTheatre.aspx.cs">
+      <DependentUpon>AddTheatre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.master.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="cinemas.aspx.cs">
       <DependentUpon>cinemas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -559,6 +597,14 @@
     <Compile Include="traintime.aspx.designer.cs">
       <DependentUpon>traintime.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\app-assets\css\" />
+    <Folder Include="Admin\app-assets\data\" />
+    <Folder Include="Admin\app-assets\fonts\" />
+    <Folder Include="Admin\app-assets\images\" />
+    <Folder Include="Admin\app-assets\js\" />
+    <Folder Include="Admin\app-assets\vendors\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -64,3 +64,18 @@ E:\Rishabh Chopra\work\New folder\WebSite\bin\DataModel.dll.config
 E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
 E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.dll
 E:\Rishabh Chopra\work\New folder\WebSite\obj\Debug\WebSite.pdb
+E:\.net prac\New folder (2)\WebSite\bin\WebSite.dll.config
+E:\.net prac\New folder (2)\WebSite\bin\WebSite.dll
+E:\.net prac\New folder (2)\WebSite\bin\WebSite.pdb
+E:\.net prac\New folder (2)\WebSite\bin\EntityFramework.dll
+E:\.net prac\New folder (2)\WebSite\bin\EntityFramework.SqlServer.dll
+E:\.net prac\New folder (2)\WebSite\bin\Model.dll
+E:\.net prac\New folder (2)\WebSite\bin\DataModel.dll
+E:\.net prac\New folder (2)\WebSite\bin\EntityFramework.xml
+E:\.net prac\New folder (2)\WebSite\bin\EntityFramework.SqlServer.xml
+E:\.net prac\New folder (2)\WebSite\bin\Model.pdb
+E:\.net prac\New folder (2)\WebSite\bin\DataModel.pdb
+E:\.net prac\New folder (2)\WebSite\obj\Debug\WebSite.csprojResolveAssemblyReference.cache
+E:\.net prac\New folder (2)\WebSite\obj\Debug\WebSite.dll
+E:\.net prac\New folder (2)\WebSite\obj\Debug\WebSite.pdb
+E:\.net prac\New folder (2)\WebSite\bin\AjaxControlToolkit.dll
