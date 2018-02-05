@@ -5,6 +5,5 @@ E:\.net prac\New folder (2)\DataModel\bin\Debug\EntityFramework.dll
 E:\.net prac\New folder (2)\DataModel\bin\Debug\EntityFramework.SqlServer.dll
 E:\.net prac\New folder (2)\DataModel\bin\Debug\EntityFramework.xml
 E:\.net prac\New folder (2)\DataModel\bin\Debug\EntityFramework.SqlServer.xml
-E:\.net prac\New folder (2)\DataModel\obj\Debug\OnlineTicketDL.csprojResolveAssemblyReference.cache
 E:\.net prac\New folder (2)\DataModel\obj\Debug\DataModel.dll
 E:\.net prac\New folder (2)\DataModel\obj\Debug\DataModel.pdb

@@ -52,7 +52,7 @@
     <Compile Include="BookingDetailsClass.cs" />
     <Compile Include="BookingStatusClass.cs" />
     <Compile Include="CancelClass.cs" />
-    <Compile Include="CinemaClass.cs" />
+    <Compile Include="CinemaBL.cs" />
     <Compile Include="CityClass.cs" />
     <Compile Include="Comman.cs" />
     <Compile Include="CountryClass.cs" />
@@ -61,23 +61,23 @@
     <Compile Include="HotelClass.cs" />
     <Compile Include="ImageClass.cs" />
     <Compile Include="LogClass.cs" />
-    <Compile Include="MasterClass.cs" />
-    <Compile Include="MasterValueClass.cs" />
-    <Compile Include="MovieClass.cs" />
+    <Compile Include="MasterBL.cs" />
+    <Compile Include="MasterValueBL.cs" />
+    <Compile Include="MovieBL.cs" />
     <Compile Include="PackageClass.cs" />
     <Compile Include="PackageDetailClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewClass.cs" />
     <Compile Include="RoomClass.cs" />
-    <Compile Include="ScreenClass.cs" />
-    <Compile Include="ScreenDesignClass.cs" />
-    <Compile Include="ScreenFareClass.cs" />
-    <Compile Include="SeatDesignDetailClass.cs" />
+    <Compile Include="ScreenBL.cs" />
+    <Compile Include="ScreenDesignBL.cs" />
+    <Compile Include="ScreenFareBL.cs" />
+    <Compile Include="SeatDesignDetailBL.cs" />
     <Compile Include="StateClass.cs" />
     <Compile Include="StationClass.cs" />
     <Compile Include="TransportClass.cs" />
     <Compile Include="TransportDetailClass.cs" />
-    <Compile Include="UserClass.cs" />
+    <Compile Include="UserBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataModel\OnlineTicketDL.csproj">
