@@ -8,7 +8,7 @@ using System.Data.Entity.Validation;
 
 namespace Model
 {
-    public class UserClass
+    public class UserClass 
     {
         public int Id { get; set; }
         public string UserCode { get; set; }
