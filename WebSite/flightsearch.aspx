@@ -17,7 +17,7 @@
             </ul>
             <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
                 <h3>Search for Flight</h3>
-                <form>
+               
                     <div class="tabbable">
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                             <li class="active"><a href="#flight-search-1" data-toggle="tab">Round Trip</a>
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
-                </form>
+             
             </div>
             <h3 class="booking-title">Flight Search <small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
             <div class="row">

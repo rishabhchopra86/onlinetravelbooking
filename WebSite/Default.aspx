@@ -667,7 +667,7 @@
                         </ul>
                         <h5 class="last-minute-title">The Peninsula - New York</h5>
                         <p class="last-minute-date">Fri 14 Mar - Sun 16 Mar</p>
-                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="#">Book Now <i class="fa fa-angle-right"></i></a>
+                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="booknow.aspx?q=hotel">Book Now <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -680,12 +680,12 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="hotelsearch.aspx">
                                     <img src="img/the_journey_home_400x300.jpg" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <a href="hotelsearch.aspx" class="thumb-title" >Africa</a>
+                                <a href="hotelsearch.aspx" class="thumb-title" ><h4>Africa</h4></a>
                                <!-- <h4 class="thumb-title">Africa</h4>-->
                                 <p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
                             </div>
@@ -694,12 +694,12 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="hotelsearch.aspx">
                                     <img src="img/upper_lake_in_new_york_central_park_800x600.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">USA</h4>
+                                   <a href="hotelsearch.aspx" class="thumb-title" ><h4>USA</h4></a>
                                 <p class="thumb-desc">Cursus faucibus egestas rutrum mauris vulputate consequat ante</p>
                             </div>
                         </div>
@@ -707,26 +707,26 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="hotelsearch.aspx">
                                     <img src="img/people_on_the_beach_800x600.jpg" alt="Image Alternative text" title="people on the beach" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Australia</h4>
-                                <p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
+                                    <a href="hotelsearch.aspx" class="thumb-title" ><h4>Australia</h4></a>
+                             <p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="hotelsearch.aspx">
                                     <img src="img/lack_of_blue_depresses_me_800x600.jpg" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Greece</h4>
-                                <p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
+                                  <a href="hotelsearch.aspx" class="thumb-title" ><h4>Greece</h4></a>
+                             <p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
                             </div>
                         </div>
                     </div>
@@ -755,7 +755,7 @@
                         </ul>
                         <h5 class="last-minute-title">The Peninsula - New York</h5>
                         <p class="last-minute-date">Fri 14 Mar - Sun 16 Mar</p>
-                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="#">Book Now <i class="fa fa-angle-right"></i></a>
+                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="booknow.aspx?q=flights">Book Now <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -768,52 +768,52 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="flightsearch.aspx">
                                     <img src="img/aircraft1.jpg"  height="170" width="90" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Emirates</h4>
-                                <p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
+                                <a href="flightsearch.aspx" class="thumb-title" ><h4>Emirates</h4></a>
+                           <p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="flightsearch.aspx">
                                     <img src="img/aircraft6.jpg"  height="170" width="90" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Spicejet</h4>
-                                <p class="thumb-desc">Cursus faucibus egestas rutrum mauris vulputate consequat ante</p>
+                                 <a href="flightsearch.aspx" class="thumb-title" ><h4>Spicejet</h4></a>
+                            <p class="thumb-desc">Cursus faucibus egestas rutrum mauris vulputate consequat ante</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="flightsearch.aspx">
                                     <img src="img/aircraft5.jpg" height="170" width="90" alt="Image Alternative text" title="people on the beach" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Kingfisher</h4>
-                                <p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
+                                 <a href="flightsearch.aspx" class="thumb-title" ><h4>Kingfisher</h4></a>
+                         <p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="flightsearch.aspx">
                                     <img src="img/aircraft4.jpg" height="170" width="90" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">IndiGO</h4>
-                                <p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
+                                 <a href="flightsearch.aspx" class="thumb-title" ><h4>IndiGo</h4></a>
+                             <p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
                             </div>
                         </div>
                     </div>
@@ -843,7 +843,7 @@
                         </ul>
                         <h5 class="last-minute-title">The Peninsula - New York</h5>
                         <p class="last-minute-date">Fri 14 Mar - Sun 16 Mar</p>
-                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="#">Book Now <i class="fa fa-angle-right"></i></a>
+                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="booknow.aspx?q=train">Book Now <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -856,7 +856,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="trainsearch.aspx">
                                     <img src="img/train1.jpg" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -869,7 +869,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="trainsearch.aspx">
                                     <img src="img/train2.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -882,7 +882,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="trainsearch.aspx">
                                     <img src="img/train3.jpg" alt="Image Alternative text" title="people on the beach" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -895,7 +895,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="trainsearch.aspx">
                                     <img src="img/train4.jpg" height="150" width="90" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -930,7 +930,7 @@
                         </ul>
                         <h5 class="last-minute-title">The Peninsula - New York</h5>
                         <p class="last-minute-date">Fri 14 Mar - Sun 16 Mar</p>
-                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="#">Book Now <i class="fa fa-angle-right"></i></a>
+                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="booknow.aspx?q=bus">Book Now <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -943,7 +943,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="bussearch.aspx">
                                     <img src="img/bus10.jpg"  height="170" width="90"  alt ="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -956,7 +956,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="bussearch.aspx">
                                     <img src="img/bus13.jpg"  height="170" width="90" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -969,7 +969,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="bussearch.aspx">
                                     <img src="img/bus7.jpg"  height="170" width="90" alt="Image Alternative text" title="people on the beach" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -982,7 +982,7 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="bussearch.aspx">
                                     <img src="img/bus4.jpg" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
@@ -1017,7 +1017,7 @@
                         </ul>
                         <h5 class="last-minute-title">The Peninsula - New York</h5>
                         <p class="last-minute-date">Fri 14 Mar - Sun 16 Mar</p>
-                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="#">Book Now <i class="fa fa-angle-right"></i></a>
+                        <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="booknow.aspx?q=movie">Book Now <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1030,25 +1030,26 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="movies.aspx">
                                     <img src="img/movie1.jpg" height="225" width="225" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Padmavati</h4>
-                                <p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
+                                     <a href="movies.aspx" class="thumb-title" ><h4>Padmavati</h4></a>
+                             <p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="movies.aspx">
                                     <img src="img/movie3.jpg"  height="225" width="225" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Tiger Zinda Hai</h4>
+                                 <a href="movies.aspx" class="thumb-title" ><h4>Tiger Zinda Hai</h4></a>
+                              
                                 <p class="thumb-desc">Cursus faucibus egestas rutrum mauris vulputate consequat ante</p>
                             </div>
                         </div>
@@ -1056,26 +1057,26 @@
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="movies.aspx">
                                     <img src="img/movie2.jpg"  height="225" width="225" alt="Image Alternative text" title="people on the beach" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Action Jaction</h4>
-                                <p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
+                                  <a href="movies.aspx" class="thumb-title" ><h4>Action Jaction</h4></a>
+                           <p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="thumb">
                             <header class="thumb-header">
-                                <a class="hover-img curved" href="#">
+                                <a class="hover-img curved" href="movies.aspx">
                                     <img src="img/movie4.jpg"  height="225" width="225" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
                                 </a>
                             </header>
                             <div class="thumb-caption">
-                                <h4 class="thumb-title">Love Ni Bhavai</h4>
-                                <p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
+                                  <a href="movies.aspx" class="thumb-title" ><h4>Love Ni Bhavai</h4></a>
+                               <p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
                             </div>
                         </div>
                     </div>

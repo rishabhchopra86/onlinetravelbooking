@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Site\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\Model\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
@@ -68,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="booknow.aspx" />
     <Content Include="busseatavialble.aspx" />
     <Content Include="cinemas.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
@@ -394,6 +399,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booknow.aspx.cs">
+      <DependentUpon>booknow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booknow.aspx.designer.cs">
+      <DependentUpon>booknow.aspx</DependentUpon>
     </Compile>
     <Compile Include="busseatavialble.aspx.cs">
       <DependentUpon>busseatavialble.aspx</DependentUpon>
