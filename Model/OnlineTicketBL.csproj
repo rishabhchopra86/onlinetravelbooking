@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgentClass.cs" />
+    <Compile Include="AgentBL.cs" />
     <Compile Include="AminitiesClass.cs" />
-    <Compile Include="AvilableSeatClass.cs" />
+    <Compile Include="AvilableSeatBL.cs" />
     <Compile Include="BookingClass.cs" />
     <Compile Include="BookingDetailsClass.cs" />
     <Compile Include="BookingStatusClass.cs" />

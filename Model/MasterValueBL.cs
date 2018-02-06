@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DataModel;
 
 
-namespace OnlineTicketBL
+namespace Model
 {
     public class MasterValueBL:MasterValue
     {

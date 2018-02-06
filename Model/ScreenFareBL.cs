@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
-namespace OnlineTicketBL
+namespace Model
 {
      public class ScreenFareBL:ScreenFare
     {
@@ -20,6 +20,7 @@ namespace OnlineTicketBL
                 obj.ScreenFares.Add(screenfare);
                 obj.SaveChanges();
         }
+
         public void UpdateScreenFare()
         {
                 obj.SaveChanges();
