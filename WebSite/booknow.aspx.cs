@@ -13,20 +13,7 @@ namespace WebSite
         protected void Page_Load(object sender, EventArgs e)
         {
             ModalPopupExtender1.Show();
-
-            TextBox textbox = new TextBox();
-            int count = Panel2.Controls.OfType<TextBox>().ToList().Count;
-            textbox.Location = new System.Drawing.Point(60, 25 * count);
-            textbox.Size = new System.Drawing.Size(80, 20);
-            textbox.Name = "textbox_" + (count + 1);
-            textbox.TextChanged += new System.EventHandler(this.TextBox_Changed);
-            Panel2.Controls.Add(textbox);
-
         }
-
-        protected void TextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
