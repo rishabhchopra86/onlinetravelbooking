@@ -1,0 +1,25 @@
+E:\.net prac\New folder (2)\Model\obj\Debug\OnlineTicketBL.csprojResolveAssemblyReference.cache
+E:\.net prac\New folder (2)\Model\obj\Debug\Model.dll
+E:\.net prac\New folder (2)\Model\obj\Debug\Model.pdb
+E:\.net prac\New folder (2)\Model\bin\Debug\Model.dll.config
+E:\.net prac\New folder (2)\Model\bin\Debug\Model.dll
+E:\.net prac\New folder (2)\Model\bin\Debug\Model.pdb
+E:\.net prac\New folder (2)\Model\bin\Debug\DataModel.dll
+E:\.net prac\New folder (2)\Model\bin\Debug\EntityFramework.dll
+E:\.net prac\New folder (2)\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\.net prac\New folder (2)\Model\bin\Debug\DataModel.pdb
+E:\.net prac\New folder (2)\Model\bin\Debug\EntityFramework.xml
+E:\.net prac\New folder (2)\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\Model.dll.config
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\Model.dll
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\Model.pdb
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\DataModel.dll
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.dll
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\DataModel.pdb
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\DataModel.dll.config
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.xml
+E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Rishabh Chopra\work\New folder\Model\obj\Debug\OnlineTicketBL.csprojResolveAssemblyReference.cache
+E:\Rishabh Chopra\work\New folder\Model\obj\Debug\Model.dll
+E:\Rishabh Chopra\work\New folder\Model\obj\Debug\Model.pdb
