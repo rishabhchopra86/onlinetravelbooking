@@ -47,6 +47,24 @@ namespace Model
            city = obj.Cities.Where(c => c.Id == Id).FirstOrDefault();
            return city;
        }
-#endregion
+        public int getCityId(string cityname)
+        {
+            return obj.Cities.Where(c => c.CityName == cityname).FirstOrDefault().Id;
+        }
+        #endregion
+        public List<City> GetallCitiesbyCountry(int Id)
+        {
+            List<City> citylst = new List<City>();
+            var state = obj.States.Where(i => i.CountryId == Id).ToList();
+            foreach(State s in state)
+            {
+                var cities = obj.Cities.Where(i => i.StateId == s.Id).ToList();
+                foreach(City c in cities)
+                {
+                    citylst.Add(c);
+                }
+            }
+            return citylst;
+        }
     }
 }

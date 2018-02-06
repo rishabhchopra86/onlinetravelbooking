@@ -84,6 +84,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomerDetail.aspx" />
     <Content Include="forgetpassword.aspx" />
     <Content Include="packages.config" />
     <Content Include="Admin\AdminMaster.master" />
@@ -1263,7 +1264,6 @@
     <Content Include="css\seatstyle.css" />
     <Content Include="css\styles.css" />
     <Content Include="css\switcher.css" />
-    <Content Include="CustomerDetail.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="dialog\index.html" />
     <Content Include="faq.aspx" />
