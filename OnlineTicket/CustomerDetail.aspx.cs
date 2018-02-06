@@ -23,9 +23,9 @@ namespace WebSite
            
             customer.AlternatePhoneNo = Convert.ToInt32( AlternateNumber.Text);
             customer.CityId = 1;
-            customer.CreatedBy =(int) Session["Id"];
+            customer.CreatedBy = Convert.ToInt32(Session["Id"].ToString());
             customer.CreatedDate = DateTime.Now;
-            customer.UserId= (int)Session["Id"];
+            customer.UserId= Convert.ToInt32(Session["Id"].ToString());
             customer.PostalCode = Convert.ToInt32(PostalCode.Text);
             customer.PhoneNo = Convert.ToInt32(PhoneNumber.Text);
             customer.PassportNo =PassportNumber.Text;

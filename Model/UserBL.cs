@@ -78,6 +78,8 @@ namespace Model
 
                 using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
                 {
+                    AesEncrypt aes = new AesEncrypt();
+                    password = aes.EncryptText(password, username);
                     var query = obj.Users.Where(i => i.UserName == username && i.Password == password).FirstOrDefault();
                     return query;
                 }
@@ -104,6 +106,25 @@ namespace Model
                 return query.Id;
             }
         }
+        public Boolean emailPresent(String email)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.Users.Where(i => i.UserName == email).FirstOrDefault();
+                if (query == null)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        public User getuserbymail(String email)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.Users.Where(i => i.UserName == email).FirstOrDefault();
+                return query;
+            }
+        }
         public int CustomerId(int id)
         {
             using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
@@ -112,6 +133,7 @@ namespace Model
                 return query.Id;
             }
         }
+
 
     }
 }

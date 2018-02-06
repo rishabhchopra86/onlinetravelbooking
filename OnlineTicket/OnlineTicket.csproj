@@ -63,6 +63,9 @@
     <Reference Include="Model">
       <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -81,6 +84,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="forgetpassword.aspx" />
     <Content Include="packages.config" />
     <Content Include="Admin\AdminMaster.master" />
     <Content Include="Admin\app-assets\fonts\icomoon\icomoonc994.eot" />
@@ -1529,6 +1533,7 @@
     <Content Include="obj\Debug\WebSite.pdb" />
     <Content Include="overview.aspx" />
     <Content Include="packages.aspx" />
+    <Content Include="passwordverfiy.aspx" />
     <Content Include="pnr.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="seatavaibility.aspx" />
@@ -1650,6 +1655,13 @@
     <Compile Include="flightsearch.aspx.designer.cs">
       <DependentUpon>flightsearch.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forgetpassword.aspx.cs">
+      <DependentUpon>forgetpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgetpassword.aspx.designer.cs">
+      <DependentUpon>forgetpassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1739,6 +1751,13 @@
     </Compile>
     <Compile Include="packages.aspx.designer.cs">
       <DependentUpon>packages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="passwordverfiy.aspx.cs">
+      <DependentUpon>passwordverfiy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="passwordverfiy.aspx.designer.cs">
+      <DependentUpon>passwordverfiy.aspx</DependentUpon>
     </Compile>
     <Compile Include="pnr.aspx.cs">
       <DependentUpon>pnr.aspx</DependentUpon>

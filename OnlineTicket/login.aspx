@@ -44,6 +44,7 @@
     <link rel="alternate stylesheet" type="text/css" href="css/schemes/leather.css" title="leather" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="css/schemes/denim.css" title="denim" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="css/schemes/scarlet.css" title="scarlet" media="all" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body class="full">
@@ -159,7 +160,12 @@
                                              <asp:TextBox ID="loginPassword" runat="server" placeholder="Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
                                        
                                          </div>
-                                   
+                                   <div class="form-group ">
+                                       <div class="g-recaptcha" data-sitekey="6LcajkQUAAAAAHil143UZUHM1urauuGSyqQLNr3j"></div>
+                                       </div>
+                                      <div class="form-group ">
+                                          <a href="forgetpassword.aspx" target="_blank">Forget Password ?</a>
+                                          </div>
                                      <asp:Button ID="Button2" runat="server" Text="Sign in" CssClass="btn btn-primary" OnClick="Button2_Click" CausesValidation="False"  />
                                    
                                 </div>
