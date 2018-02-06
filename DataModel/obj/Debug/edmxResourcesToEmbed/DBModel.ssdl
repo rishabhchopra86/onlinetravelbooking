@@ -167,7 +167,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CountryName" Type="varchar" MaxLength="20" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" />
     <Property Name="Continent" Type="varchar" MaxLength="20" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
