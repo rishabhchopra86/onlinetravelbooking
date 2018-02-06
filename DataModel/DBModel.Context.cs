@@ -49,6 +49,8 @@ namespace DataModel
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
         public virtual DbSet<ScreenFare> ScreenFares { get; set; }
+        public virtual DbSet<ScreenMaster> ScreenMasters { get; set; }
+        public virtual DbSet<ScreenMovie> ScreenMovies { get; set; }
         public virtual DbSet<SeatDesign> SeatDesigns { get; set; }
         public virtual DbSet<SeatDesignDetail> SeatDesignDetails { get; set; }
         public virtual DbSet<State> States { get; set; }

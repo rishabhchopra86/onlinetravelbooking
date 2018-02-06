@@ -14,13 +14,6 @@ namespace DataModel
     
     public partial class Screen
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Screen()
-        {
-            this.ScreenFares = new HashSet<ScreenFare>();
-            this.SeatDesigns = new HashSet<SeatDesign>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> CinemasId { get; set; }
         public Nullable<int> MovieId { get; set; }
@@ -36,14 +29,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual Cinema Cinema { get; set; }
-        public virtual Movie Movie { get; set; }
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ScreenFare> ScreenFares { get; set; }
-        public virtual User User1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SeatDesign> SeatDesigns { get; set; }
     }
 }

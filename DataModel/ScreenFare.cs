@@ -18,8 +18,5 @@ namespace DataModel
         public Nullable<int> ScreenId { get; set; }
         public Nullable<int> FareType { get; set; }
         public Nullable<double> Rate { get; set; }
-    
-        public virtual MasterValue MasterValue { get; set; }
-        public virtual Screen Screen { get; set; }
     }
 }

@@ -41,3 +41,5 @@ E:\Rishabh Chopra\work\New folder\OnlineTicket\bin\Model.dll.config
 E:\Rishabh Chopra\work\New folder\OnlineTicket\bin\EntityFramework.xml
 E:\Rishabh Chopra\work\New folder\OnlineTicket\obj\Debug\OnlineTicket.dll
 E:\Rishabh Chopra\work\New folder\OnlineTicket\obj\Debug\OnlineTicket.pdb
+E:\Rishabh Chopra\work\New folder\OnlineTicket\bin\EntityFramework.SqlServer.dll
+E:\Rishabh Chopra\work\New folder\OnlineTicket\bin\EntityFramework.SqlServer.xml

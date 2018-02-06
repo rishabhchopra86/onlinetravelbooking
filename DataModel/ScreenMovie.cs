@@ -12,14 +12,16 @@ namespace DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PackageDetail
+    public partial class ScreenMovie
     {
         public int Id { get; set; }
-        public Nullable<int> PackageId { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public Nullable<int> RTCId { get; set; }
-        public Nullable<bool> Sidescene { get; set; }
-        public Nullable<int> FareId { get; set; }
+        public Nullable<int> MovieId { get; set; }
+        public Nullable<int> ScreenId { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<System.TimeSpan> StartTime { get; set; }
+        public Nullable<System.TimeSpan> EndTime { get; set; }
+        public Nullable<int> AvailableSeat { get; set; }
+        public Nullable<bool> C2D3D { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

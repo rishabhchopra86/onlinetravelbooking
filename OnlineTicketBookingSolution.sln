@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicketDL", "DataModel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicketBL", "Model\OnlineTicketBL.csproj", "{D13FA694-B48C-41C2-B61B-D4A954AC3715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicketBooking", "WebSite\OnlineTicketBooking.csproj", "{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTicket", "OnlineTicket\OnlineTicket.csproj", "{6D9E21E5-C368-4274-BDEB-00AEE333252D}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{D13FA694-B48C-41C2-B61B-D4A954AC3715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D13FA694-B48C-41C2-B61B-D4A954AC3715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D13FA694-B48C-41C2-B61B-D4A954AC3715}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCC6E181-CAAD-4CE5-A577-4BFC91DC0C15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D9E21E5-C368-4274-BDEB-00AEE333252D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D9E21E5-C368-4274-BDEB-00AEE333252D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D9E21E5-C368-4274-BDEB-00AEE333252D}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -67,6 +67,7 @@ namespace WebSite
                 user.IsActive = true;
                 user.TypeId = log.typeid("Customer");
                 userbl.AddUser(user);
+                Session["Id"] = user.Id.ToString();
                 Response.Redirect("~/CustomerDetail.aspx");
             }
             else

@@ -21,7 +21,5 @@ namespace DataModel
         public Nullable<System.TimeSpan> LogoutTime { get; set; }
         public string IpAddress { get; set; }
         public string ErrorMessage { get; set; }
-    
-        public virtual Customer Customer { get; set; }
     }
 }
