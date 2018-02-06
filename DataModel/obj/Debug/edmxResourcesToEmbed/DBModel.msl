@@ -4,8 +4,8 @@
     <EntitySetMapping Name="Agents">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Agent">
         <MappingFragment StoreEntitySet="Agent">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="TravellerName" ColumnName="TravellerName" />
           <ScalarProperty Name="TravellerLogo" ColumnName="TravellerLogo" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -27,10 +27,10 @@
     <EntitySetMapping Name="Aminities">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Aminity">
         <MappingFragment StoreEntitySet="Aminities">
-          <ScalarProperty Name="AminitiesName" ColumnName="AminitiesName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
           <ScalarProperty Name="RTCId" ColumnName="RTCId" />
+          <ScalarProperty Name="AminitiesName" ColumnName="AminitiesName" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -57,9 +57,9 @@
     <EntitySetMapping Name="Bookings">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Booking">
         <MappingFragment StoreEntitySet="Booking">
-          <ScalarProperty Name="BookingCode" ColumnName="BookingCode" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="BookingCode" ColumnName="BookingCode" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
           <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
@@ -84,11 +84,9 @@
     <EntitySetMapping Name="BookingDetails">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.BookingDetail">
         <MappingFragment StoreEntitySet="BookingDetails">
-          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
-          <ScalarProperty Name="IsCancel" ColumnName="IsCancel" />
-          <ScalarProperty Name="BookingStatusId" ColumnName="BookingStatusId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="BookingStatusId" ColumnName="BookingStatusId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Age" ColumnName="Age" />
@@ -101,6 +99,8 @@
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsCancel" ColumnName="IsCancel" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -138,8 +138,8 @@
     <EntitySetMapping Name="Cinemas">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Cinema">
         <MappingFragment StoreEntitySet="Cinemas">
-          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
@@ -220,13 +220,13 @@
     <EntitySetMapping Name="Fares">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Fare">
         <MappingFragment StoreEntitySet="Fare">
-          <ScalarProperty Name="QuotaRate" ColumnName="QuotaRate" />
-          <ScalarProperty Name="Quota" ColumnName="Quota" />
-          <ScalarProperty Name="BasicRate" ColumnName="BasicRate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TransportId" ColumnName="TransportId" />
           <ScalarProperty Name="From" ColumnName="From" />
           <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="BasicRate" ColumnName="BasicRate" />
+          <ScalarProperty Name="Quota" ColumnName="Quota" />
+          <ScalarProperty Name="QuotaRate" ColumnName="QuotaRate" />
           <ScalarProperty Name="Categories" ColumnName="Categories" />
           <ScalarProperty Name="RoundtripRate" ColumnName="RoundtripRate" />
           <ScalarProperty Name="PersonType" ColumnName="PersonType" />
@@ -313,13 +313,13 @@
     <EntitySetMapping Name="Movies">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Movie">
         <MappingFragment StoreEntitySet="Movie">
-          <ScalarProperty Name="MovieType" ColumnName="MovieType" />
-          <ScalarProperty Name="MovieLanguage" ColumnName="MovieLanguage" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="TotalRatings" ColumnName="TotalRatings" />
           <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="MovieLanguage" ColumnName="MovieLanguage" />
+          <ScalarProperty Name="MovieType" ColumnName="MovieType" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -431,6 +431,41 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ScreenMasters">
+      <EntityTypeMapping TypeName="OnlineTicketBookingModel.ScreenMaster">
+        <MappingFragment StoreEntitySet="ScreenMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CinemasId" ColumnName="CinemasId" />
+          <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
+          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
+          <ScalarProperty Name="ScreenDesignId" ColumnName="ScreenDesignId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScreenMovies">
+      <EntityTypeMapping TypeName="OnlineTicketBookingModel.ScreenMovie">
+        <MappingFragment StoreEntitySet="ScreenMovie">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="AvailableSeat" ColumnName="AvailableSeat" />
+          <ScalarProperty Name="C2D3D" ColumnName="2D3D" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SeatDesigns">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.SeatDesign">
         <MappingFragment StoreEntitySet="SeatDesign">
@@ -494,12 +529,12 @@
     <EntitySetMapping Name="Transports">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Transport">
         <MappingFragment StoreEntitySet="Transport">
-          <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
-          <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
           <ScalarProperty Name="TransportNo" ColumnName="TransportNo" />
           <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+          <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
           <ScalarProperty Name="Monday" ColumnName="Monday" />
           <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
           <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
@@ -549,41 +584,6 @@
           <ScalarProperty Name="Encrypt" ColumnName="Encrypt" />
           <ScalarProperty Name="Logged" ColumnName="Logged" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScreenMasters">
-      <EntityTypeMapping TypeName="OnlineTicketBookingModel.ScreenMaster">
-        <MappingFragment StoreEntitySet="ScreenMaster">
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ScreenDesignId" ColumnName="ScreenDesignId" />
-          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
-          <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
-          <ScalarProperty Name="CinemasId" ColumnName="CinemasId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScreenMovies">
-      <EntityTypeMapping TypeName="OnlineTicketBookingModel.ScreenMovie">
-        <MappingFragment StoreEntitySet="ScreenMovie">
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="C2D3D" ColumnName="2D3D" />
-          <ScalarProperty Name="AvailableSeat" ColumnName="AvailableSeat" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
-          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
