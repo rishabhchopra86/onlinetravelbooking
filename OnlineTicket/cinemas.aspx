@@ -15,8 +15,9 @@
                     <aside class="sidebar-left">
                         
                             <div class="form-group form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-hightlight"></i>
+                                   <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                                 <label>Where</label>
-                                <input class="typeahead form-control" placeholder="City, Hotel Name or U.S. Zip Code" type="text" id="city" runat="server" />
+                                <input class=" form-control" placeholder="City" type="text" id="city" runat="server" onfocusout="changecity(this.value)" />
                             </div>
                   <asp:Button ID="Button1" runat="server" Text="Search for Cinemas" CssClass="btn btn-primary mt10" OnClick="Button1_Click" />
                     </aside>
@@ -28,11 +29,9 @@
                 <ContentTemplate>
 
                   <div class="col-md-9">
-                    <h3 class="mb20">Cinemas in <span id="cityname" runat="server"></span></h3>
-                   
-                    <div class="gap"></div>
-                    <h3 class="mb20">Top Deals</h3>
-                    <div class="row row-wrap">
+                    <h3 class="mb20">Cinemas in <span id="cityname" runat="server" autocomplete="off"></span></h3>
+                  
+                    <div class="row row-wrap" id="display" runat="server">
                        
                         <div class="col-md-4">
                             <div class="thumb">
@@ -273,5 +272,42 @@
               
             </div>
         </div>
+     <script>
+          var selectElement = document.getElementById('<%= DropDownList1.ClientID %>');
+          selectToDatalist(selectElement);
+          selectElement.setAttribute("style", "display:none");
+          function selectToDatalist(select, placeholder) {
+              debugger;
+              var eSelect = select
+                  , options = eSelect.children
+                  , eInput = document.createElement("input")
+                  , eDatalist = document.createElement("datalist")
+                  , selected
+                  ;
+              debugger;
+              for (var o in options) {
+                  option = options[o];
 
+                  if (!(option && option.value)) { continue; }
+
+                  if (option.selected) {
+                      selected = option.innerText;
+                  }
+
+                  eDatalist.appendChild(option.cloneNode());
+              }
+
+              eDatalist.id = "datalist-st";
+             
+              document.getElementById('<%= city.ClientID %>').setAttribute("list", eDatalist.id);
+              eSelect.parentNode.appendChild(eDatalist);
+
+            debugger;
+            return eInput;
+          }
+          function changecity(value) {
+             
+              document.getElementById('<%= DropDownList1.ClientID %>').selected = value;
+          }
+    </script>
 </asp:Content>

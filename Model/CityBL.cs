@@ -49,7 +49,12 @@ namespace Model
        }
         public int getCityId(string cityname)
         {
-            return obj.Cities.Where(c => c.CityName == cityname).FirstOrDefault().Id;
+            var id=obj.Cities.Where(c => c.CityName == cityname).FirstOrDefault();
+            if (id == null)
+            {
+                return 0;
+            }
+            return id.Id;
         }
         #endregion
         public List<City> GetallCitiesbyCountry(int Id)

@@ -51,6 +51,11 @@ namespace Model
             return master;
         }
 #endregion
+        public List<MasterValue> getMasterValues(int Id)
+        {
+            var lst = obj.MasterValues.Where(i => i.MasterId == Id).ToList();
+            return lst;
+        }
     }
 }
 

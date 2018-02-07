@@ -23,14 +23,14 @@
                 <header class="booking-item-header">
                     <div class="row">
                         <div class="col-md-9">
-                            <h2 class="lh1em">InterContinental New York Barclay</h2>
-                            <p class="lh1em text-small"><i class="fa fa-map-marker"></i> 6782 Sarasea Circle, Siesta Key, FL 34242</p>
+                            <h2 class="lh1em" id="movieName" runat="server">InterContinental New York Barclay</h2>
+                            <p class="lh1em text-small"><i class="fa fa-clock-o"></i>  <span  id="movieDuration" runat="server"></span></p>
                             <ul class="list list-inline text-small">
-                                <li><a href="#"><i class="fa fa-envelope"></i> Hotel E-mail</a>
+                                <li><a href="#"><i class="fa fa-language"></i> <span  id="movieLanguage" runat="server"></span></a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-home"></i> Hotel Website</a>
+                                <li><a href="#"><i class="fa fa-language"></i> <span  id="movieType" runat="server"></span></a>
                                 </li>
-                                <li><i class="fa fa-phone"></i> +1 (543) 461-7550</li>
+                               
                             </ul>
                         </div>
                         <div class="col-md-3">

@@ -14,6 +14,11 @@ namespace OnlineTicket
         
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(Session["Id"] as string))
+            {
+                Response.Redirect("~/login.aspx");
+            }
             CityBL city = new CityBL();
            
             DropDownList1.DataValueField = "CityName";
@@ -25,15 +30,15 @@ namespace OnlineTicket
         protected void submit_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer();
-            CityBL city = new CityBL();
+            CityBL cities = new CityBL();
             customer.Address = address.Value;
-            customer.AlternatePhoneNo = Convert.ToInt32(AlternateNumber.Text);
-            customer.CityId = city.getCityId(DropDownList1.SelectedValue.ToString());
+            //customer.AlternatePhoneNo = AlternateNumber.Text;
+            customer.CityId = cities.getCityId(City.Text);
             customer.CreatedBy = Convert.ToInt32(Session["Id"].ToString());
             customer.CreatedDate = DateTime.Now;
             customer.UserId = Convert.ToInt32(Session["Id"].ToString());
             customer.PostalCode = Convert.ToInt32(PostalCode.Text);
-            customer.PhoneNo =PhoneNumber.Text;
+            //customer.PhoneNo =PhoneNumber.Text;
             customer.PassportNo = PassportNumber.Text;
             customer.PassportCountryId = Convert.ToInt32(PassportCountry.Text);
             customer.Nationality = Nationality.Text;

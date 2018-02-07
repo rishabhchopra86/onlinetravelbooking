@@ -5,18 +5,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
   
-        <div class="booking-item-details">
+        <div class="booking-item-details" >
             <header class="booking-item-header">
                 <div class="row">
                     <div class="col-md-9">
-                        <h2 class="lh1em">InterContinental New York Barclay</h2>
-                        <p class="lh1em text-small"><i class="fa fa-map-marker"></i>6782 Sarasea Circle, Siesta Key, FL 34242</p>
+                        <h2 class="lh1em"  id="cinemaName" runat="server">InterContinental New York Barclay</h2>
+                        <p class="lh1em text-small"  id="cinemaAddress" runat="server"><i class="fa fa-map-marker"></i>6782 Sarasea Circle, Siesta Key, FL 34242</p>
                         <ul class="list list-inline text-small">
-                            <li><a href="#"><i class="fa fa-envelope"></i>Hotel E-mail</a>
+                            <li><a href="#"  id="cinemaemail" runat="server"><i class="fa fa-envelope"></i>Hotel E-mail</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-home"></i>Hotel Website</a>
+                            <li><a href="#"  id="cinemaWebsite" runat="server"><i class="fa fa-home" ></i>Hotel Website</a>
                             </li>
-                            <li><i class="fa fa-phone"></i>+1 (543) 461-7550</li>
+                            <li><i class="fa fa-phone"></i><span  id="cinemaPhone" runat="server">+1 (543) 461-7550</span></li>
                         </ul>
                     </div>
                   
@@ -33,7 +33,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab-1">
-                                <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs">
+                                <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" id="cinemaimage" runat="server">
                                     <img src="img/lhotel_porto_bay_sao_paulo_suite_lhotel_living_room_800x600.jpg" alt="Image Alternative text" title="LHOTEL PORTO BAY SAO PAULO suite lhotel living room" />
                                     <img src="img/hotel_porto_bay_rio_internacional_rooftop_pool_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" />
                                     <img src="img/hotel_porto_bay_serra_golf_suite2_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite2" />
@@ -210,13 +210,13 @@
                 <div class="row">
                              <div class="col-md-12">
                                  <div class="tabbable booking-details-tabbable">
-                            <ul class="nav nav-tabs" id="myTab1">
+                            <ul class="nav nav-tabs" id="myTab1" runat="server">
                                 <li class="active"><a href="#tab-11" data-toggle="tab"><i class="fa fa-calendar"></i> 8-feb</a>
                                 </li>
                                 <li><a href="#google-map-tab1" data-toggle="tab"><i class="fa fa-calendar"></i> 9-feb</a>
                                 </li>
                             </ul>
-                            <div class="tab-content">
+                            <div class="tab-content" id="cinemadatedetail" runat="server">
                                 <div class="tab-pane fade in active" id="tab-11">
                               
                                

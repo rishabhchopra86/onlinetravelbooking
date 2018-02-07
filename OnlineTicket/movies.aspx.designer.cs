@@ -13,15 +13,6 @@ namespace WebSite {
     public partial class movies {
         
         /// <summary>
-        /// city control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText city;
-        
-        /// <summary>
         /// MovieName control.
         /// </summary>
         /// <remarks>
@@ -49,12 +40,30 @@ namespace WebSite {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// movie control.
+        /// listcheckboxLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl movie;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listcheckboxLanguage;
+        
+        /// <summary>
+        /// listcheckboxType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listcheckboxType;
+        
+        /// <summary>
+        /// display control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl display;
     }
 }

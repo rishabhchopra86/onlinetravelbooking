@@ -105,5 +105,24 @@ namespace Model
             return encryptedBytes;
         }
     }
+   public class Rating
+    {
+        public string rate(double rating)
+        {
+
+            String s = "";
+            double rate = rating;
+            int rateint = (int)Math.Floor(rate);
+            for (int i = 0; i < rateint; i++)
+            {
+                s += " <li><i class='fa fa-star'></i> </ li > ";
+            }
+            if (rate - rateint == 0.5)
+            {
+                s += " <li><i class='fa fa-star-half-empty'></i> </ li > ";
+            }
+            return s;
+        }
+    }
 
 }
