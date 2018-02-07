@@ -87,8 +87,11 @@
     <Content Include="img\flightimage.jpg" />
     <Content Include="img\images.jpg" />
     <Content Include="img\train.jpg" />
+    <Content Include="js\easyAutoComplete-min.js" />
+    <Content Include="js\easyAutoComplete.js" />
     <Content Include="login.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="json\Nationality.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

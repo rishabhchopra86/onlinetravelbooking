@@ -302,7 +302,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="nav-drop booking-sort">
-                        <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
+                        <h5 class="booking-sort-title input-icon-swing"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
                         <ul class="nav-drop-menu">
                             <li><a href="#">Price (high to low)</a>
                             </li>
