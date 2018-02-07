@@ -18,7 +18,7 @@ namespace DataModel
         public Nullable<int> AgentId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public Nullable<int> PhoneNo { get; set; }
+        public string PhoneNo { get; set; }
         public Nullable<int> CityId { get; set; }
         public Nullable<decimal> Langitude { get; set; }
         public Nullable<decimal> Lattitude { get; set; }

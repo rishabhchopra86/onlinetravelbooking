@@ -21,8 +21,8 @@ namespace DataModel
         public string MiddleName { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
-        public Nullable<int> PhoneNo { get; set; }
-        public Nullable<int> AlternatePhoneNo { get; set; }
+        public string PhoneNo { get; set; }
+        public string AlternatePhoneNo { get; set; }
         public string Address { get; set; }
         public string IdProof { get; set; }
         public Nullable<int> CityId { get; set; }

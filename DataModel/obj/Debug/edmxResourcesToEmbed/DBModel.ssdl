@@ -135,7 +135,7 @@
     <Property Name="AgentId" Type="int" />
     <Property Name="Name" Type="varchar" MaxLength="20" />
     <Property Name="Address" Type="varchar" MaxLength="50" />
-    <Property Name="PhoneNo" Type="int" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="11" />
     <Property Name="CityId" Type="int" />
     <Property Name="Langitude" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Lattitude" Type="decimal" Precision="18" Scale="0" />
@@ -154,7 +154,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StateId" Type="int" />
-    <Property Name="CityName" Type="varchar" MaxLength="20" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
     <Property Name="CityCode" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
@@ -186,8 +186,8 @@
     <Property Name="MiddleName" Type="varchar" MaxLength="20" />
     <Property Name="Email" Type="varchar" MaxLength="20" />
     <Property Name="DOB" Type="date" />
-    <Property Name="PhoneNo" Type="int" />
-    <Property Name="AlternatePhoneNo" Type="int" />
+    <Property Name="PhoneNo" Type="varbinary" MaxLength="20" />
+    <Property Name="AlternatePhoneNo" Type="varbinary" MaxLength="20" />
     <Property Name="Address" Type="varchar" MaxLength="100" />
     <Property Name="IdProof" Type="varchar(max)" />
     <Property Name="CityId" Type="int" />
@@ -464,7 +464,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CountryId" Type="int" />
-    <Property Name="StateName" Type="varchar" MaxLength="20" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" />
     <Property Name="StateCode" Type="varchar" MaxLength="5" />
     <Property Name="TinNo" Type="int" />
     <Property Name="CreatedBy" Type="int" />
@@ -544,7 +544,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserCode" Type="varchar" MaxLength="20" />
-    <Property Name="UserName" Type="varchar" MaxLength="20" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="100" />
     <Property Name="Name" Type="varchar" MaxLength="30" />
     <Property Name="TypeId" Type="int" />

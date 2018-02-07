@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OnlineTicketBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OnlineTicketBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="Id" />
@@ -140,7 +140,7 @@
           <Property Name="AgentId" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="20" />
           <Property Name="Address" Type="varchar" MaxLength="50" />
-          <Property Name="PhoneNo" Type="int" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="11" />
           <Property Name="CityId" Type="int" />
           <Property Name="Langitude" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Lattitude" Type="decimal" Precision="18" Scale="0" />
@@ -159,7 +159,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StateId" Type="int" />
-          <Property Name="CityName" Type="varchar" MaxLength="20" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" />
           <Property Name="CityCode" Type="int" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedDate" Type="date" />
@@ -191,8 +191,8 @@
           <Property Name="MiddleName" Type="varchar" MaxLength="20" />
           <Property Name="Email" Type="varchar" MaxLength="20" />
           <Property Name="DOB" Type="date" />
-          <Property Name="PhoneNo" Type="int" />
-          <Property Name="AlternatePhoneNo" Type="int" />
+          <Property Name="PhoneNo" Type="varbinary" MaxLength="20" />
+          <Property Name="AlternatePhoneNo" Type="varbinary" MaxLength="20" />
           <Property Name="Address" Type="varchar" MaxLength="100" />
           <Property Name="IdProof" Type="varchar(max)" />
           <Property Name="CityId" Type="int" />
@@ -469,7 +469,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CountryId" Type="int" />
-          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
           <Property Name="StateCode" Type="varchar" MaxLength="5" />
           <Property Name="TinNo" Type="int" />
           <Property Name="CreatedBy" Type="int" />
@@ -549,7 +549,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserCode" Type="varchar" MaxLength="20" />
-          <Property Name="UserName" Type="varchar" MaxLength="20" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
           <Property Name="Password" Type="varchar" MaxLength="100" />
           <Property Name="Name" Type="varchar" MaxLength="30" />
           <Property Name="TypeId" Type="int" />
@@ -593,7 +593,8 @@
           <EntitySet Name="TransportDetail" EntityType="Self.TransportDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OnlineTicketBookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -732,7 +733,7 @@
           <Property Name="AgentId" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNo" Type="Int32" />
+          <Property Name="PhoneNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="CityId" Type="Int32" />
           <Property Name="Langitude" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Lattitude" Type="Decimal" Precision="18" Scale="0" />
@@ -751,7 +752,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StateId" Type="Int32" />
-          <Property Name="CityName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CityCode" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="0" />
@@ -783,8 +784,8 @@
           <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="PhoneNo" Type="Int32" />
-          <Property Name="AlternatePhoneNo" Type="Int32" />
+          <Property Name="PhoneNo" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="AlternatePhoneNo" Type="Binary" MaxLength="20" FixedLength="false" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IdProof" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CityId" Type="Int32" />
@@ -1061,7 +1062,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CountryId" Type="Int32" />
-          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StateCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="TinNo" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
@@ -1141,7 +1142,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="TypeId" Type="Int32" />

@@ -135,7 +135,7 @@
     <Property Name="AgentId" Type="Int32" />
     <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNo" Type="Int32" />
+    <Property Name="PhoneNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="CityId" Type="Int32" />
     <Property Name="Langitude" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Lattitude" Type="Decimal" Precision="18" Scale="0" />
@@ -154,7 +154,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="StateId" Type="Int32" />
-    <Property Name="CityName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CityCode" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="CreatedDate" Type="DateTime" Precision="0" />
@@ -186,8 +186,8 @@
     <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="DOB" Type="DateTime" Precision="0" />
-    <Property Name="PhoneNo" Type="Int32" />
-    <Property Name="AlternatePhoneNo" Type="Int32" />
+    <Property Name="PhoneNo" Type="Binary" MaxLength="20" FixedLength="false" />
+    <Property Name="AlternatePhoneNo" Type="Binary" MaxLength="20" FixedLength="false" />
     <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="IdProof" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CityId" Type="Int32" />
@@ -464,7 +464,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CountryId" Type="Int32" />
-    <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="StateCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="TinNo" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
@@ -544,7 +544,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="TypeId" Type="Int32" />

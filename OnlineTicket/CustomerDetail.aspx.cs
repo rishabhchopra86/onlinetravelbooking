@@ -33,7 +33,7 @@ namespace OnlineTicket
             customer.CreatedDate = DateTime.Now;
             customer.UserId = Convert.ToInt32(Session["Id"].ToString());
             customer.PostalCode = Convert.ToInt32(PostalCode.Text);
-            customer.PhoneNo = Convert.ToInt32(PhoneNumber.Text);
+            customer.PhoneNo =PhoneNumber.Text;
             customer.PassportNo = PassportNumber.Text;
             customer.PassportCountryId = Convert.ToInt32(PassportCountry.Text);
             customer.Nationality = Nationality.Text;
