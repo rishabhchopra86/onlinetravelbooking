@@ -8,15 +8,14 @@
     <script>
         $(document).ready(function () {
             $('#popup .per .lbl ').change(function () {
-                
-                var q = GetParameterValues('q');
-                alert(q);
+             var q = GetParameterValues('q');
+               alert(q);
                 if (q == "hotel")
                 {
                    var radioValue = $("input[name='options']:checked").val();
                     $('.dyn').empty();
                     for (var i = 0; i < radioValue; i++) {
-                        $(".dyn").append('<div style="border:1px solid orange;margin:10px;" class="col-md-12 box "><div  class="form-group form-group-lg  col-md-2"><span style="margin-left:10px"></span><input class="form-control" placeholder="Full Name" type="text" /></div ><div  class="form-group form-group-lg  col-md-2"><span style="margin-left:10px"></span><input class="form-control" placeholder="Age" type="text" /></div ><div  class="form-group form-group-lg  col-md-2" style="margin-top:35px;"><input type="radio" name="txtDyn" id="txt"' + i + '" value="Male" />Male <input type="radio" name="txtDyn" id="txt"' + i + '" value="Female"/>Female</div><div  class="form-group form-group-lg  col-md-2" style="margin-left:0px;"><span style="margin-left:10px"></span><select class="form-control col-md-2"><option>---Select Any---</option><option>Adult</option><option>Child</option><option>Senior Citizen</option></select></div><div  class="form-group form-group-lg  col-md-3"><span style="margin-left:10px"></span><input class="typeahead form-control col-md-2" type="text" name="txtDyn" id="txt"' + i + '" placeholder="Nationality"/></div><div class="col-md-1"><p style="margin-top:35px"><i class="fa fa-trash" style="font-size:28px;color:red"></i></span></div></div> ');
+                        $(".dyn").append('<div style="border:1px solid orange;margin:10px;" class="col-md-12 box "><div  class="form-group form-group-lg  col-md-2"><span style="margin-left:10px"></span><input class="form-control" placeholder="Full Name" type="text" /></div ><div  class="form-group form-group-lg  col-md-2"><span style="margin-left:10px"></span><input class="form-control" placeholder="Age" type="text" /></div ><div  class="form-group form-group-lg  col-md-2" style="margin-top:35px;"><input type="radio" name="txtDyn" id="txt"' + i + '" value="Male" />Male <input type="radio" name="txtDyn" id="txt"' + i + '" value="Female"/>Female</div><div  class="form-group form-group-lg  col-md-2" style="margin-left:0px;"><span style="margin-left:10px"></span><select class="form-control col-md-2"><option>---Select Any---</option><option>Adult</option><option>Child</option><option>Senior Citizen</option></select></div><div  class="form-group form-group-lg  col-md-3"><span style="margin-left:10px"></span><input class="typeahead form-control col-md-2" type="text" name="txtDyn" id="txt"' + i + '" placeholder="Nationality" /></div><div class="col-md-1"><p style="margin-top:35px"><i class="fa fa-trash" style="font-size:28px;color:red"></i></span></div></div> ');
                       
                     }
 
@@ -94,19 +93,39 @@
             }
         }
 
-        var options = {
-            url: "json/Nationality.json",
-            getValue: "nationality",
-              list: {
-                match: {
-                    enabled: true
-                }
-            },
+        //var options = {
+        //    url: "json/Nationality.json",
+        //    getValue: "nationality",
+        //      list: {
+        //        match: {
+        //            enabled: true
+        //        }
+        //    },
 
-            theme: "plate-dark"
-        };
-        alert(options);
-        $(".nationality").easyAutocomplete(options);
+        //    theme: "plate-dark"
+        //};
+        //alert(options);
+        //debugger;
+        //$(".nationality").easyAutocomplete(options);
+        //alert(options);
+
+        //$(document).ready(function () {
+        //    $("#search-box").keyup(function () {
+        //        $.ajax({
+        //            type: "POST",
+        //            url: "json/Nationality.json",
+        //            data: 'keyword=' + $(this).val(),
+        //            beforeSend: function () {
+        //                $("#search-box").css("background", "#FFF url(LoaderIcon.gif) no-repeat 165px");
+        //            },
+        //            success: function (data) {
+        //                $("#suggesstion-box").show();
+        //                $("#suggesstion-box").html(data);
+        //                $("#search-box").css("background", "#FFF");
+        //            }
+        //        });
+        //    });
+        //});
         </script>
   
 </asp:Content>
@@ -185,6 +204,5 @@
            
         </div>
     </div>
-
 
 </asp:Content>
