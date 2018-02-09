@@ -44,6 +44,8 @@
     <link rel="alternate stylesheet" type="text/css" href="css/schemes/leather.css" title="leather" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="css/schemes/denim.css" title="denim" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="css/schemes/scarlet.css" title="scarlet" media="all" />
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAix22b0tEpr8Bh3g0T5LA-qYb6n9TKQP0&callback=initMap"
+  type="text/javascript"></script>
 </head>
 <body class="full">
 
@@ -145,10 +147,11 @@
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                    
                                     <li><a href="login.aspx" id="userlogin" runat="server">Sign In</a>
-                                         <li><a class="popup-text" href="#mail-dialog" data-effect="mfp-zoom-out"><i class="fa fa-envelope-o"></i> Mail</a>
+                                         <li><a class="popup-text" href="#" data-effect="mfp-zoom-out"><i class="fa fa-map-marker"></i><span id="cityname" runat="server"></span></a>
                                     </li>
                                     <li><a href="tel:1800-1800-1800"><i class="fa fa-phone"></i> 24x7 Customer Care  1800-1800-1800</a>
                                     </li>
+                                         
                                   
                                 </ul>
                             </div>
@@ -463,7 +466,7 @@
         <script src="js/ionrangeslider.js"></script>
         <script src="js/icheck.js"></script>
         <script src="js/fotorama.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+  
         <script src="js/typeahead.js"></script>
         <script src="js/card-payment.js"></script>
         <script src="js/magnific.js"></script>

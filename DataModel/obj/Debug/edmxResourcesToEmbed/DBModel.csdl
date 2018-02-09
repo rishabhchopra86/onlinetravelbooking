@@ -12,8 +12,8 @@
     <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MobileNo" Type="Int32" />
-    <Property Name="AlternateMobileNo" Type="Int32" />
+    <Property Name="MobileNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="AlternateMobileNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="CityId" Type="Int32" />
     <Property Name="Ratings" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
@@ -162,6 +162,18 @@
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="IsActive" Type="Boolean" />
   </EntityType>
+  <EntityType Name="ContactU">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="SentEmail" Type="Boolean" />
+  </EntityType>
   <EntityType Name="Country">
     <Key>
       <PropertyRef Name="Id" />
@@ -256,8 +268,8 @@
     <Property Name="TypeId" Type="Int32" />
     <Property Name="RTId" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Path" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="ImageName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="CreatedDate" Type="DateTime" Precision="0" />
     <Property Name="UpdatedBy" Type="Int32" />
@@ -428,6 +440,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MovieId" Type="Int32" />
     <Property Name="ScreenId" Type="Int32" />
+    <Property Name="CinemaId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="StartTime" Type="Time" Precision="7" />
     <Property Name="EndTime" Type="Time" Precision="7" />
@@ -438,6 +451,7 @@
     <Property Name="UpdatedBy" Type="Int32" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AM_PM" Type="Boolean" />
   </EntityType>
   <EntityType Name="SeatDesign">
     <Key>
@@ -563,6 +577,7 @@
     <EntitySet Name="Cancels" EntityType="Self.Cancel" />
     <EntitySet Name="Cinemas" EntityType="Self.Cinema" />
     <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactU" />
     <EntitySet Name="Countries" EntityType="Self.Country" />
     <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Fares" EntityType="Self.Fare" />

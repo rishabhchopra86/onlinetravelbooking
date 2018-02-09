@@ -34,6 +34,7 @@ namespace DataModel
         public virtual DbSet<Cancel> Cancels { get; set; }
         public virtual DbSet<Cinema> Cinemas { get; set; }
         public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<ContactU> ContactUs { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Fare> Fares { get; set; }

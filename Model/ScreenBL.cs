@@ -7,7 +7,7 @@ using DataModel;
 
 namespace Model
 {
-    public class ScreenBL:Screen
+    public class ScreenBL:ScreenMaster
     {
         OnlineTicketBookingEntities obj;
         public ScreenBL()
@@ -16,9 +16,9 @@ namespace Model
         }
 
         #region CRUD
-        public void AddScreen(Screen screen)
+        public void AddScreen(ScreenMaster screen)
         {
-                obj.Screens.Add(screen);
+                obj.ScreenMasters.Add(screen);
                 obj.SaveChanges();
         }
 
@@ -32,21 +32,26 @@ namespace Model
                 obj.SaveChanges();
         }
 
-        public List<Screen> GetAllScreen()
+        public List<ScreenMaster> GetAllScreen()
         {
-            List<Screen> ScreenList = new List<Screen>();
-            ScreenList = obj.Screens.ToList();
+            List<ScreenMaster> ScreenList = new List<ScreenMaster>();
+            ScreenList = obj.ScreenMasters.Where(s=>s.IsActive==true).ToList();
             return ScreenList;
         }
         #endregion
 
         #region Filtring
-        public Screen GetByScreenid()
+        public ScreenMaster GetByScreenid()
         {
-            Screen screen = new Screen();
-            screen = obj.Screens.FirstOrDefault(u => u.Id == Id);
+            ScreenMaster screen = new ScreenMaster();
+            screen = obj.ScreenMasters.FirstOrDefault(u => u.Id == Id);
             return screen;
         }
         #endregion
+        public int GetByCinemaId(int Id)
+        {
+             
+            return (int)obj.ScreenMasters.FirstOrDefault(u => u.Id == Id).CinemasId;
+        }
     }
 }

@@ -22,4 +22,3 @@ E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.xml
 E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Rishabh Chopra\work\New folder\Model\obj\Debug\Model.dll
 E:\Rishabh Chopra\work\New folder\Model\obj\Debug\Model.pdb
-E:\Rishabh Chopra\work\New folder\Model\obj\Debug\OnlineTicketBL.csprojResolveAssemblyReference.cache

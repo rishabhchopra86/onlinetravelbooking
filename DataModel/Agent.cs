@@ -22,8 +22,8 @@ namespace DataModel
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
-        public Nullable<int> MobileNo { get; set; }
-        public Nullable<int> AlternateMobileNo { get; set; }
+        public string MobileNo { get; set; }
+        public string AlternateMobileNo { get; set; }
         public Nullable<int> CityId { get; set; }
         public Nullable<int> Ratings { get; set; }
         public Nullable<int> CreatedBy { get; set; }

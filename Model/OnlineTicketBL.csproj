@@ -76,6 +76,7 @@
     <Compile Include="ScreenBL.cs" />
     <Compile Include="ScreenDesignBL.cs" />
     <Compile Include="ScreenFareBL.cs" />
+    <Compile Include="ScreenMovieBL.cs" />
     <Compile Include="SeatDesignDetailBL.cs" />
     <Compile Include="StateBL.cs" />
     <Compile Include="StationBL.cs" />

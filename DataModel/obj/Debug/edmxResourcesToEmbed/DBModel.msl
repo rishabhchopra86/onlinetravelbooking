@@ -172,6 +172,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="OnlineTicketBookingModel.ContactU">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SentEmail" ColumnName="SentEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Countries">
       <EntityTypeMapping TypeName="OnlineTicketBookingModel.Country">
         <MappingFragment StoreEntitySet="Country">
@@ -453,6 +466,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="MovieId" ColumnName="MovieId" />
           <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+          <ScalarProperty Name="CinemaId" ColumnName="CinemaId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="StartTime" ColumnName="StartTime" />
           <ScalarProperty Name="EndTime" ColumnName="EndTime" />
@@ -463,6 +477,7 @@
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AM_PM" ColumnName="AM/PM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

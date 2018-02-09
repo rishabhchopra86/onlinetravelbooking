@@ -48,7 +48,13 @@ namespace Model
             return movie;
         }
         #endregion
-        public string getAllMovieByCityIdDisplay(int Id, string cityName,string movieName)
+        public string GetMovieNameById(int id)
+        {
+           
+            var movie = obj.Movies.Where(m => m.Id == id).FirstOrDefault();
+            return movie.Name;
+        }
+        public List<Movie> getAllMovieByCityIdDisplay(int Id, string cityName,string movieName)
         {
             List<Movie> lst = new List<Movie>();
             if (Id == 0)
@@ -64,75 +70,39 @@ namespace Model
                 lst = obj.Movies.Where(i => i.Id == Id).ToList();
             }
 
-            string displaymovies = "";
-            Rating r = new Rating();
-            if (lst == null)
-            {
-                displaymovies += "<div class='col-md-3'>" +
-                        " <div class='thumb'>" +
-                        " <header class='thumb-header'>" +
-                        "                                    <a class='hover-img' href='#'>" +
-                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
-                        "                                        <h5 class='hover-title-center'>See Detail</h5>" +
-                        "                                    </a>" +
-                        "                                    </header>" +
-                        "                                    <div class='thumb-caption'>" +
-                        "                                    <ul class='icon-group text-tiny text-color'>";
-
-                displaymovies += "                                    </ul>" +
-                           "                                    <h5 class='thumb-title'><a class='text-darken' href='#'>No Data Found</a></h5>" +
-
-                           "                                </div>" +
-                           "                            </div>" +
-                           "                        </div>";
-            }
-            else
-            {
-                foreach (Movie c in lst)
-                {
-                    displaymovies += "<div class='col-md-3'>" +
-                        " <div class='thumb'>" +
-                        " <header class='thumb-header'>" +
-                        "                                    <a class='hover-img' href='moviecity.aspx?Id=movi_" + c.Id + "'>" +
-                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
-                        "                                        <h5 class='hover-title-center'>See Detail</h5>" +
-                        "                                    </a>" +
-                        "                                    </header>" +
-                        "                                    <div class='thumb-caption'>" +
-                        "                                    <ul class='icon-group text-tiny text-color'>";
-                    if (c.TotalRatings == null)
-                    {
-                        displaymovies += r.rate(0);
-                    }
-                    else
-                    {
-                        displaymovies += r.rate((double)c.TotalRatings);
-                    }
-
-                    displaymovies += "                                    </ul>" +
-                               "                                    <h5 class='thumb-title'><a class='text-darken'  href='moviecity.aspx?Id=movi_" + c.Id + "'>" + c.Name + "</a></h5>" +
-                                "                                  <p class='mb0'><small><i class='fa fa-clock'></i> " + c.Duration + "</small>" +
-                               "                                    </p>" +
-                               "                                   <p class='mb0'><small>Language : " + typeName((int) c.MovieLanguage) + "  | Type : " + typeName((int)c.MovieType) + "</small>" +
-                               "                                    </p>" +
-                               "                                </div>" +
-                               "                            </div>" +
-                               "                        </div>";
-                }
-            }
-            return displaymovies;
+            return lst;
         }
-        public string getAllMovieByCityIdDisplayFilter(int Id, string cityName, string movieName,List<int> filterLang, List<int> filterType)
+        public List<Movie> getAllMovieByCityIdDisplayFilter(int Id, string cityName, string movieName,List<int> filterLang, List<int> filterType)
         {
             List<Movie> lst = new List<Movie>();
             if (Id == 0)
             {
              
-                if (movieName == "")
+                if (movieName == "" || movieName==null)
                 {
                     if (!filterLang.Any())
                     {
-                        lst = obj.Movies.ToList();
+                        if (!filterType.Any())
+                        {
+
+                            var fliterlist = obj.Movies.ToList();
+                            foreach (Movie m in fliterlist)
+                            {
+                                lst.Add(m);
+                            }
+
+                        }
+                        else
+                        {
+                            foreach (int ti in filterType)
+                            {
+                                var fliterlist = obj.Movies.Where(i =>  i.MovieType == ti).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -163,7 +133,60 @@ namespace Model
                     }
                 }
                 else
-                    lst = obj.Movies.Where(i => i.Name == movieName).ToList();
+                {
+                    if (!filterLang.Any())
+                    {
+                        if (!filterType.Any())
+                        {
+
+                            var fliterlist = obj.Movies.Where(i => i.Name == movieName).ToList();
+                            foreach (Movie m in fliterlist)
+                            {
+                                lst.Add(m);
+                            }
+
+                        }
+                        else
+                        {
+                            foreach (int ti in filterType)
+                            {
+                                var fliterlist = obj.Movies.Where(i => i.MovieType == ti && i.Name == movieName).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (int fi in filterLang)
+                        {
+                            if (!filterType.Any())
+                            {
+
+                                var fliterlist = obj.Movies.Where(i => i.MovieLanguage == fi && i.Name==movieName).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+
+                            }
+                            else
+                            {
+                                foreach (int ti in filterType)
+                                {
+                                    var fliterlist = obj.Movies.Where(i => i.MovieLanguage == fi && i.MovieType == ti && i.Name == movieName).ToList();
+                                    foreach (Movie m in fliterlist)
+                                    {
+                                        lst.Add(m);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                   
             }
             else
             {
@@ -171,63 +194,131 @@ namespace Model
                 lst = obj.Movies.Where(i => i.Id == Id).ToList();
             }
 
-            string displaymovies = "";
-            Rating r = new Rating();
-            if (lst == null)
+            return lst;
+        }
+        public List<Movie> getAllMovieByCityIdDisplayFilter(int Id, string cityName, string movieName, List<int> filterLang, List<int> filterType,List<Movie> movies)
+        {
+            List<Movie> lst = new List<Movie>();
+            if (Id == 0)
             {
-                displaymovies += "<div class='col-md-3'>" +
-                        " <div class='thumb'>" +
-                        " <header class='thumb-header'>" +
-                        "                                    <a class='hover-img' href='#'>" +
-                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
-                        "                                        <h5 class='hover-title-center'>See Detail</h5>" +
-                        "                                    </a>" +
-                        "                                    </header>" +
-                        "                                    <div class='thumb-caption'>" +
-                        "                                    <ul class='icon-group text-tiny text-color'>";
 
-                displaymovies += "                                    </ul>" +
-                           "                                    <h5 class='thumb-title'><a class='text-darken' href='#'>No Data Found</a></h5>" +
-
-                           "                                </div>" +
-                           "                            </div>" +
-                           "                        </div>";
-            }
-            else
-            {
-                foreach (Movie c in lst)
+                if (movieName == "" || movieName == null)
                 {
-                    displaymovies += "<div class='col-md-3'>" +
-                        " <div class='thumb'>" +
-                        " <header class='thumb-header'>" +
-                        "                                    <a class='hover-img' href='moviecity.aspx?Id=movi_" + c.Id + "'>" +
-                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
-                        "                                        <h5 class='hover-title-center'>See Detail</h5>" +
-                        "                                    </a>" +
-                        "                                    </header>" +
-                        "                                    <div class='thumb-caption'>" +
-                        "                                    <ul class='icon-group text-tiny text-color'>";
-                    if (c.TotalRatings == null)
+                    if (!filterLang.Any())
                     {
-                        displaymovies += r.rate(0);
+                        if (!filterType.Any())
+                        {
+
+                            var fliterlist = movies.ToList();
+                            foreach (Movie m in fliterlist)
+                            {
+                                lst.Add(m);
+                            }
+
+                        }
+                        else
+                        {
+                            foreach (int ti in filterType)
+                            {
+                                var fliterlist = movies.Where(i => i.MovieType == ti).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+                            }
+                        }
                     }
                     else
                     {
-                        displaymovies += r.rate((double)c.TotalRatings);
-                    }
+                        foreach (int fi in filterLang)
+                        {
+                            if (!filterType.Any())
+                            {
 
-                    displaymovies += "                                    </ul>" +
-                               "                                    <h5 class='thumb-title'><a class='text-darken'  href='moviecity.aspx?Id=movi_" + c.Id + "'>" + c.Name + "</a></h5>" +
-                                "                                  <p class='mb0'><small><i class='fa fa-clock'></i> " + c.Duration + "</small>" +
-                               "                                    </p>" +
-                               "                                   <p class='mb0'><small>Language : " + typeName((int)c.MovieLanguage) + "  | Type : " + typeName((int)c.MovieType) + "</small>" +
-                               "                                    </p>" +
-                               "                                </div>" +
-                               "                            </div>" +
-                               "                        </div>";
+                                var fliterlist = movies.Where(i => i.MovieLanguage == fi).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+
+                            }
+                            else
+                            {
+                                foreach (int ti in filterType)
+                                {
+                                    var fliterlist = movies.Where(i => i.MovieLanguage == fi && i.MovieType == ti).ToList();
+                                    foreach (Movie m in fliterlist)
+                                    {
+                                        lst.Add(m);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+                else
+                {
+                    if (!filterLang.Any())
+                    {
+                        if (!filterType.Any())
+                        {
+
+                            var fliterlist = movies.Where(i => i.Name == movieName).ToList();
+                            foreach (Movie m in fliterlist)
+                            {
+                                lst.Add(m);
+                            }
+
+                        }
+                        else
+                        {
+                            foreach (int ti in filterType)
+                            {
+                                var fliterlist = movies.Where(i => i.MovieType == ti && i.Name == movieName).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (int fi in filterLang)
+                        {
+                            if (!filterType.Any())
+                            {
+
+                                var fliterlist = movies.Where(i => i.MovieLanguage == fi && i.Name == movieName).ToList();
+                                foreach (Movie m in fliterlist)
+                                {
+                                    lst.Add(m);
+                                }
+
+                            }
+                            else
+                            {
+                                foreach (int ti in filterType)
+                                {
+                                    var fliterlist = movies.Where(i => i.MovieLanguage == fi && i.MovieType == ti && i.Name == movieName).ToList();
+                                    foreach (Movie m in fliterlist)
+                                    {
+                                        lst.Add(m);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
-            return displaymovies;
+            else
+            {
+
+                lst = obj.Movies.Where(i => i.Id == Id).ToList();
+            }
+            return lst;
+         
         }
         public string typeName(int id)
         {

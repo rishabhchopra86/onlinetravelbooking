@@ -40,13 +40,22 @@ namespace WebSite {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl time;
         
         /// <summary>
-        /// totalamt control.
+        /// date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalamt;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl date;
+        
+        /// <summary>
+        /// personno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl personno;
         
         /// <summary>
         /// Button1 control.

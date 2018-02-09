@@ -12,7 +12,7 @@ namespace WebSite
     {
         MovieBL moviebl;
         static string Name;
-        string disp;
+        static List<Movie> movieList;
         MasterBL masterbl;
         static List<CheckBox> langChckBox;
         static List<CheckBox> TypeChckBox;
@@ -27,10 +27,10 @@ namespace WebSite
             if (!this.IsPostBack)
             {
                 CityBL city = new CityBL();
+                movieList = moviebl.getAllMovieByCityIdDisplay(0, "", "");
 
-
-                disp = moviebl.getAllMovieByCityIdDisplay(0, "", "");
-                display.InnerHtml = disp;
+                displayMovie(movieList);
+               
                 var masterLanguage = masterbl.getMasterValues(3);
                 langChckBox = new List<CheckBox>();
                 TypeChckBox = new List<CheckBox>();
@@ -89,7 +89,7 @@ namespace WebSite
             {
                 SearchIdLang.Remove(Convert.ToInt32(checkBox.ID));
             }
-            display.InnerHtml = moviebl.getAllMovieByCityIdDisplayFilter(0, "", MovieName.Text, SearchIdLang, SearchIdType);
+            displayMovie( moviebl.getAllMovieByCityIdDisplayFilter(0, "", Name, SearchIdLang, SearchIdType,movieList));
         }
         private void TypeCheck(object sender, EventArgs e)
         {
@@ -102,17 +102,77 @@ namespace WebSite
             {
                 SearchIdType.Remove(Convert.ToInt32(checkBox.ID));
             }
-            display.InnerHtml = moviebl.getAllMovieByCityIdDisplayFilter(0, "", MovieName.Text, SearchIdLang, SearchIdType);
+            displayMovie(moviebl.getAllMovieByCityIdDisplayFilter(0, "", Name, SearchIdLang, SearchIdType,movieList));
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
         
             CityBL cities = new CityBL();
             Name = MovieName.Text;
-                display.InnerHtml = moviebl.getAllMovieByCityIdDisplay(0, "", MovieName.Text);
+            movieList = moviebl.getAllMovieByCityIdDisplay(0, "", Name);
+            displayMovie(movieList);
           
         }
-       
+       public void displayMovie(List<Movie> lst)
+        {
+            string displaymovies = "";
+            Rating r = new Rating();
+            if (lst == null)
+            {
+                displaymovies += "<div class='col-md-3'>" +
+                        " <div class='thumb'>" +
+                        " <header class='thumb-header'>" +
+                        "                                    <a class='hover-img' href='#'>" +
+                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
+                        "                                        <h5 class='hover-title-center'>See Detail</h5>" +
+                        "                                    </a>" +
+                        "                                    </header>" +
+                        "                                    <div class='thumb-caption'>" +
+                        "                                    <ul class='icon-group text-tiny text-color'>";
+
+                displaymovies += "                                    </ul>" +
+                           "                                    <h5 class='thumb-title'><a class='text-darken' href='#'>No Data Found</a></h5>" +
+
+                           "                                </div>" +
+                           "                            </div>" +
+                           "                        </div>";
+            }
+            else
+            {
+                foreach (Movie c in lst)
+                {
+                    displaymovies += "<div class='col-md-3'>" +
+                        " <div class='thumb'>" +
+                        " <header class='thumb-header'>" +
+                        "                                    <a class='hover-img' href='moviecity.aspx?Id=movi_" + c.Id + "'>" +
+                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
+                        "                                        <h5 class='hover-title-center'>See Detail</h5>" +
+                        "                                    </a>" +
+                        "                                    </header>" +
+                        "                                    <div class='thumb-caption'>" +
+                        "                                    <ul class='icon-group text-tiny text-color'>";
+                    if (c.TotalRatings == null)
+                    {
+                        displaymovies += r.rate(0);
+                    }
+                    else
+                    {
+                        displaymovies += r.rate((double)c.TotalRatings);
+                    }
+
+                    displaymovies += "                                    </ul>" +
+                               "                                    <h5 class='thumb-title'><a class='text-darken'  href='moviecity.aspx?Id=movi_" + c.Id + "'>" + c.Name + "</a></h5>" +
+                                "                                  <p class='mb0'><small><i class='fa fa-clock'></i> " + c.Duration + "</small>" +
+                               "                                    </p>" +
+                               "                                   <p class='mb0'><small>Language : " + moviebl.typeName((int)c.MovieLanguage) + "  | Type : " + moviebl. typeName((int)c.MovieType) + "</small>" +
+                               "                                    </p>" +
+                               "                                </div>" +
+                               "                            </div>" +
+                               "                        </div>";
+                }
+            }
+            display.InnerHtml = displaymovies;
+        }
 
       
     }

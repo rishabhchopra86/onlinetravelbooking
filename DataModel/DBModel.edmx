@@ -17,8 +17,8 @@
           <Property Name="FirstName" Type="varchar" MaxLength="20" />
           <Property Name="LastName" Type="varchar" MaxLength="20" />
           <Property Name="MiddleName" Type="varchar" MaxLength="20" />
-          <Property Name="MobileNo" Type="int" />
-          <Property Name="AlternateMobileNo" Type="int" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="11" />
+          <Property Name="AlternateMobileNo" Type="varchar" MaxLength="11" />
           <Property Name="CityId" Type="int" />
           <Property Name="Ratings" Type="int" />
           <Property Name="CreatedBy" Type="int" />
@@ -167,6 +167,18 @@
           <Property Name="UpdatedDate" Type="date" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="11" />
+          <Property Name="Message" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="SentEmail" Type="bit" />
+        </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="Id" />
@@ -261,8 +273,8 @@
           <Property Name="TypeId" Type="int" />
           <Property Name="RTId" Type="int" />
           <Property Name="Description" Type="varchar" MaxLength="100" />
-          <Property Name="Path" Type="varchar" MaxLength="30" />
-          <Property Name="ImageName" Type="varchar" MaxLength="20" />
+          <Property Name="Path" Type="varchar(max)" />
+          <Property Name="ImageName" Type="varchar" MaxLength="100" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedDate" Type="date" />
           <Property Name="UpdatedBy" Type="int" />
@@ -433,6 +445,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MovieId" Type="int" />
           <Property Name="ScreenId" Type="int" />
+          <Property Name="CinemaId" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="StartTime" Type="time" Precision="7" />
           <Property Name="EndTime" Type="time" Precision="7" />
@@ -443,6 +456,7 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDate" Type="date" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="AM/PM" Type="bit" />
         </EntityType>
         <EntityType Name="SeatDesign">
           <Key>
@@ -568,6 +582,7 @@
           <EntitySet Name="Cancel" EntityType="Self.Cancel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cinemas" EntityType="Self.Cinemas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fare" EntityType="Self.Fare" Schema="dbo" store:Type="Tables" />
@@ -610,8 +625,8 @@
           <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="MobileNo" Type="Int32" />
-          <Property Name="AlternateMobileNo" Type="Int32" />
+          <Property Name="MobileNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="AlternateMobileNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="CityId" Type="Int32" />
           <Property Name="Ratings" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
@@ -760,6 +775,18 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
+        <EntityType Name="ContactU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="SentEmail" Type="Boolean" />
+        </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="Id" />
@@ -854,8 +881,8 @@
           <Property Name="TypeId" Type="Int32" />
           <Property Name="RTId" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Path" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ImageName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="0" />
           <Property Name="UpdatedBy" Type="Int32" />
@@ -1026,6 +1053,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MovieId" Type="Int32" />
           <Property Name="ScreenId" Type="Int32" />
+          <Property Name="CinemaId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="StartTime" Type="Time" Precision="7" />
           <Property Name="EndTime" Type="Time" Precision="7" />
@@ -1036,6 +1064,7 @@
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="AM_PM" Type="Boolean" />
         </EntityType>
         <EntityType Name="SeatDesign">
           <Key>
@@ -1161,6 +1190,7 @@
           <EntitySet Name="Cancels" EntityType="Self.Cancel" />
           <EntitySet Name="Cinemas" EntityType="Self.Cinema" />
           <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="ContactUs" EntityType="Self.ContactU" />
           <EntitySet Name="Countries" EntityType="Self.Country" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Fares" EntityType="Self.Fare" />
@@ -1360,6 +1390,19 @@
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="OnlineTicketBookingModel.ContactU">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="SentEmail" ColumnName="SentEmail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1644,6 +1687,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="CinemaId" ColumnName="CinemaId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
@@ -1654,6 +1698,7 @@
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AM_PM" ColumnName="AM/PM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

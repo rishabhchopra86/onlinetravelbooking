@@ -49,6 +49,11 @@ namespace Model
             return lst;
         }
         #endregion
+        public string getCinemaNameByid(int id)
+        {
+
+            return obj.Cinemas.Where(c => c.Id == id).FirstOrDefault().Name;
+        }
         public List<Cinema> getAllCinemasByCityId(int Id)
         {
             List<Cinema> lst = new List<Cinema>();
@@ -91,13 +96,14 @@ namespace Model
             }
             else
             {
+                ImageBL img = new ImageBL();
                 foreach (Cinema c in lst)
                 {
                     displaycinemas += "<div class='col-md-4'>" +
                         " <div class='thumb'>" +
                         " <header class='thumb-header'>" +
                         "                                    <a class='hover-img' href='cinemasdetail.aspx?Id=Cinema_" + c.Id + "'>" +
-                        "                                        <img src = 'img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
+                        "                                        <img src = '"+img.getByTypeIdRtc(53,c.Id)+"' alt='Image Alternative text' title='LHOTEL PORTO BAY SAO PAULO lobby' />" +
                         "                                        <h5 class='hover-title-center'>See Detail</h5>" +
                         "                                    </a>" +
                         "                                    </header>" +

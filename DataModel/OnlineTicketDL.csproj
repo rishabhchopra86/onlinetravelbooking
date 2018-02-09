@@ -77,6 +77,9 @@
     <Compile Include="City.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ContactU.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Country.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

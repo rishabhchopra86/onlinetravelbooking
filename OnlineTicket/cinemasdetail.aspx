@@ -34,21 +34,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab-1">
                                 <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" id="cinemaimage" runat="server">
-                                    <img src="img/lhotel_porto_bay_sao_paulo_suite_lhotel_living_room_800x600.jpg" alt="Image Alternative text" title="LHOTEL PORTO BAY SAO PAULO suite lhotel living room" />
-                                    <img src="img/hotel_porto_bay_rio_internacional_rooftop_pool_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" />
-                                    <img src="img/hotel_porto_bay_serra_golf_suite2_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite2" />
-                                    <img src="img/hotel_porto_bay_serra_golf_living_room_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF living room" />
-                                    <img src="img/the_pool_800x600.jpg" alt="Image Alternative text" title="The pool" />
-                                    <img src="img/hotel_eden_mar_suite_800x600.jpg" alt="Image Alternative text" title="hotel EDEN MAR suite" />
-                                    <img src="img/hotel_porto_bay_rio_internacional_de_luxe_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL de luxe" />
-                                    <img src="img/hotel_2_800x600.jpg" alt="Image Alternative text" title="hotel 2" />
-                                    <img src="img/lhotel_porto_bay_sao_paulo_luxury_suite_800x600.jpg" alt="Image Alternative text" title="LHOTEL PORTO BAY SAO PAULO luxury suite" />
-                                    <img src="img/hotel_porto_bay_serra_golf_library_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF library" />
-                                    <img src="img/lhotel_porto_bay_sao_paulo_lobby_800x600.jpg" alt="Image Alternative text" title="LHOTEL PORTO BAY SAO PAULO lobby" />
-                                    <img src="img/hotel_porto_bay_serra_golf_suite_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite" />
-                                    <img src="img/hotel_porto_bay_liberdade_800x600.jpg" alt="Image Alternative text" title="hotel PORTO BAY LIBERDADE" />
-                                    <img src="img/hotel_the_cliff_bay_spa_suite_800x600.jpg" alt="Image Alternative text" title="hotel THE CLIFF BAY spa suite" />
-                                    <img src="img/hotel_1_800x600.jpg" alt="Image Alternative text" title="hotel 1" />
+                                  
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="google-map-tab">
@@ -211,92 +197,10 @@
                              <div class="col-md-12">
                                  <div class="tabbable booking-details-tabbable">
                             <ul class="nav nav-tabs" id="myTab1" runat="server">
-                                <li class="active"><a href="#tab-11" data-toggle="tab"><i class="fa fa-calendar"></i> 8-feb</a>
-                                </li>
-                                <li><a href="#google-map-tab1" data-toggle="tab"><i class="fa fa-calendar"></i> 9-feb</a>
-                                </li>
+                                
                             </ul>
                             <div class="tab-content" id="cinemadatedetail" runat="server">
-                                <div class="tab-pane fade in active" id="tab-11">
-                              
-                               
-                                    <div class="col-md-12">
-                                             <div class="gap"></div>
-                                         <div class="col-md-4"><span class="fa fa-heart-o"></span> Movie1 Names</div>
-                                           <div class="col-md-6">
-                                               <div class="col-md-2">
-                                                   <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    6:00 p.m</a>
-                                                   </div>
-                                                <div class="col-md-2">
-                                                  <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    7:00 p.m</a>
-                                               </div>
-                                           </div>
-                                        </div>
-                                    
-                                    <div class="col-md-12">
-                                             <div class="gap"></div>
-                                         <div class="col-md-4"><span class="fa fa-heart-o"></span> Movie2 Names</div>
-                                           <div class="col-md-6">
-                                               <div class="col-md-2">
-                                                   <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    6:00 p.m</a>
-                                                   </div>
-                                                <div class="col-md-2">
-                                                  <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    7:00 p.m</a>
-                                               </div>
-                                           </div>
-                                        </div>
-                                    </div>
-                                <div class="tab-pane fade" id="google-map-tab1">
-                                  <div class="tab-pane fade in active" id="tab-12">
-                               
-                                    <div class="col-md-12">
-                                             <div class="gap"></div>
-                                         <div class="col-md-4"><span class="fa fa-heart-o"></span> Movie3 Names</div>
-                                           <div class="col-md-6">
-                                               <div class="col-md-2">
-                                                   <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    6:00 p.m</a>
-                                                   </div>
-                                                <div class="col-md-2">
-                                                  <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    7:00 p.m</a>
-                                               </div>
-                                           </div>
-                                        </div>
-                                       <div class="col-md-12">
-                                             <div class="gap"></div>
-                                         <div class="col-md-4"><span class="fa fa-heart-o"></span> Movie4 Names</div>
-                                           <div class="col-md-6">
-                                               <div class="col-md-2">
-                                                   <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    6:00 p.m</a>
-                                                   </div>
-                                                <div class="col-md-2">
-                                                  <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    7:00 p.m</a>
-                                               </div>
-                                           </div>
-                                        </div>
-                                    <div class="col-md-12">
-                                             <div class="gap"></div>
-                                         <div class="col-md-4"><span class="fa fa-heart-o"></span> Cinema Names</div>
-                                           <div class="col-md-6">
-                                               <div class="col-md-2">
-                                                   <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    6:00 p.m</a>
-                                                   </div>
-                                                <div class="col-md-2">
-                                                  <a href="movieseats.aspx" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Avaiable : 100 seats">
-                                                    7:00 p.m</a>
-                                               </div>
-                                           </div>
-                                        </div>
-                                    </div>
-                                </div>
+                             
                             </div>
                         </div>
                        <!-- <div class="tabbable booking-details-tabbable">

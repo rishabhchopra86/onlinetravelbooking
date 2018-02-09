@@ -48,5 +48,25 @@ namespace Model
             return image;
         }
 #endregion
+        public string getByTypeIdRtc(int Type,int rtc)
+        {
+            var path = obj.Images.Where(i => i.RTId == rtc && i.TypeId == Type).FirstOrDefault();
+            if (path == null)
+            {
+                return "img/NotFound.jpg";
+            }
+            return path.Path;
+        }
+        public List<Image> getAllByTypeIdRtc(int Type, int rtc)
+        {
+
+            var path = obj.Images.Where(i => i.RTId == rtc && i.TypeId == Type).ToList();
+            if (path == null)
+            {
+                
+                return new List<Image>();
+            }
+            return path.ToList();
+        }
     }
 }

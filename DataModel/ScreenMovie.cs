@@ -17,6 +17,7 @@ namespace DataModel
         public int Id { get; set; }
         public Nullable<int> MovieId { get; set; }
         public Nullable<int> ScreenId { get; set; }
+        public Nullable<int> CinemaId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<System.TimeSpan> StartTime { get; set; }
         public Nullable<System.TimeSpan> EndTime { get; set; }
@@ -27,5 +28,6 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<bool> AM_PM { get; set; }
     }
 }
