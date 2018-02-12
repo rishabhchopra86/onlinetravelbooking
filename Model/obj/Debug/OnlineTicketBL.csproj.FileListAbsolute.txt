@@ -22,3 +22,16 @@ E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.xml
 E:\Rishabh Chopra\work\New folder\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Rishabh Chopra\work\New folder\Model\obj\Debug\Model.dll
 E:\Rishabh Chopra\work\New folder\Model\obj\Debug\Model.pdb
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\Model.dll.config
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\Model.dll
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\Model.pdb
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\DataModel.dll
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\EntityFramework.dll
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\DataModel.pdb
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\DataModel.dll.config
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\EntityFramework.xml
+E:\krishna\onlineticketbooking\New folder\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\krishna\onlineticketbooking\New folder\Model\obj\Debug\OnlineTicketBL.csprojResolveAssemblyReference.cache
+E:\krishna\onlineticketbooking\New folder\Model\obj\Debug\Model.dll
+E:\krishna\onlineticketbooking\New folder\Model\obj\Debug\Model.pdb

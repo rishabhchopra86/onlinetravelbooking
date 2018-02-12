@@ -17,3 +17,13 @@ E:\Rishabh Chopra\work\New folder\DataModel\bin\Debug\EntityFramework.SqlServer.
 E:\Rishabh Chopra\work\New folder\DataModel\obj\Debug\DataModel.dll
 E:\Rishabh Chopra\work\New folder\DataModel\obj\Debug\DataModel.pdb
 E:\Rishabh Chopra\work\New folder\DataModel\obj\Debug\OnlineTicketDL.csprojResolveAssemblyReference.cache
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\DataModel.dll.config
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\DataModel.dll
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\DataModel.pdb
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\EntityFramework.dll
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\EntityFramework.xml
+E:\krishna\onlineticketbooking\New folder\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\krishna\onlineticketbooking\New folder\DataModel\obj\Debug\OnlineTicketDL.csprojResolveAssemblyReference.cache
+E:\krishna\onlineticketbooking\New folder\DataModel\obj\Debug\DataModel.dll
+E:\krishna\onlineticketbooking\New folder\DataModel\obj\Debug\DataModel.pdb

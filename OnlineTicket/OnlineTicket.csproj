@@ -84,6 +84,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="booknow.aspx" />
     <Content Include="CustomerDetail.aspx" />
     <Content Include="forgetpassword.aspx" />
     <Content Include="packages.config" />
@@ -1534,10 +1535,13 @@
     <Content Include="overview.aspx" />
     <Content Include="packages.aspx" />
     <Content Include="passwordverfiy.aspx" />
+    <Content Include="Payment.aspx" />
+    <Content Include="PaymentunRegistered.aspx" />
     <Content Include="pnr.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="seatavaibility.aspx" />
     <Content Include="setting.aspx" />
+    <Content Include="SuccessPayment.aspx" />
     <Content Include="trainsearch.aspx" />
     <Content Include="traintime.aspx" />
     <Content Include="Web.config" />
@@ -1584,6 +1588,13 @@
     <Compile Include="Admin\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booknow.aspx.cs">
+      <DependentUpon>booknow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booknow.aspx.designer.cs">
+      <DependentUpon>booknow.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussearch.aspx.cs">
       <DependentUpon>bussearch.aspx</DependentUpon>
@@ -1759,6 +1770,20 @@
     <Compile Include="passwordverfiy.aspx.designer.cs">
       <DependentUpon>passwordverfiy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentunRegistered.aspx.cs">
+      <DependentUpon>PaymentunRegistered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentunRegistered.aspx.designer.cs">
+      <DependentUpon>PaymentunRegistered.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pnr.aspx.cs">
       <DependentUpon>pnr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1787,6 +1812,13 @@
     </Compile>
     <Compile Include="setting.aspx.designer.cs">
       <DependentUpon>setting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SuccessPayment.aspx.cs">
+      <DependentUpon>SuccessPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuccessPayment.aspx.designer.cs">
+      <DependentUpon>SuccessPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="trainsearch.aspx.cs">
       <DependentUpon>trainsearch.aspx</DependentUpon>
@@ -1824,7 +1856,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50066</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3000/</IISUrl>
+          <IISUrl>http://localhost:3001/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

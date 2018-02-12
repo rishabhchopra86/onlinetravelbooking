@@ -73,7 +73,7 @@
         </div>
              <div class="col-md-12">
              <h6 class="pull-right">
-                 <asp:Button ID="Button1" runat="server" Text="Proceed" CssClass="btn btn-primary" /></h6>
+                 <asp:Button ID="Button1" runat="server" Text="Proceed" CssClass="btn btn-primary" OnClick="Button1_Click" /></h6>
                  </div>
             </div>
         <div class="gap"></div>
@@ -202,7 +202,7 @@
         });
         function persons(value) {
             debugger;
-            initialize();
+           
             var val = value.options[value.selectedIndex].value;
             var iconpix = document.getElementById('iconpix');
             if (!val == "") {
@@ -211,6 +211,7 @@
                 selected = Number(perso.innerText);
                
                 iconpix.setAttribute("style", "height:100px;width: 100px");
+                document.cookie = "noOfPerson=" + selected + ";";
                 var no = Number(val);
                 if (no==1)
                     iconpix.src = "img/icon/bicycle.png";

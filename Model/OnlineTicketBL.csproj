@@ -59,6 +59,7 @@
     <Compile Include="CinemaBL.cs" />
     <Compile Include="CityBL.cs" />
     <Compile Include="Comman.cs" />
+    <Compile Include="ContactUsBL.cs" />
     <Compile Include="CountryBL.cs" />
     <Compile Include="CustomerBL.cs" />
     <Compile Include="FareBL.cs" />

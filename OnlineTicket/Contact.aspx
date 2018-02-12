@@ -6,41 +6,35 @@
         <div class="container">
             <h1 class="page-title">Contact Us</h1>
         </div>
-
-
-
-
-        <div class="container">
+  <div class="container">
         </div>
-        
         <div class="container">
-            <div class="gap"></div>
-            <div class="row">
-                <div class="col-md-7">
+          <div class="row">
+                <div class="col-md-6">
                     <h1>Feel free to fill..!</h1>
-                   
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
+                     <div class="row">
+                          <div class="form-group">
                                     <label>Name</label>
-                                    <input class="form-control" type="text" />
+                                    <input class="form-control" runat="server" id="txtname" type="text" />
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
+                         <div class="form-group">
                                     <label>E-mail</label>
-                                    <input class="form-control" type="text" />
+                                    <input class="form-control" runat="server" id="txtemail" type="text" />
                                 </div>
-                            </div>
+                         <div class="form-group">
+                            <label>Message</label>
+                            <textarea class="form-control" runat="server" id="txtmessage"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Message</label>
-                            <textarea class="form-control"></textarea>
+                            <label>Phone No</label>
+                             <input class="form-control" type="text" runat="server" id="txtno"/>
                         </div>
-                        <input class="btn btn-primary" type="submit" value="Send Message" />
+                     <asp:Button ID="btnmsg"  cssClass="btn btn-primary" runat="server" Text="Send Message" OnClick="btnmsg_Click" />
                   
                 </div>
-                <div class="col-md-4">
+              </div>
+        
+                <div class="col-md-6">
                     <aside class="sidebar-right">
                         <ul class="address-list list">
                             <li>
