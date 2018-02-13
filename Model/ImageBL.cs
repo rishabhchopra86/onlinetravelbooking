@@ -16,9 +16,9 @@ namespace Model
         }
 
 #region CRUD
-        public void AddImage(Image image)
+        public void AddImage(Image img)
         {
-                obj.Images.Add(image);
+                obj.Images.Add(img);
                 obj.SaveChanges();
         }
 

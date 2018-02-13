@@ -7,7 +7,7 @@ using DataModel;
 
 namespace Model
 {
-    public class AvilableSeatBL
+    public class AvilableSeatBL:AvailableSeat
     {
         OnlineTicketBookingEntities obj;
         public AvilableSeatBL()
@@ -44,7 +44,7 @@ namespace Model
         public AvailableSeat GetByAvailableSeatId()
         {
             AvailableSeat availableseat = new AvailableSeat();
-            availableseat = obj.AvailableSeats.Where(avls => avls.Id == Id).FirstOrDefault();
+            availableseat = obj.AvailableSeats.Where(avls => avls.Id == this.Id).FirstOrDefault();
             return availableseat;
         }   
         #endregion

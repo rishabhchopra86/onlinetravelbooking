@@ -35,7 +35,7 @@ namespace Model
        public List<City> GetAllCities()
        {
            List<City> citylst=new List<City>();
-           citylst=obj.Cities.ToList();
+           citylst=obj.Cities.Where(c=>c.IsActive==true).ToList();
            return citylst;
        }
  #endregion

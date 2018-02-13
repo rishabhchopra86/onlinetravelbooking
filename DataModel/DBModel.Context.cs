@@ -12,6 +12,8 @@ namespace DataModel
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class OnlineTicketBookingEntities : DbContext
     {
@@ -34,6 +36,7 @@ namespace DataModel
         public virtual DbSet<Cancel> Cancels { get; set; }
         public virtual DbSet<Cinema> Cinemas { get; set; }
         public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<ContactU> ContactUs { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Fare> Fares { get; set; }
@@ -49,6 +52,8 @@ namespace DataModel
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
         public virtual DbSet<ScreenFare> ScreenFares { get; set; }
+        public virtual DbSet<ScreenMaster> ScreenMasters { get; set; }
+        public virtual DbSet<ScreenMovie> ScreenMovies { get; set; }
         public virtual DbSet<SeatDesign> SeatDesigns { get; set; }
         public virtual DbSet<SeatDesignDetail> SeatDesignDetails { get; set; }
         public virtual DbSet<State> States { get; set; }
@@ -56,5 +61,16 @@ namespace DataModel
         public virtual DbSet<Transport> Transports { get; set; }
         public virtual DbSet<TransportDetail> TransportDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
+    
+    
+        public virtual ObjectResult<Procedure_Result> Procedure()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Procedure_Result>("Procedure");
+        }
+    
+        public virtual ObjectResult<GetScreenMovieDetails_Result> GetScreenMovieDetails()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetScreenMovieDetails_Result>("GetScreenMovieDetails");
+        }
     }
 }

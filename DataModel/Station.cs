@@ -14,12 +14,6 @@ namespace DataModel
     
     public partial class Station
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Station()
-        {
-            this.TransportDetails = new HashSet<TransportDetail>();
-        }
-    
         public int Id { get; set; }
         public string StationName { get; set; }
         public string StationCode { get; set; }
@@ -37,13 +31,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual City City { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
-        public virtual MasterValue MasterValue1 { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransportDetail> TransportDetails { get; set; }
     }
 }

@@ -28,10 +28,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual Station Station { get; set; }
-        public virtual Transport Transport { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
     }
 }

@@ -14,12 +14,6 @@ namespace DataModel
     
     public partial class Package
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Package()
-        {
-            this.PackageDetails = new HashSet<PackageDetail>();
-        }
-    
         public int Id { get; set; }
         public string PackageName { get; set; }
         public string Description { get; set; }
@@ -32,10 +26,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PackageDetail> PackageDetails { get; set; }
-        public virtual User User1 { get; set; }
     }
 }

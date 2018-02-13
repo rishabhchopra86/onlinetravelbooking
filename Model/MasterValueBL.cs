@@ -50,6 +50,8 @@ namespace Model
             mastervalue = obj.MasterValues.Where(mval => mval.Id == this.Id).FirstOrDefault();
             return mastervalue;
         }
+
+
 #endregion
     }
 }

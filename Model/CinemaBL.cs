@@ -48,6 +48,8 @@ namespace Model
             lst = obj.Cinemas.Where(c => c.Id == Id).FirstOrDefault();
             return lst;
         }
+
+        
         #endregion
     }
 }

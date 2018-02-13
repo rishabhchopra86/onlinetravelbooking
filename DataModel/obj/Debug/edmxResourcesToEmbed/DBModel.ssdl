@@ -5,14 +5,15 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
     <Property Name="TravellerName" Type="varchar" MaxLength="50" />
     <Property Name="TravellerLogo" Type="varchar" MaxLength="50" />
     <Property Name="Address" Type="varchar" MaxLength="50" />
     <Property Name="FirstName" Type="varchar" MaxLength="20" />
     <Property Name="LastName" Type="varchar" MaxLength="20" />
     <Property Name="MiddleName" Type="varchar" MaxLength="20" />
-    <Property Name="MobileNo" Type="int" />
-    <Property Name="AlternateMobileNo" Type="int" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="11" />
+    <Property Name="AlternateMobileNo" Type="varchar" MaxLength="11" />
     <Property Name="CityId" Type="int" />
     <Property Name="Ratings" Type="int" />
     <Property Name="CreatedBy" Type="int" />
@@ -28,6 +29,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TypeId" Type="int" />
     <Property Name="RTCId" Type="int" />
+    <Property Name="AminitiesName" Type="varchar" MaxLength="20" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
     <Property Name="UpdatedBy" Type="int" />
@@ -54,7 +56,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TypeId" Type="int" />
-    <Property Name="BookCode" Type="varchar" MaxLength="30" />
+    <Property Name="BookingCode" Type="varchar" MaxLength="30" />
     <Property Name="CustomerId" Type="int" />
     <Property Name="BookingDate" Type="date" />
     <Property Name="CheckoutDate" Type="date" />
@@ -80,6 +82,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BookingId" Type="int" />
+    <Property Name="BookingStatusId" Type="int" />
     <Property Name="Name" Type="varchar" MaxLength="30" />
     <Property Name="Gender" Type="int" />
     <Property Name="Age" Type="int" />
@@ -92,6 +95,8 @@
     <Property Name="UpdatedBy" Type="int" />
     <Property Name="UpdatedDate" Type="date" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="IsCancel" Type="bit" />
+    <Property Name="CancelDate" Type="date" />
   </EntityType>
   <EntityType Name="BookingStatus">
     <Key>
@@ -127,9 +132,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentId" Type="int" />
     <Property Name="Name" Type="varchar" MaxLength="20" />
     <Property Name="Address" Type="varchar" MaxLength="50" />
-    <Property Name="PhoneNo" Type="int" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="11" />
     <Property Name="CityId" Type="int" />
     <Property Name="Langitude" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Lattitude" Type="decimal" Precision="18" Scale="0" />
@@ -148,7 +154,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StateId" Type="int" />
-    <Property Name="CityName" Type="varchar" MaxLength="20" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
     <Property Name="CityCode" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
@@ -156,12 +162,24 @@
     <Property Name="UpdatedDate" Type="date" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="11" />
+    <Property Name="Message" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="SentEmail" Type="bit" />
+  </EntityType>
   <EntityType Name="Country">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CountryName" Type="varchar" MaxLength="20" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" />
     <Property Name="Continent" Type="varchar" MaxLength="20" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
@@ -180,8 +198,8 @@
     <Property Name="MiddleName" Type="varchar" MaxLength="20" />
     <Property Name="Email" Type="varchar" MaxLength="20" />
     <Property Name="DOB" Type="date" />
-    <Property Name="PhoneNo" Type="int" />
-    <Property Name="AlternatePhoneNo" Type="int" />
+    <Property Name="PhoneNo" Type="varbinary" MaxLength="20" />
+    <Property Name="AlternatePhoneNo" Type="varbinary" MaxLength="20" />
     <Property Name="Address" Type="varchar" MaxLength="100" />
     <Property Name="IdProof" Type="varchar(max)" />
     <Property Name="CityId" Type="int" />
@@ -207,7 +225,9 @@
     <Property Name="TransportId" Type="int" />
     <Property Name="From" Type="int" />
     <Property Name="To" Type="int" />
-    <Property Name="Rate" Type="float" />
+    <Property Name="BasicRate" Type="float" />
+    <Property Name="Quota" Type="varchar" MaxLength="50" />
+    <Property Name="QuotaRate" Type="float" />
     <Property Name="Categories" Type="int" />
     <Property Name="RoundtripRate" Type="float" />
     <Property Name="PersonType" Type="int" />
@@ -248,8 +268,8 @@
     <Property Name="TypeId" Type="int" />
     <Property Name="RTId" Type="int" />
     <Property Name="Description" Type="varchar" MaxLength="100" />
-    <Property Name="Path" Type="varchar" MaxLength="30" />
-    <Property Name="ImageName" Type="varchar" MaxLength="20" />
+    <Property Name="Path" Type="varchar(max)" />
+    <Property Name="ImageName" Type="varchar" MaxLength="100" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
     <Property Name="UpdatedBy" Type="int" />
@@ -292,9 +312,9 @@
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="Description" Type="varchar" MaxLength="100" />
     <Property Name="TotalRatings" Type="int" />
-    <Property Name="Duration" Type="int" />
-    <Property Name="Language" Type="int" />
-    <Property Name="Type" Type="int" />
+    <Property Name="Duration" Type="time" Precision="7" />
+    <Property Name="MovieLanguage" Type="int" />
+    <Property Name="MovieType" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" />
     <Property Name="UpdatedBy" Type="int" />
@@ -398,6 +418,41 @@
     <Property Name="FareType" Type="int" />
     <Property Name="Rate" Type="float" />
   </EntityType>
+  <EntityType Name="ScreenMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CinemasId" Type="int" />
+    <Property Name="ScreenName" Type="varchar" MaxLength="50" />
+    <Property Name="TotalSeats" Type="nchar" MaxLength="10" />
+    <Property Name="ScreenDesignId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScreenMovie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" />
+    <Property Name="ScreenId" Type="int" />
+    <Property Name="CinemaId" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="AvailableSeat" Type="int" />
+    <Property Name="2D3D" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AM/PM" Type="bit" />
+  </EntityType>
   <EntityType Name="SeatDesign">
     <Key>
       <PropertyRef Name="Id" />
@@ -423,7 +478,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CountryId" Type="int" />
-    <Property Name="StateName" Type="varchar" MaxLength="20" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" />
     <Property Name="StateCode" Type="varchar" MaxLength="5" />
     <Property Name="TinNo" Type="int" />
     <Property Name="CreatedBy" Type="int" />
@@ -462,9 +517,8 @@
     <Property Name="TypeId" Type="int" />
     <Property Name="TransportNo" Type="varchar" MaxLength="30" />
     <Property Name="AgentId" Type="int" />
-    <Property Name="Source" Type="varchar" MaxLength="50" />
-    <Property Name="Destination" Type="varchar" MaxLength="50" />
-    <Property Name="AminitiesId" Type="int" />
+    <Property Name="SourceStationId" Type="int" />
+    <Property Name="DestinationStationId" Type="int" />
     <Property Name="Monday" Type="bit" />
     <Property Name="Tuesday" Type="bit" />
     <Property Name="Wednesday" Type="bit" />
@@ -504,8 +558,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserCode" Type="varchar" MaxLength="20" />
-    <Property Name="UserName" Type="varchar" MaxLength="20" />
-    <Property Name="Password" Type="varchar" MaxLength="10" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
     <Property Name="Name" Type="varchar" MaxLength="30" />
     <Property Name="TypeId" Type="int" />
     <Property Name="PasswordIv" Type="varchar" MaxLength="60" />
@@ -513,1278 +567,9 @@
     <Property Name="Logged" Type="bit" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
-  <Association Name="FKAgentCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Agent">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAgentUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Agent">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAminitiesCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Aminities" Type="Self.Aminities" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Aminities">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAminitiesTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Aminities" Type="Self.Aminities" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Aminities">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAminitiesUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Aminities" Type="Self.Aminities" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Aminities">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAvailableSeatCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="AvailableSeat" Type="Self.AvailableSeat" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AvailableSeat">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAvailableSeatSeatStatus">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="AvailableSeat" Type="Self.AvailableSeat" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AvailableSeat">
-        <PropertyRef Name="SeatStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKAvailableSeatUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="AvailableSeat" Type="Self.AvailableSeat" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AvailableSeat">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBoardingStId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="BoardingStId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingDetailsCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingDetails">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingDetailsUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingDetails">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingFareId">
-    <End Role="Fare" Type="Self.Fare" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Fare">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="FareId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingId">
-    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
-    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Booking">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingDetails">
-        <PropertyRef Name="BookingId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingStatusBookingId">
-    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
-    <End Role="BookingStatus" Type="Self.BookingStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Booking">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingStatus">
-        <PropertyRef Name="BookingId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingStatusCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="BookingStatus" Type="Self.BookingStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingStatus">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingStatusUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="BookingStatus" Type="Self.BookingStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingStatus">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="BookingType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookingUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKBookStatus">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingDetails">
-        <PropertyRef Name="BookStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCancelCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Cancel" Type="Self.Cancel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cancel">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCancelUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Cancel" Type="Self.Cancel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cancel">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCinemasCityId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cinemas">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCinemasCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cinemas">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCinemasUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cinemas">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCitiesUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cities">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCititesCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cities">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCityId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Agent">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCountryCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Country" Type="Self.Country" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Country">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCountryUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Country" Type="Self.Country" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Country">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCustomerCityId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCustomerCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCustomerId">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCustomerPassportCountryId">
-    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Country">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="PassportCountryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKCustomerUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareCategories">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="Categories" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareFrom">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="From" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareId">
-    <End Role="Fare" Type="Self.Fare" Multiplicity="0..1" />
-    <End Role="AvailableSeat" Type="Self.AvailableSeat" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Fare">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AvailableSeat">
-        <PropertyRef Name="FareId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFarePersonType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="PersonType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareTo">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="To" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareTransportId">
-    <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transport">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="TransportId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKFareUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Fare" Type="Self.Fare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fare">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKHotelCityId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Hotel">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKHotelCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Hotel">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKHotelType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Hotel">
-        <PropertyRef Name="HotelType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKHotelUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Hotel">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKImageCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Image" Type="Self.Image" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Image">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKImageId">
-    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
-    <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Image">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Hotel">
-        <PropertyRef Name="ImageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKImagesUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Image" Type="Self.Image" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Image">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKLogCustomerId">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-    <End Role="Log" Type="Self.Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Log">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKMasterValueMasterId">
-    <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Master">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MasterValue">
-        <PropertyRef Name="MasterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKMovieCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Movie">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKMovieLanguage">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Movie">
-        <PropertyRef Name="Language" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKMovieType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Movie">
-        <PropertyRef Name="Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKMovieUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Movie">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Package" Type="Self.Package" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Package">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageDetailCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="PackageDetail" Type="Self.PackageDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PackageDetail">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageDetailFareId">
-    <End Role="Fare" Type="Self.Fare" Multiplicity="0..1" />
-    <End Role="PackageDetail" Type="Self.PackageDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Fare">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PackageDetail">
-        <PropertyRef Name="FareId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageDetailPackegeId">
-    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
-    <End Role="PackageDetail" Type="Self.PackageDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Package">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PackageDetail">
-        <PropertyRef Name="PackageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageDetailTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="PackageDetail" Type="Self.PackageDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PackageDetail">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageDetailUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="PackageDetail" Type="Self.PackageDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PackageDetail">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPackageUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Package" Type="Self.Package" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Package">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPersonType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingDetails">
-        <PropertyRef Name="PersonType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKPnrStatus">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="BookingStatus" Type="Self.BookingStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingStatus">
-        <PropertyRef Name="PnrStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKReviewCustomerid">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-    <End Role="Review" Type="Self.Review" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Review">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKReviewTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Review" Type="Self.Review" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Review">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomAminitiesId">
-    <End Role="Aminities" Type="Self.Aminities" Multiplicity="0..1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aminities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Room">
-        <PropertyRef Name="AmenitiesId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Room">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomHotelId">
-    <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Hotel">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Room">
-        <PropertyRef Name="HotelId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomId">
-    <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
-    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Room">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BookingDetails">
-        <PropertyRef Name="RoomId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomStatus">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Room">
-        <PropertyRef Name="Status" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Room">
-        <PropertyRef Name="Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKRoomUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Room">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKScreenCinemaId">
-    <End Role="Cinemas" Type="Self.Cinemas" Multiplicity="0..1" />
-    <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cinemas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Screen">
-        <PropertyRef Name="CinemasId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKScreenCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Screen">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKScreenFareScreenId">
-    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
-    <End Role="ScreenFare" Type="Self.ScreenFare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Screen">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ScreenFare">
-        <PropertyRef Name="ScreenId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKScreenFareType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="ScreenFare" Type="Self.ScreenFare" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ScreenFare">
-        <PropertyRef Name="FareType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKScreenMovieId">
-    <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
-    <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Movie">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Screen">
-        <PropertyRef Name="MovieId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKScreenUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Screen">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKSeatDesignDetailSeatDesignId">
-    <End Role="SeatDesign" Type="Self.SeatDesign" Multiplicity="0..1" />
-    <End Role="SeatDesignDetail" Type="Self.SeatDesignDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SeatDesign">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SeatDesignDetail">
-        <PropertyRef Name="SeatDesignId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKSeatDesignScreenId">
-    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
-    <End Role="SeatDesign" Type="Self.SeatDesign" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Screen">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SeatDesign">
-        <PropertyRef Name="ScreenId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStateId">
-    <End Role="States" Type="Self.States" Multiplicity="0..1" />
-    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="States">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cities">
-        <PropertyRef Name="StateId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStatesCountryId">
-    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-    <End Role="States" Type="Self.States" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Country">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="States">
-        <PropertyRef Name="CountryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStatesCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="States" Type="Self.States" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="States">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStatesUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="States" Type="Self.States" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="States">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStationCityId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="Station" Type="Self.Station" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Station">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStationCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Station" Type="Self.Station" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Station">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStationType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Station" Type="Self.Station" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Station">
-        <PropertyRef Name="StationType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStationTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Station" Type="Self.Station" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Station">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKStationUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Station" Type="Self.Station" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Station">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTaxType">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="Taxtype" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportAgentId">
-    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
-    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Agent">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transport">
-        <PropertyRef Name="AgentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportAmenitiesId">
-    <End Role="Aminities" Type="Self.Aminities" Multiplicity="0..1" />
-    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aminities">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transport">
-        <PropertyRef Name="AminitiesId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transport">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportDetailCreatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="TransportDetail" Type="Self.TransportDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TransportDetail">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportDetailStationId">
-    <End Role="Station" Type="Self.Station" Multiplicity="0..1" />
-    <End Role="TransportDetail" Type="Self.TransportDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Station">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TransportDetail">
-        <PropertyRef Name="StationId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportDetailTransportId">
-    <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
-    <End Role="TransportDetail" Type="Self.TransportDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transport">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TransportDetail">
-        <PropertyRef Name="TransportId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportDetailUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="TransportDetail" Type="Self.TransportDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TransportDetail">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportId">
-    <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
-    <End Role="Cancel" Type="Self.Cancel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transport">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cancel">
-        <PropertyRef Name="TransportId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transport">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTransportUpdatedBy">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Transport">
-        <PropertyRef Name="UpdatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="Image" Type="Self.Image" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Image">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKUserId">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FKUserTypeId">
-    <End Role="MasterValue" Type="Self.MasterValue" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <Function Name="GetScreenMovieDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetScreenMovieDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="OnlineTicketBookingModelStoreContainer">
     <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Aminities" EntityType="Self.Aminities" Schema="dbo" store:Type="Tables" />
@@ -1795,6 +580,7 @@
     <EntitySet Name="Cancel" EntityType="Self.Cancel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cinemas" EntityType="Self.Cinemas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fare" EntityType="Self.Fare" Schema="dbo" store:Type="Tables" />
@@ -1810,6 +596,8 @@
     <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ScreenFare" EntityType="Self.ScreenFare" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScreenMaster" EntityType="Self.ScreenMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScreenMovie" EntityType="Self.ScreenMovie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SeatDesign" EntityType="Self.SeatDesign" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SeatDesignDetail" EntityType="Self.SeatDesignDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
@@ -1817,429 +605,5 @@
     <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransportDetail" EntityType="Self.TransportDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FKAgentCreatedBy" Association="Self.FKAgentCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Agent" EntitySet="Agent" />
-    </AssociationSet>
-    <AssociationSet Name="FKAgentUpdatedBy" Association="Self.FKAgentUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Agent" EntitySet="Agent" />
-    </AssociationSet>
-    <AssociationSet Name="FKAminitiesCreatedBy" Association="Self.FKAminitiesCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Aminities" EntitySet="Aminities" />
-    </AssociationSet>
-    <AssociationSet Name="FKAminitiesTypeId" Association="Self.FKAminitiesTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Aminities" EntitySet="Aminities" />
-    </AssociationSet>
-    <AssociationSet Name="FKAminitiesUpdatedBy" Association="Self.FKAminitiesUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Aminities" EntitySet="Aminities" />
-    </AssociationSet>
-    <AssociationSet Name="FKAvailableSeatCreatedBy" Association="Self.FKAvailableSeatCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="AvailableSeat" EntitySet="AvailableSeat" />
-    </AssociationSet>
-    <AssociationSet Name="FKAvailableSeatSeatStatus" Association="Self.FKAvailableSeatSeatStatus">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="AvailableSeat" EntitySet="AvailableSeat" />
-    </AssociationSet>
-    <AssociationSet Name="FKAvailableSeatUpdatedBy" Association="Self.FKAvailableSeatUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="AvailableSeat" EntitySet="AvailableSeat" />
-    </AssociationSet>
-    <AssociationSet Name="FKBoardingStId" Association="Self.FKBoardingStId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingCreatedBy" Association="Self.FKBookingCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingDetailsCreatedBy" Association="Self.FKBookingDetailsCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="BookingDetails" EntitySet="BookingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingDetailsUpdatedBy" Association="Self.FKBookingDetailsUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="BookingDetails" EntitySet="BookingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingFareId" Association="Self.FKBookingFareId">
-      <End Role="Fare" EntitySet="Fare" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingId" Association="Self.FKBookingId">
-      <End Role="Booking" EntitySet="Booking" />
-      <End Role="BookingDetails" EntitySet="BookingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingStatusBookingId" Association="Self.FKBookingStatusBookingId">
-      <End Role="Booking" EntitySet="Booking" />
-      <End Role="BookingStatus" EntitySet="BookingStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingStatusCreatedBy" Association="Self.FKBookingStatusCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="BookingStatus" EntitySet="BookingStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingStatusUpdatedBy" Association="Self.FKBookingStatusUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="BookingStatus" EntitySet="BookingStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingType" Association="Self.FKBookingType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingTypeId" Association="Self.FKBookingTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookingUpdatedBy" Association="Self.FKBookingUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKBookStatus" Association="Self.FKBookStatus">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="BookingDetails" EntitySet="BookingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FKCancelCreatedBy" Association="Self.FKCancelCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Cancel" EntitySet="Cancel" />
-    </AssociationSet>
-    <AssociationSet Name="FKCancelUpdatedBy" Association="Self.FKCancelUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Cancel" EntitySet="Cancel" />
-    </AssociationSet>
-    <AssociationSet Name="FKCinemasCityId" Association="Self.FKCinemasCityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Cinemas" EntitySet="Cinemas" />
-    </AssociationSet>
-    <AssociationSet Name="FKCinemasCreatedBy" Association="Self.FKCinemasCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Cinemas" EntitySet="Cinemas" />
-    </AssociationSet>
-    <AssociationSet Name="FKCinemasUpdatedBy" Association="Self.FKCinemasUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Cinemas" EntitySet="Cinemas" />
-    </AssociationSet>
-    <AssociationSet Name="FKCitiesUpdatedBy" Association="Self.FKCitiesUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Cities" EntitySet="Cities" />
-    </AssociationSet>
-    <AssociationSet Name="FKCititesCreatedBy" Association="Self.FKCititesCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Cities" EntitySet="Cities" />
-    </AssociationSet>
-    <AssociationSet Name="FKCityId" Association="Self.FKCityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Agent" EntitySet="Agent" />
-    </AssociationSet>
-    <AssociationSet Name="FKCountryCreatedBy" Association="Self.FKCountryCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Country" EntitySet="Country" />
-    </AssociationSet>
-    <AssociationSet Name="FKCountryUpdatedBy" Association="Self.FKCountryUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Country" EntitySet="Country" />
-    </AssociationSet>
-    <AssociationSet Name="FKCustomerCityId" Association="Self.FKCustomerCityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FKCustomerCreatedBy" Association="Self.FKCustomerCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FKCustomerId" Association="Self.FKCustomerId">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKCustomerPassportCountryId" Association="Self.FKCustomerPassportCountryId">
-      <End Role="Country" EntitySet="Country" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FKCustomerUpdatedBy" Association="Self.FKCustomerUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareCategories" Association="Self.FKFareCategories">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareCreatedBy" Association="Self.FKFareCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareFrom" Association="Self.FKFareFrom">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareId" Association="Self.FKFareId">
-      <End Role="Fare" EntitySet="Fare" />
-      <End Role="AvailableSeat" EntitySet="AvailableSeat" />
-    </AssociationSet>
-    <AssociationSet Name="FKFarePersonType" Association="Self.FKFarePersonType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareTo" Association="Self.FKFareTo">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareTransportId" Association="Self.FKFareTransportId">
-      <End Role="Transport" EntitySet="Transport" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKFareUpdatedBy" Association="Self.FKFareUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Fare" EntitySet="Fare" />
-    </AssociationSet>
-    <AssociationSet Name="FKHotelCityId" Association="Self.FKHotelCityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Hotel" EntitySet="Hotel" />
-    </AssociationSet>
-    <AssociationSet Name="FKHotelCreatedBy" Association="Self.FKHotelCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Hotel" EntitySet="Hotel" />
-    </AssociationSet>
-    <AssociationSet Name="FKHotelType" Association="Self.FKHotelType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Hotel" EntitySet="Hotel" />
-    </AssociationSet>
-    <AssociationSet Name="FKHotelUpdatedBy" Association="Self.FKHotelUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Hotel" EntitySet="Hotel" />
-    </AssociationSet>
-    <AssociationSet Name="FKImageCreatedBy" Association="Self.FKImageCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Image" EntitySet="Image" />
-    </AssociationSet>
-    <AssociationSet Name="FKImageId" Association="Self.FKImageId">
-      <End Role="Image" EntitySet="Image" />
-      <End Role="Hotel" EntitySet="Hotel" />
-    </AssociationSet>
-    <AssociationSet Name="FKImagesUpdatedBy" Association="Self.FKImagesUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Image" EntitySet="Image" />
-    </AssociationSet>
-    <AssociationSet Name="FKLogCustomerId" Association="Self.FKLogCustomerId">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Log" EntitySet="Log" />
-    </AssociationSet>
-    <AssociationSet Name="FKMasterValueMasterId" Association="Self.FKMasterValueMasterId">
-      <End Role="Master" EntitySet="Master" />
-      <End Role="MasterValue" EntitySet="MasterValue" />
-    </AssociationSet>
-    <AssociationSet Name="FKMovieCreatedBy" Association="Self.FKMovieCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Movie" EntitySet="Movie" />
-    </AssociationSet>
-    <AssociationSet Name="FKMovieLanguage" Association="Self.FKMovieLanguage">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Movie" EntitySet="Movie" />
-    </AssociationSet>
-    <AssociationSet Name="FKMovieType" Association="Self.FKMovieType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Movie" EntitySet="Movie" />
-    </AssociationSet>
-    <AssociationSet Name="FKMovieUpdatedBy" Association="Self.FKMovieUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Movie" EntitySet="Movie" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageCreatedBy" Association="Self.FKPackageCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Package" EntitySet="Package" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageDetailCreatedBy" Association="Self.FKPackageDetailCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="PackageDetail" EntitySet="PackageDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageDetailFareId" Association="Self.FKPackageDetailFareId">
-      <End Role="Fare" EntitySet="Fare" />
-      <End Role="PackageDetail" EntitySet="PackageDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageDetailPackegeId" Association="Self.FKPackageDetailPackegeId">
-      <End Role="Package" EntitySet="Package" />
-      <End Role="PackageDetail" EntitySet="PackageDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageDetailTypeId" Association="Self.FKPackageDetailTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="PackageDetail" EntitySet="PackageDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageDetailUpdatedBy" Association="Self.FKPackageDetailUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="PackageDetail" EntitySet="PackageDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKPackageUpdatedBy" Association="Self.FKPackageUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Package" EntitySet="Package" />
-    </AssociationSet>
-    <AssociationSet Name="FKPersonType" Association="Self.FKPersonType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="BookingDetails" EntitySet="BookingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FKPnrStatus" Association="Self.FKPnrStatus">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="BookingStatus" EntitySet="BookingStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FKReviewCustomerid" Association="Self.FKReviewCustomerid">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Review" EntitySet="Review" />
-    </AssociationSet>
-    <AssociationSet Name="FKReviewTypeId" Association="Self.FKReviewTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Review" EntitySet="Review" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomAminitiesId" Association="Self.FKRoomAminitiesId">
-      <End Role="Aminities" EntitySet="Aminities" />
-      <End Role="Room" EntitySet="Room" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomCreatedBy" Association="Self.FKRoomCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Room" EntitySet="Room" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomHotelId" Association="Self.FKRoomHotelId">
-      <End Role="Hotel" EntitySet="Hotel" />
-      <End Role="Room" EntitySet="Room" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomId" Association="Self.FKRoomId">
-      <End Role="Room" EntitySet="Room" />
-      <End Role="BookingDetails" EntitySet="BookingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomStatus" Association="Self.FKRoomStatus">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Room" EntitySet="Room" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomType" Association="Self.FKRoomType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Room" EntitySet="Room" />
-    </AssociationSet>
-    <AssociationSet Name="FKRoomUpdatedBy" Association="Self.FKRoomUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Room" EntitySet="Room" />
-    </AssociationSet>
-    <AssociationSet Name="FKScreenCinemaId" Association="Self.FKScreenCinemaId">
-      <End Role="Cinemas" EntitySet="Cinemas" />
-      <End Role="Screen" EntitySet="Screen" />
-    </AssociationSet>
-    <AssociationSet Name="FKScreenCreatedBy" Association="Self.FKScreenCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Screen" EntitySet="Screen" />
-    </AssociationSet>
-    <AssociationSet Name="FKScreenFareScreenId" Association="Self.FKScreenFareScreenId">
-      <End Role="Screen" EntitySet="Screen" />
-      <End Role="ScreenFare" EntitySet="ScreenFare" />
-    </AssociationSet>
-    <AssociationSet Name="FKScreenFareType" Association="Self.FKScreenFareType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="ScreenFare" EntitySet="ScreenFare" />
-    </AssociationSet>
-    <AssociationSet Name="FKScreenMovieId" Association="Self.FKScreenMovieId">
-      <End Role="Movie" EntitySet="Movie" />
-      <End Role="Screen" EntitySet="Screen" />
-    </AssociationSet>
-    <AssociationSet Name="FKScreenUpdatedBy" Association="Self.FKScreenUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Screen" EntitySet="Screen" />
-    </AssociationSet>
-    <AssociationSet Name="FKSeatDesignDetailSeatDesignId" Association="Self.FKSeatDesignDetailSeatDesignId">
-      <End Role="SeatDesign" EntitySet="SeatDesign" />
-      <End Role="SeatDesignDetail" EntitySet="SeatDesignDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKSeatDesignScreenId" Association="Self.FKSeatDesignScreenId">
-      <End Role="Screen" EntitySet="Screen" />
-      <End Role="SeatDesign" EntitySet="SeatDesign" />
-    </AssociationSet>
-    <AssociationSet Name="FKStateId" Association="Self.FKStateId">
-      <End Role="States" EntitySet="States" />
-      <End Role="Cities" EntitySet="Cities" />
-    </AssociationSet>
-    <AssociationSet Name="FKStatesCountryId" Association="Self.FKStatesCountryId">
-      <End Role="Country" EntitySet="Country" />
-      <End Role="States" EntitySet="States" />
-    </AssociationSet>
-    <AssociationSet Name="FKStatesCreatedBy" Association="Self.FKStatesCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="States" EntitySet="States" />
-    </AssociationSet>
-    <AssociationSet Name="FKStatesUpdatedBy" Association="Self.FKStatesUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="States" EntitySet="States" />
-    </AssociationSet>
-    <AssociationSet Name="FKStationCityId" Association="Self.FKStationCityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Station" EntitySet="Station" />
-    </AssociationSet>
-    <AssociationSet Name="FKStationCreatedBy" Association="Self.FKStationCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Station" EntitySet="Station" />
-    </AssociationSet>
-    <AssociationSet Name="FKStationType" Association="Self.FKStationType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Station" EntitySet="Station" />
-    </AssociationSet>
-    <AssociationSet Name="FKStationTypeId" Association="Self.FKStationTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Station" EntitySet="Station" />
-    </AssociationSet>
-    <AssociationSet Name="FKStationUpdatedBy" Association="Self.FKStationUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Station" EntitySet="Station" />
-    </AssociationSet>
-    <AssociationSet Name="FKTaxType" Association="Self.FKTaxType">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportAgentId" Association="Self.FKTransportAgentId">
-      <End Role="Agent" EntitySet="Agent" />
-      <End Role="Transport" EntitySet="Transport" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportAmenitiesId" Association="Self.FKTransportAmenitiesId">
-      <End Role="Aminities" EntitySet="Aminities" />
-      <End Role="Transport" EntitySet="Transport" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportCreatedBy" Association="Self.FKTransportCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Transport" EntitySet="Transport" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportDetailCreatedBy" Association="Self.FKTransportDetailCreatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="TransportDetail" EntitySet="TransportDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportDetailStationId" Association="Self.FKTransportDetailStationId">
-      <End Role="Station" EntitySet="Station" />
-      <End Role="TransportDetail" EntitySet="TransportDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportDetailTransportId" Association="Self.FKTransportDetailTransportId">
-      <End Role="Transport" EntitySet="Transport" />
-      <End Role="TransportDetail" EntitySet="TransportDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportDetailUpdatedBy" Association="Self.FKTransportDetailUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="TransportDetail" EntitySet="TransportDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportId" Association="Self.FKTransportId">
-      <End Role="Transport" EntitySet="Transport" />
-      <End Role="Cancel" EntitySet="Cancel" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportTypeId" Association="Self.FKTransportTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Transport" EntitySet="Transport" />
-    </AssociationSet>
-    <AssociationSet Name="FKTransportUpdatedBy" Association="Self.FKTransportUpdatedBy">
-      <End Role="User" EntitySet="User" />
-      <End Role="Transport" EntitySet="Transport" />
-    </AssociationSet>
-    <AssociationSet Name="FKTypeId" Association="Self.FKTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="Image" EntitySet="Image" />
-    </AssociationSet>
-    <AssociationSet Name="FKUserId" Association="Self.FKUserId">
-      <End Role="User" EntitySet="User" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FKUserTypeId" Association="Self.FKUserTypeId">
-      <End Role="MasterValue" EntitySet="MasterValue" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

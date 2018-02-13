@@ -14,21 +14,16 @@ namespace DataModel
     
     public partial class Agent
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Agent()
-        {
-            this.Transports = new HashSet<Transport>();
-        }
-    
         public int Id { get; set; }
+        public Nullable<int> UserId { get; set; }
         public string TravellerName { get; set; }
         public string TravellerLogo { get; set; }
         public string Address { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
-        public Nullable<int> MobileNo { get; set; }
-        public Nullable<int> AlternateMobileNo { get; set; }
+        public string MobileNo { get; set; }
+        public string AlternateMobileNo { get; set; }
         public Nullable<int> CityId { get; set; }
         public Nullable<int> Ratings { get; set; }
         public Nullable<int> CreatedBy { get; set; }
@@ -36,11 +31,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual City City { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transport> Transports { get; set; }
     }
 }

@@ -50,7 +50,59 @@ namespace Model
             master = obj.Masters.Where(m => m.Id == this.Id).FirstOrDefault();
             return master;
         }
-#endregion
+
+        public List<MovieLanguage> GetByMovieLanguage()
+        {
+            List<MovieLanguage> movieLang = new List<MovieLanguage>();
+            var lst = (from i in obj.Masters join j in obj.MasterValues on i.Id equals j.MasterId where i.Name== "MovieLanguage" select j).ToList();
+            foreach(var ls in lst)
+            {
+                MovieLanguage ml = new MovieLanguage();
+                ml.id = ls.Id;
+                ml.Name = ls.Description;
+                movieLang.Add(ml);
+            }
+            return movieLang;
+        }
+
+        public class MovieLanguage
+        {
+            public string Name { get; set; }
+            public int id { get; set; }
+        }
+
+
+
+        public List<MovieType> GetMovieType()
+        {
+            List<MovieType> mt = new List<MovieType>();
+
+            var lst = (from i in obj.Masters join j in obj.MasterValues on i.Id equals j.MasterId where i.Name == "MovieType" select j).ToList();
+            foreach (var tmp in lst)
+            {
+                MovieType mtobj = new MovieType();
+                mtobj.Id = tmp.Id;
+                mtobj.movietype = tmp.Description;
+                mt.Add(mtobj);
+            }
+
+            return mt;
+        }
+
+       public List<MasterValue> GetScreenFare()
+        {
+            List<MasterValue> screenFare = new List<MasterValue>();
+            screenFare = (from i in obj.Masters join j in obj.MasterValues on i.Id equals j.MasterId where i.Name == "ScreenFare" select j).ToList();
+            return screenFare;
+        }
+
+        public class MovieType
+        {
+            public int Id { get; set; }
+            public string movietype { get; set; }
+        }
+
+        #endregion
     }
 }
 

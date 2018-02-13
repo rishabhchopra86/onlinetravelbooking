@@ -51,5 +51,25 @@ namespace Model
             return usr;
         }
         #endregion
+
+        public string typeName(int id)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.MasterValues.Where(i => i.Id == id).FirstOrDefault();
+                return query.Description;
+            }
+        }
+
+        public int typeid(string name)
+        {
+            using (OnlineTicketBookingEntities obj = new OnlineTicketBookingEntities())
+            {
+                var query = obj.MasterValues.Where(i => i.Description == name).FirstOrDefault();
+                return query.Id;
+            }
+        }
+
+       
     }
 }

@@ -47,6 +47,8 @@ namespace Model
             screenfare = obj.ScreenFares.Where(s => s.Id == Id).FirstOrDefault();
             return screenfare;
         }
+
+       
 #endregion
     }
 }

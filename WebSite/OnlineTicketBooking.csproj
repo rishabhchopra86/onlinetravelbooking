@@ -42,10 +42,16 @@
     <Reference Include="AjaxControlToolkit">
       <HintPath>C:\Users\lcom144-two\Downloads\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
+    <Reference Include="DataModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Model\bin\Debug\DataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Model\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Model\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -71,13 +77,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\AddMovie.aspx" />
+    <Content Include="Admin\AddMovies.aspx" />
     <Content Include="Admin\AddScreen.aspx" />
-    <Content Include="Admin\AddScreenMovie.aspx" />
+    <Content Include="Admin\AddScreenMovies.aspx" />
     <Content Include="Admin\AddTheatre.aspx" />
     <Content Include="Admin\app-assets\css\CalenderCss.css" />
+    <Content Include="Admin\app-assets\general.js" />
+    <Content Include="Admin\app-assets\interactions.js" />
+    <Content Include="Admin\app-assets\jquery.seat-charts.css" />
+    <Content Include="Admin\app-assets\jquery.seat-charts.js" />
+    <Content Include="Admin\app-assets\jquery.seat-charts.min.js" />
+    <Content Include="Admin\app-assets\js\quicksearch.js" />
+    <Content Include="Admin\app-assets\methods.js" />
+    <Content Include="Admin\app-assets\multiple.js" />
+    <Content Include="Admin\index.html" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ScreenFare.aspx" />
+    <Content Include="Admin\SeatsArrangement.aspx" />
     <Content Include="Admin\test.aspx" />
     <Content Include="cinemas.aspx" />
     <Content Include="fonts\fontawesome-webfontba72.eot" />
@@ -402,26 +418,40 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddMovie.aspx.cs">
-      <DependentUpon>AddMovie.aspx</DependentUpon>
+    <Compile Include="Admin\AddMovies.aspx.cs">
+      <DependentUpon>AddMovies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddMovies.aspx.designer.cs">
+      <DependentUpon>AddMovies.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddScreen.aspx.cs">
       <DependentUpon>AddScreen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AddScreenMovie.aspx.cs">
-      <DependentUpon>AddScreenMovie.aspx</DependentUpon>
+    <Compile Include="Admin\AddScreen.aspx.designer.cs">
+      <DependentUpon>AddScreen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddScreenMovies.aspx.cs">
+      <DependentUpon>AddScreenMovies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddScreenMovies.aspx.designer.cs">
+      <DependentUpon>AddScreenMovies.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddTheatre.aspx.cs">
       <DependentUpon>AddTheatre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Admin\AddTheatre.aspx.designer.cs">
+      <DependentUpon>AddTheatre.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminMaster.master.cs">
       <DependentUpon>AdminMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Admin\CommonConstant.cs" />
+    <Compile Include="Admin\ImageCompress.cs" />
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -432,6 +462,13 @@
     </Compile>
     <Compile Include="Admin\ScreenFare.aspx.designer.cs">
       <DependentUpon>ScreenFare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SeatsArrangement.aspx.cs">
+      <DependentUpon>SeatsArrangement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SeatsArrangement.aspx.designer.cs">
+      <DependentUpon>SeatsArrangement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
@@ -611,8 +648,12 @@
     <Folder Include="Admin\app-assets\data\" />
     <Folder Include="Admin\app-assets\fonts\" />
     <Folder Include="Admin\app-assets\images\" />
-    <Folder Include="Admin\app-assets\js\" />
     <Folder Include="Admin\app-assets\vendors\" />
+    <Folder Include="Admin\App_Code\" />
+    <Folder Include="Images\Theatre\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -629,7 +670,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53074</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53074/</IISUrl>
+          <IISUrl>http://localhost:53076/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

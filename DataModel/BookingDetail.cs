@@ -16,6 +16,7 @@ namespace DataModel
     {
         public int Id { get; set; }
         public Nullable<int> BookingId { get; set; }
+        public Nullable<int> BookingStatusId { get; set; }
         public string Name { get; set; }
         public Nullable<int> Gender { get; set; }
         public Nullable<int> Age { get; set; }
@@ -28,12 +29,7 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual Booking Booking { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
-        public virtual MasterValue MasterValue1 { get; set; }
-        public virtual Room Room { get; set; }
+        public Nullable<bool> IsCancel { get; set; }
+        public Nullable<System.DateTime> CancelDate { get; set; }
     }
 }

@@ -24,10 +24,5 @@ namespace DataModel
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<bool> IsCancel { get; set; }
-    
-        public virtual Booking Booking { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual MasterValue MasterValue { get; set; }
     }
 }

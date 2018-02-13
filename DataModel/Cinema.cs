@@ -14,16 +14,11 @@ namespace DataModel
     
     public partial class Cinema
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cinema()
-        {
-            this.Screens = new HashSet<Screen>();
-        }
-    
         public int Id { get; set; }
+        public Nullable<int> AgentId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public Nullable<int> PhoneNo { get; set; }
+        public string PhoneNo { get; set; }
         public Nullable<int> CityId { get; set; }
         public Nullable<decimal> Langitude { get; set; }
         public Nullable<decimal> Lattitude { get; set; }
@@ -35,11 +30,5 @@ namespace DataModel
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
-    
-        public virtual City City { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Screen> Screens { get; set; }
     }
 }

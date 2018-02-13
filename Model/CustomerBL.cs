@@ -15,7 +15,7 @@ namespace Model
         }
 
 #region CRUD
-        public void AddCustomer(CustomerBL customer)
+        public void AddCustomer(Customer customer)
         {
                obj.Customers.Add(customer);
                obj.SaveChanges();
